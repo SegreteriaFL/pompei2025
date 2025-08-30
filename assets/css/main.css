@@ -1,0 +1,431 @@
+/* FONT HOOKS (aggiungeremo i .woff2 quando li avrai) */
+@font-face { font-family:"Montserrat"; src:url("../fonts/montserrat-extrabold-webfont.woff2") format("woff2"); font-weight:700; font-style:normal; font-display:swap; }
+@font-face { font-family:"Fennario"; src:url("../fonts/fennrg__-webfont.woff2") format("woff2"); font-weight:400; font-style:normal; font-display:swap; }
+@font-face { font-family:"PT Serif"; src:url("../fonts/PTSerif-Regular.woff2") format("woff2"); font-weight:400; font-style:normal; font-display:swap; }
+@font-face { font-family:"PT Serif"; src:url("../fonts/PTSerif-Italic.woff2") format("woff2"); font-weight:400; font-style:italic; font-display:swap; }
+@font-face { font-family:"PT Serif"; src:url("../fonts/PTSerif-Bold.woff2") format("woff2"); font-weight:700; font-style:normal; font-display:swap; }
+
+:root{
+  --bg:#fff; --fg:#1a1a1a; --muted:#5a5a5a; --line:#eee;
+  --brand:#2457ff; --brand-2:#0ea5e9;
+  --container:62rem; --radius:.8rem;
+  --card:#fafafa; --yellow:#fff7c2; --green:#daf5d8; --verde-acqua:#00b59b;--yellow-orange:#ffb82d;
+  --ff-title:"Montserrat", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+  --ff-sub:"Fennario", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+  --ff-text:"PT Serif", ui-serif, Georgia, "Times New Roman", serif;
+}
+
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;color:var(--fg);background:var(--bg);font:17px/1.65 var(--ff-text);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{color:inherit}
+.container{max-width:var(--container);margin:0 auto;padding:0 1rem}
+.page-wrapper{padding-bottom:2rem}
+
+/* accessibilità */
+.skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
+.skip-link:focus{left:1rem;top:1rem;width:auto;height:auto;padding:.5rem 1rem;background:#000;color:#fff;z-index:999}
+
+/* header+menu */
+.site-header{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--line); z-index: 1000;  /* sopra tutto */}
+.header-inner{display:flex;align-items:center;gap:1rem;min-height:64px}
+.brand{display:flex;align-items:center;gap:.55rem;font-weight:700;font-family:var(--ff-title)}
+.brand .logo{font-size:1.25rem}
+.menu-toggle{margin-left:auto;display:none;background:#fff;border:1px solid var(--line);border-radius:999px;padding:.4rem .8rem}
+.site-nav{font-family:var(--ff-title); margin-left:auto; text-transform: uppercase;font-size: 13px}
+.nav-list{display:flex;flex-wrap:wrap;gap:.5rem;list-style:none;margin:0;padding:0}
+.nav-list a{display:block;padding:.45rem .7rem;border-radius:.6rem;text-decoration:none}
+.nav-list a:hover,.nav-list a:focus{background:#f4f6ff}
+
+/* Subnav programma (sticky) */
+.programma-nav{
+  position: sticky;
+  top: 64px;       /* altezza header */
+  z-index: 900;    /* sotto l'header (1000), sopra il contenuto */
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:.6rem;
+  padding:.4rem;
+  margin:.8rem 0 1.2rem;
+  overflow:auto;
+}
+.programma-nav .pill{
+  display:inline-block; margin:.2rem .25rem; padding:.45rem .75rem;
+  border:1px solid var(--line); border-radius:999px; text-decoration:none;
+  font-family:var(--ff-sub); font-size:.95rem;
+}
+.programma-nav .pill[aria-current="true"]{
+  background:var(--green);
+  border-color:var(--green);
+}
+
+.programma .prevnext{
+  display:flex; gap:.5rem; justify-content:space-between; margin-top:1rem;
+}
+.programma .prevnext a{
+  display:inline-block; padding:.45rem .75rem; border:1px solid var(--line);
+  border-radius:999px; text-decoration:none;
+}
+
+
+/* hero */
+.hero{padding:2.4rem 0 1.4rem;border-bottom:1px solid var(--line)}
+.hero h1{font-family:var(--ff-title); font-size:clamp(1.9rem,3vw,2.6rem); margin:.2em 0 .3em}
+.lead{font-size:1.05rem;color:var(--muted);max-width:60ch}
+.hero-actions{display:flex;gap:.6rem;margin-top:1rem}
+.btn{display:inline-block;padding:.6rem 1rem;border-radius:var(--radius);background:linear-gradient(90deg,var(--brand),var(--brand-2));color:#fff;text-decoration:none}
+.btn.ghost{background:transparent;border:1px solid var(--line);color:var(--fg)}
+
+/* sezioni */
+.section-group{margin: 0 0 2rem;padding:0 0 2rem 0;border-bottom:1px solid var(--line)}
+.section-group h2{margin:0 0 .8rem; font-family:var(--ff-title); font-size:1.7rem; letter-spacing:.005em}
+.entry{padding:1.1rem 0;border-top:1px dashed var(--line)}
+.entry h3{margin:.2rem 0 .5rem; font-family:var(--ff-title); font-size:1.35rem}
+.entry h4{font-family:var(--ff-sub); font-size:1.15rem; margin:.2rem 0}
+.entry .entry-content p{margin:.8rem 0}
+.firma{margin:.8rem 0 0; font-family:var(--ff-sub); font-weight:600}
+.ruolo{margin:.1rem 0 .4rem; color:var(--muted); font-family:var(--ff-sub); font-size:.98rem}
+.multi-firme .ruolo{font-weight:400}
+
+/* programma */
+.programma .giorno-bloc{background:var(--card); padding:1rem; border:1px solid var(--line); border-radius:var(--radius)}
+.programma .giorno{margin:0; text-transform:none; font-family:var(--ff-sub); font-weight:700; font-size:1.1rem}
+.programma .tema{margin:.2rem 0 0; font-family:var(--ff-title); font-size:1.4rem; text-transform: uppercase;}
+.programma .citazione{}
+.programma .riferimento{font-style:normal; color:var(--muted)}
+.programma .slots{display:grid; gap:1rem; margin-top:1rem}
+.programma.slot{padding:1rem; border:1px solid var(--line); border-radius:var(--radius); background:#fff; margin-bottom:3rem;}
+.programma .slot{padding:1rem; border:1px solid var(--line); border-radius:var(--radius); background:#fff}
+/* Quando clicchi un link a #giovedi-18 o #sabato-20, ecc.
+   aggiunge margine in alto per compensare la nav sticky */
+.programma.slot {scroll-margin-top: 9rem; /* oppure: calc(64px + 32px) se header = 64px e nav = 32px */}
+.programma .orario{display:inline-block; min-width:4.5rem; font-family:var(--ff-sub); font-weight:700}
+.programma .programma_titolo{margin:.2rem 0 .3rem; font-family:var(--ff-sub); font-size:1.08rem}
+.programma .icon_map .map{border-bottom:1px dashed currentColor; text-decoration:none}
+.programma .nota,.programma .yt,.programma .share,.programma .gioco,.programma .cuore,.programma .riflessione,.programma .ascolto,.programma .crediti,.programma .pre_programma_titolo{margin:.25rem 0}
+.programma blockquote{margin:.6rem 0; padding:.6rem .9rem; }
+
+/* post-it */
+.postit{display: inline-block; padding: 1.6rem 2.8rem .7rem; border-radius: .4rem; border: 1px solid var(--line); box-shadow: 0 6px 13px rgba(0, 0, 0, .04); max-width: 37ch; margin: 1.25rem 1.5rem 3.25rem 0; font-family: var(--ff-sub); font-weight: bold; }
+.postit.giallo{background:var(--yellow);transform: rotate(2deg);}
+.postit.verde{background:var(--green);transform: rotate(-2deg);}
+
+/* footer */
+.site-footer{border-top:1px solid var(--line);margin-top:2rem;padding:1.25rem 0;color:var(--muted);font-size:.95rem}
+
+
+/* MAI all-caps forzato */
+h1,h2,h3,h4,h5,h6{ text-transform:none; letter-spacing:.01em;color:var(--verde-acqua);}
+h1,h2,h3{text-transform:uppercase;}
+
+/* mobile nav */
+@media (max-width: 860px){
+  .menu-toggle{display:inline-block}
+  .site-nav{display:none;position:absolute;top:64px;left:0;right:0;background:#fff;border-bottom:1px solid var(--line)}
+  .site-nav.open{display:block}
+  .nav-list{flex-direction:column;padding:0.75rem}
+  .nav-list a{padding:.75rem 1rem}
+}
+
+
+/* === EQUIPÉ / GRID RESPONSIVE === */
+.equipe{
+  display:grid;
+  gap:1.2rem;
+  /* fallback mobile */
+  grid-template-columns:repeat(1, minmax(0,1fr));
+}
+
+/* ≥520px: 2 colonne */
+@media (min-width:520px){
+  .equipe{ grid-template-columns:repeat(2, minmax(0,1fr)); }
+}
+
+/* ≥740px (tablet): 3 colonne */
+@media (min-width:740px){
+  .equipe{ grid-template-columns:repeat(3, minmax(0,1fr)); }
+}
+
+/* ≥980px (desktop): 4 colonne di default */
+@media (min-width:980px){
+  .equipe{ grid-template-columns:repeat(4, minmax(0,1fr)); }
+}
+
+/* MODIFICATORI: forza 4 o 5 colonne su desktop/large */
+@media (min-width:980px){
+  .equipe.cols-4{ grid-template-columns:repeat(4, minmax(0,1fr)); }
+  .equipe.cols-5{ grid-template-columns:repeat(5, minmax(0,1fr)); }
+}
+
+/* card membro (come prima) */
+.membro{ display:flex; gap:1rem; align-items:center; border:1px solid var(--line);
+  border-radius:var(--radius); padding:.8rem; background:var(--card); }
+.ritratto{ width:64px; height:64px; object-fit:cover; border-radius:50%; flex-shrink:0; border:1px solid var(--line); }
+.membro .info .nome{ font-family:var(--ff-sub); font-weight:700; margin:0 0 .25rem; }
+.membro .info .ruolo{ font-size:.95rem; color:var(--muted); margin:0; }
+
+/* firma con foto (immutato) */
+.firma-con-foto{ display:flex; align-items:center; gap:.75rem; margin-top:2.2rem!important; }
+.firma-con-foto img.ritratto-firma{ width:48px; height:48px; border-radius:50%; object-fit:cover; border:1px solid var(--line); }
+
+
+/* === CITAZIONI / BLOCKQUOTE === */
+blockquote.citazione {
+ /*  margin: 1.2rem 0;
+  padding: 1rem 1.2rem;
+ border-left: 4px solid var(--brand);
+  background: var(--card);
+  color: var(--muted);
+  border-radius: var(--radius);*/
+  margin:1rem 0;
+  padding: 0;
+  font-family: var(--ff-sub);
+  line-height: 1;
+  color: var(--verde-acqua);
+}
+
+blockquote.citazione p {
+  /*margin: 0 0 .6rem;
+  font-size: 1.05rem;
+  line-height: 1.6;*/
+}
+
+blockquote.citazione footer {
+  font-size: 0.95rem;
+  font-style: normal;
+}
+
+blockquote.citazione footer cite {
+  font-style: normal;
+  font-weight: 500;
+}
+.programma.slot header{
+    margin: -1rem -1rem 2rem;
+    border-bottom: 1px solid #ccc;
+    border-radius: var(--radius) var(--radius) 0 0;
+    padding: 1rem;
+}
+
+/* ===== PROGRAMMA: HEADER DEL GIORNO ===== */
+/* Lo .slot ha padding: 1rem; facciamo "sanguinare" l'header fino al bordo */
+.programma.slot .giorno-header{
+  margin: -1rem -1rem 1rem;                /* supera il padding dello .slot */
+  padding: .9rem 1rem;
+  border-top-left-radius: var(--radius);
+  border-top-right-radius: var(--radius);
+  border-bottom: 1px solid var(--line);    /* linea di chiusura header */
+}
+.programma.slot .giorno-header .giorno{
+  margin: 0;
+  font-family: var(--ff-sub);
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--yellow-orange);
+}
+.programma.slot .giorno-header .tema{
+  margin: .2rem 0 0;
+  font-family: var(--ff-title);
+  font-size: 1.4rem;
+}
+.programma.slot .giorno-header .citazione{
+  /*margin: .2rem 0 0;
+  color: var(--muted);
+  font-style: italic;*/
+}
+
+/* ===== PROGRAMMA: RIGHE ORARIO + CONTENUTO ===== */
+.programma .slots{
+  display: grid;
+  gap: 1rem;
+}
+
+/* Ogni "riga" usa una grid a 2 colonne: orario fisso + contenuto fluido */
+.programma .riga{
+  display: grid;
+  grid-template-columns: 6rem 1fr;   /* orario a sinistra, contenuto a destra */
+  gap: .75rem 1rem;
+  align-items: start;
+}
+
+/* Orario in colonna fissa */
+.programma .orario{
+  grid-column: 1;
+  display: inline-block;
+  min-width: 4.5rem;
+  font-family: var(--ff-title);
+  font-weight: 700;
+  line-height: 1.4;
+  margin-top: .3rem; /* piccolo allineamento con h5 */
+  color: var(--verde-acqua);
+}
+.programma .orario.orario--testo{       /* per "A seguire", "Pausa", ecc. */
+  font-weight: 600;
+  color: var(--muted);
+  margin-top: 0.3rem;
+}
+
+/* Contenuti nella colonna destra */
+.programma .riga .contenuto{
+  grid-column: 2;
+}
+.programma .riga .programma_titolo{
+  margin: .15rem 0 .3rem;
+  font-family: var(--ff-title);
+  font-size: 1.08rem;
+  text-transform: uppercase;
+}
+.programma .riga p{margin-top: 0;}
+.programma .riga p b{color:var(--verde-acqua);}
+
+/* Citazioni nel contenuto (riuso del tuo stile base, opzionale) */
+.programma .riga blockquote.citazione{
+}
+
+/* ===== Responsivo: sotto 560px le due colonne si impilano ===== */
+@media (max-width: 560px){
+  .programma .riga{
+    grid-template-columns: 1fr;     /* una sola colonna */
+  }
+  .programma .orario{
+    grid-column: 1;
+    margin: 0 0 .25rem;
+  }
+  .programma .riga .contenuto{
+    grid-column: 1;
+  }
+}
+
+/* ===== ICONS AUTOMATICHE ===== */
+.icon_map::before,
+.nota::before,
+.yt::before, .share::before,.gioco::before, .ascolto::before {
+  display: inline-block;
+  margin-right: .4rem;
+  font-family: var(--ff-sub);
+  font-weight: 600;
+}
+
+.icon_map::before {
+  content: "📍";
+  color: #f59e0b; /* giallo arancio */
+}
+
+.nota::before {
+  content: "🎵";
+  color: #10b981; /* verde acqua */
+}
+
+.yt::before {
+  content: "▶️";
+  color: #0ea5e9; /* azzurro canale */
+}
+
+.share::before {
+  content: "👥";
+  color: #0ea5e9; /* azzurro canale */
+}
+.gioco::before {
+  content: "🎲";
+  color: #0ea5e9;
+}
+.riflessione::before {
+  content: "💭";
+  color: #0ea5e9;
+ }
+.cuore::before {
+  content: "❤️";
+  color: #0ea5e9;
+ }
+.ascolto::before {
+  content: "👂";
+  color: #0ea5e9;
+ }
+
+
+
+/* se vuoi più piccolo/matching */
+.icon_map, .nota, .yt, .share, .gioco, .riflessione, .cuore,.ascolto{
+  display: flex;
+  align-items: start;
+  gap: .5rem;
+  margin: .25rem 0;
+  font-size: .98rem;
+  line-height: 1.45;
+}
+.icon_map{
+  font-family: var(--ff-sub);
+  color: var(--yellow-orange);
+  font-weight: bold;
+}
+.small{font-size: 80%}
+
+.versetto{
+      font-weight: bold;
+    font-size: 60%;
+    vertical-align: top;
+    color: #999;
+    font-family: Avenir, helvetica;
+}
+
+/*
+h3.giorno{font-size:1.8rem!important;color: #000!important;line-height: 1!important;}
+h4.tema{font-size:2.5rem!important;line-height: 1!important;}
+*/
+
+/* FONT */
+.ff-title {
+  font-family: var(--ff-title)!important;
+  font-weight: 700; /* Solo bold per Montserrat, come definito */
+}
+.ff-sub {
+  font-family: var(--ff-sub)!important;
+  font-weight: 400; /* Normale, come definito */
+}
+.capitalize {
+  text-transform: capitalize!important;
+}
+
+/* COLORI per il testo */
+.text-bg { color: var(--bg); }
+.text-fg { color: var(--fg); }
+.text-muted { color: var(--muted); }
+.text-line { color: var(--line); }
+.text-brand { color: var(--brand); }
+.text-brand-2 { color: var(--brand-2); }
+.text-card { color: var(--card); }
+.text-yellow { color: var(--yellow); }
+.text-green { color: var(--green); }
+.text-verde { color: var(--verde-acqua); }
+.text-giallo { color: var(--yellow-orange); }
+
+
+
+pre {
+    font-family: 'Courier New', monospace; /* Font monospace per preservare spazi e allineamento */
+    white-space: pre-wrap; /* Mantiene spazi e wrap */
+    font-size: 16px;
+    line-height: 1.8;
+    margin: 20px 0;
+    overflow-x: auto; /* Scroll orizzontale se necessario */
+    text-align: left;
+}
+
+/* Stile specifico per accordi (opzionale: renderli in grassetto o colorati) */
+pre [RE], pre [LA], pre [MIm], pre [SIm], pre [SOL], pre [LA4], pre [MIm7], pre [FA#m7] {
+    /* Nota: Per stilizzare gli accordi, usa <span class="chord">[RE]</span> nell'HTML invece di testo piano */
+    /* Qui assumo testo piano; per avanzato, modifica HTML */
+    font-weight: bold;
+    color: var(--brand, #2457ff);
+}
+
+.intro, .interlude, .outro {
+    text-align: center;
+    font-style: italic;
+    color: var(--muted, #5a5a5a); /* Colore mutato per sezioni brevi */
+}
+
+.verse, .chorus {
+    margin-bottom: 20px;
+}
+
