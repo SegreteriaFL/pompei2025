@@ -1,9 +1,0 @@
-{
-  "name": "pompei2025",
-  "version": "1.0.0",
-  "description": "Sito per il Pellegrinaggio Fede e Luce Pompei 2025",
-  "devDependencies": {
-    "stylelint": "^16.0.0",
-    "stylelint-config-standard": "^36.0.0"
-  }
-}
