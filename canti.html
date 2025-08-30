@@ -3,242 +3,1266 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Canti – Pellegrinaggio Pompei 2025</title>
-  <meta name="description" content="Elenco canti e indicazioni liturgiche.">
+  <title>Introduzioni – Pellegrinaggio Pompei 2025</title>
+  <meta name="description" content="Introduzioni e messaggi dal libretto.">
   <meta name="theme-color" content="#ffffff">
   <link rel="preload" href="assets/css/main.css" as="style">
   <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
+  <div class="scroll-progress" aria-hidden="true"></div>
   <a class="skip-link" href="#contenuto">salta al contenuto</a>
 
   <div id="siteHeader"></div>
 
-  <main id="contenuto" class="container page-wrapper">
+    <main id="contenuto" class="container page-wrapper">
     <section class="hero" aria-label="introduzione">
-      <h1>Canti</h1>
-      <p class="lead">Testi e riferimenti.</p>
-
+      <h1>Canti...</h1>
+      <p class="lead">... che ti passi!</p>
+    <form id="cercaCanti" role="search" aria-label="cerca nei canti" class="search">
+      <label for="songSearch" class="sr-only">cerca titolo</label>
+      <input id="songSearch" type="search" placeholder="cerca un canto… (es. ‘Madre’, ‘Viva la gente’)">
+    </form>
+    <p class="search-hint small invisibile">digita per filtrare i titoli. invio ↵ per andare al primo risultato.</p>
       
     </section>
+  </header>
 
-    
-<section id="canti" class="section-group">
-  <article id="canti-lista" class="entry">
-    <div class="entry-content">
-      <div class="song">
-        <h2>Grandi Cose</h2>
-        <div class="intro">
-        <pre>Intro:
-[RE] [LA] [RE] [LA]</pre>
-        </div>
-        
-        <div class="verse">
-            <pre>[RE]     [LA]            [MIm]   [SIm]
-Grandi cose ha fatto il Signore per noi,
-[RE]       [SOL]         [RE]           [LA4]   [LA]
-ha fatto germogliare fiori fra le rocce
-[RE]     [LA]            [MIm]   [SIm]
-Grandi cose ha fatto il Signore per noi,
-   [RE]       [SOL]        [RE]          [LA4]   [LA]
-ci ha riportati liberi alla nostra terra
-   [SIm]             [MIm7]              [FA#m7]
-Ed ora possiamo cantare, possiamo gridare
-            [SOL]               [LA4]  [LA]
-l'amore che Dio ha versato su noi</pre>
-        </div>
-        
-        <div class="interlude">
-            <pre>[RE] [LA]</pre>
-        </div>
-        
-        <div class="verse">
-            <pre>[RE]     [LA]      [MIm]         [SIm]
-Tu che sai strappare dalla morte,
-[RE]        [SOL]            [RE]         [LA]
-hai sollevato il nostro viso dalla polvere
-[RE]     [LA]     [MIm]            [SIm]
-Tu che hai sentito il nostro pianto,
-[RE]          [SOL]                [RE]      [LA]
-nel nostro cuore hai messo un seme di felicità</pre>
-        </div>
-        
-        <div class="chorus">
-            <pre>[RE]     [LA]            [MIm]   [SIm]
-Grandi cose ha fatto il Signore per noi,
-[RE]       [SOL]         [RE]           [LA4]   [LA]
-ha fatto germogliare fiori fra le rocce
-[RE]     [LA]            [MIm]   [SIm]
-Grandi cose ha fatto il Signore per noi,
-   [RE]       [SOL]        [RE]          [LA4]   [LA]
-ci ha riportati liberi alla nostra terra
-   [SIm]             [MIm7]              [FA#m7]
-Ed ora possiamo cantare, possiamo gridare
-            [SOL]               [LA4]  [LA]
-l'amore che Dio ha versato su noi</pre>
-        </div>
-        
-        <div class="outro">
-            <pre>[RE] [LA] [RE]</pre>
-        </div>
-    </div>
-    </div>
-  </article>
-  <article id="canti-lista" class="entry">
-    <div class="entry-content">
-      <div class="song">
-        <h2>Un Milione di Amici</h2>
-        <div class="intro">
-                  <div class="verse">
-            <pre>
-[La]     [Si-]            [La]
-Voglio soltanto guardare un campo
-        [Si-]            [La]
-voglio soltanto cantare un canto
-        [Mi7]           [La]
-però non voglio cantare da solo
-        [Mi7]            [La]
-voglio sentire gli uccelli in volo.</pre>
-        </div>
-        
-        <div class="verse">
-            <pre>
-      [Si-]               [La]
-Voglio portare il mio canto amico
-            [Mi7]       [La]
-a qualsiasi amico che lo vorrà
-          [Mi7]              [La]
-Io voglio avere un milione di amici
-          [Mi7]              [La]
+  <nav class="toc" aria-label="elenco canti">
+    <ul id="songToc" class="toc-list">
+      <li><a href="#grandi-cose">Grandi cose</a></li>
+      <li><a href="#voglio-soltanto">Voglio soltanto (un milione di amici)</a></li>
+      <li><a href="#se-sei-felice">Se sei felice</a></li>
+      <li><a href="#madre-io-vorrei">Madre io vorrei</a></li>
+      <li><a href="#come-un-fiume">Come un fiume</a></li>
+      <li><a href="#ti-ringrazio-mio-signore">Ti ringrazio mio Signore</a></li>
+      <li><a href="#insieme-come-fratelli">Insieme come fratelli</a></li>
+      <li><a href="#viva-la-gente">Viva la gente</a></li>
+      <li><a href="#danza-danza">Danza danza</a></li>
+      <li><a href="#scusa-signore">Scusa Signore</a></li>
+      <li><a href="#tu-sei">Tu sei</a></li>
+      <li><a href="#e-sono-solo-un-uomo">E sono solo un uomo</a></li>
+      <li><a href="#e-la-mia-strada">È la mia strada</a></li>
+      <li><a href="#camminero">Camminerò</a></li>
+      <li><a href="#eccomi">Eccomi</a></li>
+      <li><a href="#ave-maria-donna-dellattesa">Ave Maria (Donna dell’attesa)</a></li>
+      <!-- da p.47 seconda colonna in poi -->
+      <li><a href="#facciamo-festa">Facciamo festa</a></li>
+      <li><a href="#su-ali-daquila">Su ali d’aquila</a></li>
+      <li><a href="#giovane-donna">Giovane donna</a></li>
+      <li><a href="#resta-qui-con-noi">Resta qui con noi</a></li>
+      <li><a href="#vieni-spirito-damore">Vieni, Spirito d’amore</a></li>
+      <li><a href="#servo-per-amore">Servo per amore</a></li>
+      <li><a href="#e-volare-volare">E volare volare</a></li>
+      <li><a href="#forza-venite-gente">Forza venite gente</a></li>
+      <li><a href="#colori">Colori</a></li>
+      <li><a href="#la-comunita">La Comunità</a></li>
+      <li><a href="#beautiful">Beautiful</a></li>
+      <li><a href="#amis-chantons-notre-joie">Amis chantons notre joie</a></li>
+      <li><a href="#come-e-bella-semplicita">Com’è bella in Fede e Luce la semplicità</a></li>
+      <li><a href="#messaggeri-della-gioia">Messaggeri della gioia</a></li>
+      <li><a href="#messaggeri-di-gioia">Messaggeri di gioia</a></li>
+      <li><a href="#aggiungi-un-posto-a-tavola">Aggiungi un posto a tavola</a></li>
+    </ul>
+  </nav>
+
+  <section class="songs">
+    <article id="grandi-cose" class="canto" data-title="Grandi cose">
+      <h2>Grandi cose</h2>
+      <pre class="lyrics">Grandi cose ha fatto
+il Signore per noi,
+ha fatto germogliare
+i fiori fra le rocce.
+Grandi cose ha fatto
+il Signore per noi,
+ci ha riportati liberi
+alla nostra terra.
+Ed ora possiamo cantare,
+possiamo gridare
+l’amore che Dio ha versato su noi.
+
+Tu che sai strappare dalla
+morte,
+hai sollevato il nostro viso
+dalla polvere.
+Tu che hai sentito il nostro
+pianto,
+nel nostro cuore hai messo
+un seme di felicità.
+
+Grandi cose ha fatto
+il Signore per noi,
+ha fatto germogliare
+i fiori fra le rocce.
+Grandi cose ha fatto
+il Signore per noi,
+ci ha riportati liberi alla nostra
+terra.
+Ed ora possiamo cantare,
+possiamo gridare
+l’amore che Dio ha versato su noi.</pre>
+      <p class="src small">fonte: libretto, sez. canti. :contentReference[oaicite:0]{index=0}</p>
+    </article>
+
+    <article id="voglio-soltanto" class="canto" data-title="Voglio soltanto (un milione di amici)">
+      <h2>Voglio soltanto (un milione di amici)</h2>
+      <pre class="lyrics">Voglio soltanto guardare un
+campo
+voglio soltanto cantare un
+canto
+però non voglio cantar da solo
+voglio sentire gli uccelli in volo.
+
+Rit.
+Voglio portare
+il mio canto amico
+a qualsiasi amico che lo vorrà,
+io voglio avere avere
+un milione d’amici
 per ben più forte poter cantar
-          [Mi7]             [La]
-io voglio avere un milione di amici
-            [Mi7]       [La]
-per ben più forte poter cantar.</pre>
-        </div>
-        
-        <div class="verse">
-            <pre>
-Io voglio appena un vento forte
-portare un canto a tutte le porte
-e ogni strada che passerò
-dividerò tutto ciò che avrò.</pre>
-        </div>
-        
-        <div class="verse">
-            <pre>
+io voglio avere avere
+un milione d’amici
+per ben più forte poter cantar
+
 Io voglio pace per il futuro
-voglio un giardino senza alcun muro
-e ogni amico nuovo e sincero
-cantando alto ride più vero.</pre>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
-<article id="canti-lista" class="entry">
-    <div class="entry-content">
-      <div class="song">
-        <h2>Se Sei Felice</h2>
-        <div class="verse">
-            <pre>[Do]        [Sol]         [Do]
-Se sei felice tu lo sai,
-[Sol]       [Do]           [Sol]
-battic le mani, battic le mani,
-[Do]        [Sol]         [Do]
-se sei felice tu lo sai,
-[Sol]       [Do]           [Sol]
-battic le mani e poi ti giri.</pre>
-        </div>
-        
-        <div class="verse">
-            <pre>[Do]        [Sol]         [Do]
-Se sei felice tu lo sai,
-[Sol]       [Do]           [Sol]
-salta in alto, salta in alto,
-[Do]        [Sol]         [Do]
-se sei felice tu lo sai,
-[Sol]       [Do]           [Sol]
-salta in alto e poi ti giri.</pre>
-        </div>
-        
-        <div class="verse">
-            <pre>[Do]        [Sol]         [Do]
-Se sei felice tu lo sai,
-[Sol]       [Do]           [Sol]
-chiudi un occhio, chiudi un occhio,
-[Do]        [Sol]         [Do]
-se sei felice tu lo sai,
-[Sol]       [Do]           [Sol]
-chiudi un occhio e poi ti giri.</pre>
-        </div>
-        
-        <div class="verse">
-            <pre>[Do]        [Sol]         [Do]
-Se sei felice tu lo sai,
-[Sol]       [Do]           [Sol]
-fai un inchino, fai un inchino,
-[Do]        [Sol]         [Do]
-se sei felice tu lo sai,
-[Sol]       [Do]           [Sol]
-fai un inchino e poi ti giri.</pre>
-        </div>
-        
-        <div class="verse">
-            <pre>[Do]        [Sol]         [Do]
-Se sei felice tu lo sai,
-[Sol]       [Do]           [Sol]
-tutti insieme, tutti insieme,
-[Do]        [Sol]         [Do]
-se sei felice tu lo sai,
-[Sol]       [Do]           [Sol]
-tutti insieme e poi ti giri.</pre>
-        </div>
-    </div>
-  </div>
-</article>
-<article>
-  <div class="song">
-        <h2>Madre Io Vorrei</h2>        
-        <div class="verse">
-            <pre>[Do]            [Mib]       [Do]
-Madre io vorrei pregar con te,
-[Sol]       [Do]       [Mib]    [Do]
-madre io vorrei pregar con te.
-[Do]       [Sol]       [Do]
-Madre io vorrei pregar con te,
-[Sol]       [Do]       [Mib]    [Do]
-madre io vorrei pregar con te.</pre>
-        </div>
-        
-        <div class="verse">
-            <pre>[Do]            [Mib]       [Do]
-Madre io vorrei cantare con te,
-[Sol]       [Do]       [Mib]    [Do]
-madre io vorrei cantare con te.
-[Do]       [Sol]       [Do]
-Madre io vorrei cantare con te,
-[Sol]       [Do]       [Mib]    [Do]
-madre io vorrei cantare con te.</pre>
-        </div>
-        
-        <div class="verse">
-            <pre>[Do]            [Mib]       [Do]
-Madre io vorrei vivere con te,
-[Sol]       [Do]       [Mib]    [Do]
-madre io vorrei vivere con te.
-[Do]       [Sol]       [Do]
-Madre io vorrei vivere con te,
-[Sol]       [Do]       [Mib]    [Do]
-madre io vorrei vivere con te.</pre>
-        </div>
-    </div>
-</article>
-</section>
+voglio un giardino
+senza alcun muro
+ed ogni bimbo nuovo e sincero
+cantando alto ride più vero.
 
-  </main>
+Rit.
+Io voglio appena un vento forte
+portare un canto a tutte le
+porte
+e sulle strade ch’io passerò
+dividerò tutto ciò che ho.
 
-  <footer class="site-footer">
+Rit.
+
+Voglio soltanto cantare un
+canto
+vieni anche tu a cantare il
+canto
+perché non voglio cantar da
+solo
+voglio sentire gli uccelli in
+volo.
+
+Rit.</pre>
+      <p class="src small">fonte: libretto, sez. canti. :contentReference[oaicite:1]{index=1}</p>
+    </article>
+
+    <article id="se-sei-felice" class="canto" data-title="Se sei felice">
+      <h2>Se sei felice</h2>
+      <pre class="lyrics">Se sei felice e tu lo sai
+batti le mani
+Se sei felice e tu lo sai
+batti le mani
+Se sei felice e tu lo sai
+e mostrarmelo potrai
+se sei felice e tu lo sai
+batti le mani
+
+Se sei felice e tu lo sai
+batti i piedi…
+
+Se sei felice e tu lo sai
+schiocca la lingua…
+
+Se sei felice e tu lo sai
+schiocca le dita…
+
+Se sei felice e tu lo sai
+fai lo starnuto…
+
+Se sei felice e tu lo sai
+mandami un bacio…
+
+Se sei felice e tu lo sai
+fammi un saluto…</pre>
+      <p class="src small">fonte: libretto, sez. canti. :contentReference[oaicite:2]{index=2}</p>
+    </article>
+
+    <article id="madre-io-vorrei" class="canto" data-title="Madre io vorrei">
+      <h2>Madre io vorrei</h2>
+      <pre class="lyrics">Io vorrei tanto parlare con te di
+quel figlio che amavi
+io vorrei tanto ascoltare da te
+quello che pensavi
+quando hai udito che tu non
+saresti più stata tua
+e questo figlio che non
+aspettavi non era per te
+
+Rit.
+Ave Maria
+Ave Maria
+Ave Maria
+Ave Maria
+
+Io vorrei tanto sapere da te se
+quand’era bambino
+tu gli hai spiegato che cosa
+sarebbe successo di lui
+e quante volte anche tu di
+nascosto piangevi, Madre
+quando sentivi che presto
+l’avrebbero ucciso per noi
+
+Rit.
+Io ti ringrazio per questo
+silenzio che resta tra noi
+io benedico il coraggio di
+vivere sola con lui
+ora capisco che fin da quei
+giorni pensavi a noi
+per ogni figlio dell’uomo che
+muore ti prego così
+
+Rit.</pre>
+      <p class="src small">fonte: libretto, sez. canti. :contentReference[oaicite:3]{index=3}</p>
+    </article>
+
+    <article id="come-un-fiume" class="canto" data-title="Come un fiume">
+      <h2>Come un fiume</h2>
+      <pre class="lyrics">Come un fiume il frutto della
+tua vittoria viene a te
+Tutto quello che ci hai dato
+nella storia diamo a te
+Ecco il mondo, calice immenso
+d’ogni pena, d’ogni povertà
+Ecco il vino ardente del tempo,
+questo tempo che va
+
+Come un fiume il frutto della
+tua vittoria viene a te
+Tutto quello che ci hai dato
+nella storia diamo a te
+Come un fiume il frutto della
+tua vittoria viene a te
+Tutto quello che ci hai dato
+nella storia diamo a te, diamo
+a te</pre>
+      <p class="src small">fonte: libretto, sez. canti. :contentReference[oaicite:4]{index=4}</p>
+    </article>
+
+    <article id="ti-ringrazio-mio-signore" class="canto" data-title="Ti ringrazio mio Signore">
+      <h2>Ti ringrazio mio Signore</h2>
+      <pre class="lyrics">Amatevi l’un l’altro
+come Lui ha amato noi:
+e siate per sempre suoi amici;
+e quello che farete
+al più piccolo tra voi,
+credete l’avete fatto a Lui.
+
+Rit.
+Ti ringrazio mio Signore
+non ho più paura, perché,
+con la mia mano nella mano
+degli amici miei,
+cammino fra la gente
+della mia città
+e non mi sento più solo;
+non sento la stanchezza
+e guardo dritto
+avanti a me,
+perché sulla mia strada ci sei Tu.
+
+Se amate veramente
+perdonatevi tra voi:
+nel cuore di ognuno ci sia pace;
+il Padre che è nei cieli
+vede tutti i figli suoi
+con gioia a voi perdonerà.
+
+Rit.</pre>
+      <p class="src small">fonte: libretto, sez. canti. :contentReference[oaicite:5]{index=5}</p>
+    </article>
+
+    <article id="insieme-come-fratelli" class="canto" data-title="Insieme come fratelli">
+      <h2>Insieme come fratelli</h2>
+      <pre class="lyrics">Rit.
+Oh come è bello e gioioso
+stare insieme come fratelli.
+
+Come olio che scende sulla
+terra
+profumando tutto il volto [2v]
+
+Rit.
+Come olio che scende sulla
+barba
+profumando anche le vesti [2v]
+
+Rit.
+Come rugiada che scende
+dall’Ermon
+sui monti di Sion [2v]
+
+Rit.
+Là il Signore ha mandato
+benedizione
+e la vita per sempre [2v]
+
+Rit.</pre>
+      <p class="src small">fonte: libretto, sez. canti. :contentReference[oaicite:6]{index=6}</p>
+    </article>
+
+    <article id="viva-la-gente" class="canto" data-title="Viva la gente">
+      <h2>Viva la gente</h2>
+      <pre class="lyrics">Ho visto stamattina mentre
+andavo a lavorar
+il lattaio, il postino e la guardia
+comunal
+Per la prima volta vedo gente
+intorno a me.
+Ieri non ci badavo non so
+proprio perché.
+
+Rit.
+Viva la gente la trovi ovunque
+vai
+viva la gente simpatica più che
+mai!
+Se più gente guardasse alla
+gente con favor
+avremo meno gente difficile
+e più gente di cuor
+avremo meno gente difficile
+e più gente di cuor.
+
+Dal nord e dal sud li vedevo
+arrivar
+come grandi fiumi che
+discendon verso il mar.
+Quasi una gran festa fatta
+apposta per un re.
+Vale più delle cose la gente
+intorno a me.
+
+Rit.
+Dentro tutti quanti c’è del bene
+c’è del mal,
+ma in fondo ad ogni cuore è
+nascosto un capital.
+Ed ora un sol pensiero mi
+assilla notte e dì:
+renderli sempre più grandi, che
+Dio vuole così.
+
+Rit.</pre>
+      <p class="src small">fonte: libretto, sez. canti. :contentReference[oaicite:7]{index=7}</p>
+    </article>
+
+    <article id="danza-danza" class="canto" data-title="Danza danza">
+      <h2>Danza danza</h2>
+      <pre class="lyrics">Rit.
+Danza danza danza
+al tuo Signore
+danza danza danza
+al suo amore
+danza danza sei di fronte
+al suo cuore
+danza danza egli
+ti farà entrare.
+
+Il mio cuore la sorgente
+del tempio
+che scroscia a destra
+dell’altare
+tutto quello che
+l’acqua bagnerà
+sarà guarito dal mio amore.
+
+Rit.
+
+Io l’ho fatto squarciare per te
+io l’ho fatto aprire per amore
+perché niente e nessuno
+possa dire
+che qualcosa è rimasto per me.
+
+Rit.
+Dal mio cuore sono usciti
+sangue ed acqua
+i misteri della tua salvezza
+se hai sete vieni a me e bevi
+solo io ti sazierò.</pre>
+      <p class="src small">fonte: libretto, sez. canti. :contentReference[oaicite:8]{index=8}</p>
+    </article>
+
+    <article id="scusa-signore" class="canto" data-title="Scusa Signore">
+      <h2>Scusa Signore</h2>
+      <pre class="lyrics">Scusa, Signore, se bussiamo
+alla porta del tuo cuore
+siamo noi.
+Scusa, Signore, se chiediamo,
+mendicanti dell’amore, un
+ristoro da te.
+
+Rit.
+Così la foglia quando
+è stanca cade giù,
+ma poi la terra ha una vita
+sempre in più;
+così la gente quando
+è stanca vuole Te,
+e Tu, Signore, hai una vita
+sempre in più, sempre in più.
+
+Scusa, Signore, se entriamo
+nella reggia della luce
+siamo noi.
+Scusa, Signore, se sediamo
+alla mensa del tuo corpo per
+saziarci di te.
+
+Rit.
+Scusa, Signore, quando
+usciamo
+dalla strada del tuo amore
+siamo noi.
+Scusa, Signore, se ci vedi
+solo all’ora del perdono
+ritornare da te.
+
+Rit.</pre>
+      <p class="src small">fonte: libretto, sez. canti. :contentReference[oaicite:9]{index=9}</p>
+    </article>
+
+    <article id="tu-sei" class="canto" data-title="Tu sei">
+      <h2>Tu sei</h2>
+      <pre class="lyrics">Tu sei la prima stella del
+mattino,
+tu sei la nostra grande
+nostalgia,
+tu sei il cielo chiaro dopo la
+paura,
+dopo la paura d’esserci perduti
+e tornerà la vita in questo
+mare.
+
+Rit.
+Soffierà, soffierà,
+il vento forte della vita,
+soffierà sulle vele
+e le gonfierà di te.
+Soffierà, soffierà,
+il vento forte della vita,
+soffierà sulle vele
+e le gonfierà di te.
+
+Tu sei l’unico volto della pace,
+tu sei speranza nelle nostre
+mani,
+tu sei il vento nuovo
+sulle nostre ali,
+sulle nostre ali soffierà la vita
+e gonfierà le vele per questo
+mare.</pre>
+      <p class="src small">fonte: libretto, sez. canti. :contentReference[oaicite:10]{index=10}</p>
+    </article>
+
+    <article id="e-sono-solo-un-uomo" class="canto" data-title="E sono solo un uomo">
+      <h2>E sono solo un uomo</h2>
+      <pre class="lyrics">Io lo so, Signore,
+che vengo da lontano
+prima del pensiero
+e poi nella tua mano
+io mi rendo conto
+che tu sei la mia vita
+e non mi sembra vero
+di pregarti così
+
+“Padre d’ogni uomo”
+e non t’ho visto mai
+“Spirito di vita”
+e nacqui da una donna
+“Figlio mio fratello”
+e sono solo un uomo
+eppure io capisco che tu sei
+verità
+
+E imparerò a guardare
+tutto il mondo
+con gli occhi trasparenti
+di un bambino
+e insegnerò a chiamarti
+“Padre nostro”
+ad ogni figlio che diventa
+uomo
+
+Io lo so, Signore,
+che tu mi sei vicino
+luce alla mia mente,
+guida al mio cammino
+mano che sorregge,
+sguardo che perdona
+e non mi sembra vero
+che tu esista così
+
+Dove nasce amore
+tu sei la sorgente
+dove c’è una croce
+tu sei la speranza
+dove il tempo ha fine
+tu sei vita eterna
+e so che posso sempre
+contare su di te
+
+E accoglierò la vita come un
+dono
+e avrò il coraggio di morire
+anch’io
+e incontro a te verrò col mio
+fratello
+che non si sente amato da
+nessuno</pre>
+      <p class="src small">fonte: libretto, sez. canti. :contentReference[oaicite:11]{index=11}</p>
+    </article>
+
+    <article id="e-la-mia-strada" class="canto" data-title="È la mia strada">
+      <h2>È la mia strada</h2>
+      <pre class="lyrics">È la mia strada che porta a Te.
+È la mia strada che porta a Te.
+È la mia strada che porta a Te.
+È la mia strada Signor,
+che porta a Te.
+
+E mio fratello viene con me.
+(3 volte)
+Per la mia strada Signor,
+che porta a Te.
+
+E mia sorella viene con me.
+(3 volte)
+Per la mia strada Signor,
+che porta a Te.
+
+E la mia gente viene con me.
+(3 volte)
+Per la mia strada Signor,
+che porta a Te.
+
+E batte le mani chi viene con me
+(3 volte)
+Per la mia strada Signor,
+che porta a Te.</pre>
+      <p class="src small">fonte: libretto, sez. canti. :contentReference[oaicite:12]{index=12}</p>
+    </article>
+
+    <article id="camminero" class="canto" data-title="Camminerò">
+      <h2>Camminerò</h2>
+      <pre class="lyrics">Rit.
+Camminerò, camminerò
+nella tua strada, Signor.
+Dammi la mano, voglio restar
+per sempre insieme a te.
+
+Quando ero solo, solo e stanco
+del mondo,
+quando non c’era l’Amor,
+tante persone vidi intorno a me,
+sentivo cantare così:
+
+Rit.
+Io non capivo, ma rimasi a
+sentire
+quando il Signor mi parlò:
+lui mi chiamava, chiamava
+anche me
+e la mia risposta si alzò:
+
+Rit.
+Or non m’importa se uno ride
+di me,
+lui certamente non sa
+del gran regalo che ebbi quel
+dì;
+che dissi al Signore così:
+
+Rit.
+A volte sono triste,
+ma mi guardo intorno,
+scopro il mondo e l’amor;
+son questi i doni che lui fa a
+me;
+felice ritorno a cantar:
+
+Rit.</pre>
+      <p class="src small">fonte: libretto, sez. canti. :contentReference[oaicite:13]{index=13}</p>
+    </article>
+
+    <article id="eccomi" class="canto" data-title="Eccomi">
+      <h2>Eccomi</h2>
+      <pre class="lyrics">Rit.
+Eccomi, eccomi, Signore io
+vengo
+Eccomi, eccomi, si compia in
+me la tua volontà
+
+Nel mio Signore ho sperato
+E su di me s’è chinato
+Ha dato ascolto al mio grido
+M’ha liberato dalla morte
+
+Rit.
+I miei piedi ha reso saldi
+Sicuri ha reso i miei passi
+Ha messo sulla mia bocca
+Un nuovo canto di lode
+
+Rit.
+Il sacrificio non gradisci
+Ma mi hai aperto l’orecchio
+Non hai voluto olocausti
+Allora ho detto, io vengo
+
+Rit.</pre>
+      <p class="src small">fonte: libretto, sez. canti. :contentReference[oaicite:14]{index=14}</p>
+    </article>
+
+    <article id="ave-maria-donna-dellattesa" class="canto" data-title="Ave Maria (Donna dell’attesa)">
+      <h2>Ave Maria (Donna dell’attesa)</h2>
+      <pre class="lyrics">Rit.
+Ave Maria, Ave!
+Ave Maria, Ave!
+
+Donna dell’attesa
+e madre di speranza,
+ora pro nobis.
+Donna del sorriso
+e madre del silenzio,
+ora pro nobis.
+Donna di frontiera
+e madre dell’ardore,
+ora pro nobis.
+Donna del riposo
+e madre del silenzio,
+ora pro nobis.
+
+Rit.
+Donna del deserto
+e madre del respiro,
+ora pro nobis.
+Donna della sera
+e madre del ricordo,
+ora pro nobis.
+Donna del presente
+e madre del ritorno,
+ora pro nobis.
+Donna della terra
+e madre dell’amore,
+ora pro nobis.
+
+Rit.</pre>
+      <p class="src small">fonte: libretto, sez. canti. :contentReference[oaicite:15]{index=15}</p>
+    </article>
+
+    <!-- DA QUI: canzoni mancanti (p.47 col.2 -> fine) -->
+
+    <article id="facciamo-festa" class="canto" data-title="Facciamo festa">
+      <h2>Facciamo festa</h2>
+      <pre class="lyrics">Rit.
+Facciamo festa, facciamo festa:
+questo è il giorno del Signore.
+Facciamo festa, facciamo festa,
+alleluia, alleluia.
+
+Tu ci hai chiamati
+qui nella tua casa
+Signore, per lodare il tuo nome.
+
+Rit.
+Tu ci hai riuniti
+intorno alla mensa
+Signore, per mangiare il tuo
+pane.
+
+Rit.</pre>
+      <p class="src small">fonte: libretto p.47. </p>
+    </article>
+
+    <article id="su-ali-daquila" class="canto" data-title="Su ali d’aquila">
+      <h2>Su ali d’aquila</h2>
+      <pre class="lyrics">Tu che abiti al riparo del
+Signore
+e che dimori alla sua ombra
+dì al Signore mio Rifugio, mia
+roccia in cui confido.
+
+Rit.
+E ti rialzerà, ti solleverà su ali
+d’aquila ti reggerà
+sulla brezza dell’alba ti farà
+brillar come il sole,
+così nelle sue mani vivrai.
+
+Dal laccio del cacciatore ti
+libererà
+e dalla carestia che ti distrugge
+poi ti coprirà con le sue ali e
+rifugio troverai.
+
+Rit.
+Non devi temere i terrori della
+notte
+né freccia che vola di giorno
+mille cadranno al tuo fianco
+ma nulla ti colpirà.
+
+Rit.
+Perché ai suoi angeli ha dato
+un comando
+di preservarti in tutte le tue vie
+ti porteranno sulle loro
+mani: contro la pietra non
+inciamperai.
+
+Rit.
+E ti rialzerò, ti solleverò su ali
+d’aquila ti reggerò
+sulla brezza dell’alba ti farò
+brillar come il sole,
+così nelle mie mani vivrai.</pre>
+      <p class="src small">fonte: libretto p.47–48. :contentReference[oaicite:17]{index=17}</p>
+    </article>
+
+    <article id="giovane-donna" class="canto" data-title="Giovane donna">
+      <h2>Giovane donna</h2>
+      <pre class="lyrics">Giovane donna, attesa
+dell’umanità;
+un desiderio d’amore e pura
+libertà.
+Il Dio lontano è qui vicino a te,
+voce e silenzio annuncio di
+novità.
+
+Rit.
+Ave, Maria.
+Ave, Maria.
+
+Dio t’ha prescelta qual madre
+piena di bellezza,
+e il suo amore t’avvolgerà con
+la sua ombra.
+Grembo per Dio venuto sulla
+terra,
+tu sarai madre di un uomo
+nuovo.
+
+Rit.
+Ecco l’ancella che vive della tua
+parola,
+libero il cuore perché l’amore
+trovi casa.
+Ora l’attesa è densa di
+preghiera,
+e l’uomo nuovo è qui, in mezzo
+a noi.
+
+Rit.</pre>
+      <p class="src small">fonte: libretto p.48–49. </p>
+    </article>
+
+    <article id="resta-qui-con-noi" class="canto" data-title="Resta qui con noi">
+      <h2>Resta qui con noi</h2>
+      <pre class="lyrics">Le ombre si distendono, scende
+ormai la sera
+e s’allontanano dietro i monti
+i riflessi
+di un giorno che non finirà,
+di un giorno che ora correrà
+sempre,
+perché sappiamo che una
+nuova vita
+da qui è partita e mai più si
+fermerà.
+
+Rit.
+Resta qui con noi,
+il sole scende già,
+resta qui con noi,
+Signore è sera ormai.
+Resta qui con noi,
+il sole scende già,
+se tu sei fra noi
+la notte non verrà.
+
+S’allarga verso il mare il tuo
+cerchio d’onda,
+che il vento spingerà fino a
+quando giungerà
+ai confini di ogni cuore, alle
+porte dell’amore vero.
+Come una fiamma che dove
+passa brucia,
+così il tuo amore tutto il
+mondo invaderà.
+
+Davanti a noi l’umanità lotta,
+soffre e spera
+come una terra che nell’arsura
+chiede l’acqua
+da un cielo senza nuvole, ma
+che sempre le può dare vita.
+Con te saremo sorgente di
+acqua pura,
+con te fra noi il deserto fiorirà.</pre>
+      <p class="src small">fonte: libretto p.49–50. </p>
+    </article>
+
+    <article id="vieni-spirito-damore" class="canto" data-title="Vieni, Spirito d’amore">
+      <h2>Vieni, Spirito d’amore</h2>
+      <pre class="lyrics">Rit.
+Vieni, vieni, Spirito d’amore,
+ad insegnar le cose di Dio.
+Vieni, vieni, Spirito di pace,
+a suggerir le cose che Lui ha
+detto a noi.
+
+Noi t’invochiamo, Spirito di
+Cristo,
+vieni Tu dentro di noi.
+Cambia i nostri occhi, fa che
+noi vediamo
+la bontà di Dio per noi.
+
+Rit.
+Vieni o Spirito dai quattro
+venti
+e soffia su chi non ha vita.
+Vieni o Spirito, soffia su di noi
+perché anche noi riviviamo
+
+Rit.
+Insegnaci a sperare, insegnaci
+ad amare.
+Insegnaci a lodare Iddio.
+Insegnaci a pregare, insegnaci
+la via.
+Insegnaci Tu l’unità.
+
+Rit.</pre>
+      <p class="src small">fonte: libretto p.50–51. :contentReference[oaicite:20]{index=20}</p>
+    </article>
+
+    <article id="servo-per-amore" class="canto" data-title="Servo per amore">
+      <h2>Servo per amore</h2>
+      <pre class="lyrics">Una notte di sudore sulla barca
+in mezzo al mare
+e mentre il cielo s’imbianca
+già, tu guardi le tue reti vuote.
+Ma la voce che ti chiama un
+altro mare ti mostrerà
+e sulle rive di ogni cuore le tue
+reti getterai.
+
+Rit.
+Offri la vita tua, come Maria ai
+piedi della croce
+e sarai servo di ogni uomo,
+servo per amore, sacerdote
+dell’umanità.
+
+Avanzavi nel silenzio, fra le
+lacrime e speravi
+che il seme sparso davanti a te
+cadesse sulla buona terra.
+Ora il cuore tuo è in festa
+perché il grano biondeggia
+ormai,
+è maturato sotto il sole, puoi
+riporlo nei granai.
+
+Rit.</pre>
+      <p class="src small">fonte: libretto p.51–52. :contentReference[oaicite:21]{index=21}</p>
+    </article>
+
+    <article id="e-volare-volare" class="canto" data-title="E volare volare">
+      <h2>E volare volare</h2>
+      <pre class="lyrics">E il sole uscì color cinese e il
+suo ventaglio al cielo aprì.
+E in quel fantastico paese,
+Francesco dentro un quadro
+naif.
+E tutto il cielo è sceso in terra
+e uccelli a frotte ai piedi miei.
+Buongiorno piccoli fratelli
+felicità della tribù di Dio.
+
+Rit.
+E volare volare volare volare.
+Noi siamo l’allegria
+E volare volare volare volare.
+Leggero il cuore sia
+E volare volare volare volare.
+Chi ha piume volerà.
+Na na naneu nané nanà
+na na naneu nané nanà.</pre>
+      <p class="src small">fonte: libretto p.52. :contentReference[oaicite:22]{index=22}</p>
+    </article>
+
+    <article id="forza-venite-gente" class="canto" data-title="Forza venite gente">
+      <h2>Forza venite gente</h2>
+      <pre class="lyrics">Forza venite gente
+che in piazza si va
+un grande spettacolo c’è.
+Francesco ha scelto la sua
+libertà.
+Figlio degenerato che sei!
+Figlio degenerato che sei!
+Ora sarà diverso da noi!...</pre>
+      <p class="src small">fonte: libretto p.52–53 (estratto). :contentReference[oaicite:23]{index=23}</p>
+    </article>
+
+    <article id="colori" class="canto" data-title="Colori">
+      <h2>Colori</h2>
+      <pre class="lyrics">Questo prato verde ti ricorderà
+la speranza del mattino.
+Non smarrirla, amico mio,
+perché io, perché io ritornerò.
+
+Questo cielo azzurro ti
+ricorderà la fiducia nella vita.
+Non deporla, amico mio,
+perché io, perché io ritornerò.
+
+Questo sole d’oro ti ricorderà lo
+splendore del tuo dono.
+Non stancarti, amico mio,
+perché io, perché io ritornerò.
+
+Questa foglia gialla ti ricorderà
+il mistero della sera.
+Non turbarti, amico mio,
+perché io, perché io ritornerò.
+
+Il colore arcano della libertà sai
+trovarlo, amico mio?
+Nel tuo cuore l’ho posto io,
+perché io, perché io ritornerò.</pre>
+      <p class="src small">fonte: libretto p.53. :contentReference[oaicite:24]{index=24}</p>
+    </article>
+
+    <article id="la-comunita" class="canto" data-title="La Comunità">
+      <h2>La Comunità</h2>
+      <pre class="lyrics">Sono io, sono io sono io a far
+comunità (x3)
+Sono io a far comunità. E allora
+
+Rit.
+Naviga oltre oceano,
+torna verso il mare
+Vai dalle tue parti a far
+comunità. (x2)
+
+Sei tu, sei tu sei tu a far
+comunità (x3)
+Sei tu a far comunità. E allora
+
+Rit.
+Siamo noi, siamo noi siamo noi
+a far comunità (x3)
+Siamo noi a far comunità. E allora
+
+Rit.
+È amore, è amore è amore a far
+comunità (x3)
+È amore a far comunità. E allora
+
+Rit.
+È Lui, è Lui è Lui a far comunità (x3)
+È Lui a far comunità. E allora
+
+Rit.
+Sono io, sei tu, siamo noi, è
+amore, è Lui a far comunità
+Sono io, sei tu, siamo noi, è
+amore, è Lui a far comunità. E
+allora
+
+Rit.</pre>
+      <p class="src small">fonte: libretto p.53–54. </p>
+    </article>
+
+    <article id="beautiful" class="canto" data-title="Beautiful">
+      <h2>Beautiful</h2>
+      <pre class="lyrics">Beautiful, beautiful,
+Jesus is beautiful
+and Jesus makes beautiful
+things of my life.
+Carefully, touching me,
+causing my eyes to see
+and Jesus makes beautiful
+things of my life
+
+Belo, belo, Jesus é belo
+e Jesus faz bela a minha vida
+Embalame, tocame, desperta
+o meu olhar
+E Jesus faz bela a minha vida</pre>
+      <p class="src small">fonte: libretto p.54. :contentReference[oaicite:26]{index=26}</p>
+    </article>
+
+    <article id="amis-chantons-notre-joie" class="canto" data-title="Amis chantons notre joie">
+      <h2>Amis chantons notre joie</h2>
+      <pre class="lyrics">Amis, chantons notre joie !
+Dieu est vivant, Alléluia.
+Chantons Jésus, Dieu de
+Lumière, Alléluia, Alléluia.
+
+Nous avons tous le coeur en
+fête, Alléluia
+Tous les pays sont rassemblés,
+Alléluia
+Nous venons vivre la rencontre,
+Alléluia
+Avec Jésus dans l’amitié,
+Alléluia (3)
+
+Dieu est Amour, Dieu est
+Lumière, Alléluia
+Nous pensons tous à nos amis,
+Alléluia
+Portons chacun dans sa prière,
+Alléluia
+Ceux qui n’ont pu venir ici,
+Alléluia. (3)
+
+My friends, let’s sing all our
+joy,
+God is alive, alleluia
+Sing of Jesus, Our God of light,
+Alleluia, Alleluia.
+
+On joyful holiday we come,
+alleluia
+Together drawn from every
+race, alleluia
+That we may all with lively love
+Encounter Jesus face to face.
+Alleluia, alleluia, alleluia.
+
+Our God is love, our God is
+light, alleluia
+We think of absent friends and
+pray, alleluia
+That God will bless them, one
+and all, alleluia
+Who can not be with us today.
+Alleluia, alleluia, alleluia.
+
+Cantad, amigos, cantad
+Resucito, aleluya
+Cantad, cantad a nuestra luz
+Aleluya, aleluya</pre>
+      <p class="src small">fonte: libretto p.54–55. </p>
+    </article>
+
+    <article id="come-e-bella-semplicita" class="canto" data-title="Com’è bella in Fede e Luce la semplicità">
+      <h2>Com’è bella in Fede e Luce la semplicità</h2>
+      <pre class="lyrics">Con il cuore pieno di
+riconoscenza
+Noi veniamo uniti come una
+famiglia
+Vieni tu / vengo anch’io
+Ridi tu / rido anch’io
+E la pace / fra noi
+Non dovrà / finir mai
+
+Come è bella in Fede e Luce la
+“semplicità”
+
+Con il dono della vera umanità
+Gran ricchezza è stare qui,
+in comunità
+Vieni tu / vengo anch’io
+Ridi tu / rido anch’io
+
+E la gioia / doniam
+A chi solo / troviam
+
+Come è bella in Fede e Luce la
+“semplicità”
+
+Quanti momenti
+Che ho vissuto pienamente
+Con tanta allegria
+Volti raggianti
+Che ci fanno superare
+Tutte le avversità, difficoltà,
+fragilità.
+
+Ricordando il compleanno
+40 anni di cammino
+Qui riuniti intorno a te Padre
+Santo
+ti chiediamo
+Benedici tutti noi
+Ad Assisi poi andiam
+Con Francesco a pregar
+
+Tutte le avversità, difficoltà,
+fragilità.</pre>
+      <p class="src small">fonte: libretto p.55–56. :contentReference[oaicite:28]{index=28}</p>
+    </article>
+
+    <article id="messaggeri-della-gioia" class="canto" data-title="Messaggeri della gioia">
+      <h2>Messaggeri della gioia</h2>
+      <pre class="lyrics">Vrethìkame olì masì,
+ke mèsto kòsmo idà to vlèma su
+Ò dròmos ìne aftòs,
+pu tha mas dìksi pune i-charà
+Pìsti ke fòs inè jià màs,
+o kòsmos pu-mas alazi mesa mas
+Tragùdise ke esì,
+olì-masì me-mia-fonì. Òpos ta
+
+Kìmata sta kìmata, agheliofòri
+imàste ke emìs
+Emìs ìmaste i-charà òpos o
+ànemos fisài makrià
+
+Coming from sky and sea,
+we join together happy and
+joyfully,
+this is the road we see, we’re
+really welcome here my little friend.
+Faith and Light you know what is,
+a new great world, amazing, yes it is.
+Believe in me and you will see,
+loudly we shall sing.
+
+Messengers we really are, over
+the waves towards Kimata,
+Joyfulness together far, flying
+free like a mighty wind.
+
+Messaggeri siamo noi
+oltre le onde verso Kimata,
+siamo noi la gioia
+che come il vento vola libera.</pre>
+      <p class="src small">fonte: libretto p.55. </p>
+    </article>
+
+    <article id="messaggeri-di-gioia" class="canto" data-title="Messaggeri di gioia">
+      <h2>Messaggeri di gioia</h2>
+      <pre class="lyrics">Rit.
+Vivi l’avventura
+Guarda il mondo fuori
+È una grande tela
+Piena di colori
+
+Prima il bianco per lo sfondo
+(Prima il bianco che dà)
+da risalto a tutto il resto
+(risalto al resto)
+
+per la gioia di ogni gesto
+(una tinta di blu)
+usa il blu del mare più profondo
+(del mare più profondo)
+
+Verde nascerà un germoglio che
+parla di speranza, gialla luce da
+una stella che riempie la mia stanza
+
+Rit.
+Rosso fuoco di passione
+(la passione che hai tu)
+tutta quella che puoi dare
+(quella che tu puoi dare)
+qualche macchia di marrone
+(una terra laggiù)
+come terra da coltivare
+(da coltivare)
+
+Ognuno di noi è diverso
+Ognuno di noi è importante
+È bello potersi incontrare
+Sorridere e parlare
+L’orizzonte si è allargato
+Oltre i confini del mondo
+La gioia canti nei nostri cuori
+Siamo Messaggeri d’amore
+
+Rit.
+
+Se il tuo passato è pesante
+Se ti è mancato l’amore
+Le tue paure puoi superare
+Noi lo possiamo testimoniare
+Il male no, non può vincere
+L’amore ci porta in alto
+Andiamo sui tetti e cantiamo
+Siam messaggeri dell’amor.
+
+Rit.
+Gesù ci ha chiamato
+Per essere suoi amici
+Grazie a Lui mi sento amato
+Da tutti voi accettato
+Il Suo amore mi rassicura
+E le mie ferite cura
+E per questo noi saremo
+Messaggeri dell’amor
+
+Rit.</pre>
+      <p class="src small">fonte: libretto p.55–56. :contentReference[oaicite:30]{index=30}</p>
+    </article>
+
+    <article id="aggiungi-un-posto-a-tavola" class="canto" data-title="Aggiungi un posto a tavola">
+      <h2>Aggiungi un posto a tavola</h2>
+      <pre class="lyrics">Rit.
+Aggiungi un posto a tavola
+che c’è un amico in più
+se sposti un po’ la seggiola
+stai comodo anche tu,
+gli amici a questo servono a
+stare in compagnia,
+sorridi al nuovo ospite non
+farlo andare via
+dividi il companatico
+raddoppia l’allegria (2 volte).
+
+La porta sempre aperta la luce
+sempre accesa.
+La porta sempre aperta la luce
+sempre accesa.
+Il fuoco sempre vivo la mano
+sempre tesa.
+Il fuoco sempre vivo la mano
+sempre tesa.
+La porta sempre aperta la luce
+sempre accesa.
+
+E se qualcuno arriva non
+chiedergli: chi sei?
+No, no, no, no, no, no, no, no
+E se qualcuno arriva non
+chiedergli: che vuoi?
+No, no, no, no, no, no, no, no, no, no.
+E corri verso lui con la tua
+mano tesa,
+e corri verso lui spalancagli
+un sorriso e grida: “evviva,
+evviva!”
+Evviva, evviva, evviva, evviva,
+evviva,
+evviva, evviva, evviva, evviva,
+evviva...
+
+Rit.
+Aggiungi un posto a tavola e
+così e così e così e così e così
+sia.</pre>
+      <p class="src small">fonte: libretto p.56–57. :contentReference[oaicite:31]{index=31}</p>
+    </article>
+  </section>
+</main>
+
+      <footer class="site-footer">
     <div class="container">
       <p><strong>Fede e Luce</strong> — Pellegrinaggio a Pompei 2025</p>
       <p class="small">Progetto statico ottimizzato per funzionare anche in locale senza build o include esterni.</p>
@@ -251,3 +1275,41 @@ madre io vorrei vivere con te.</pre>
   <script src="assets/js/main.js" defer></script>
 </body>
 </html>
+
+    <script>
+        // ricerca live canti: filtra TOC e card
+    (function () {
+      const q = document.getElementById('songSearch');
+      if (!q) return;
+
+      const items = Array.from(document.querySelectorAll('.canto'));
+      const tocLinks = Array.from(document.querySelectorAll('#songToc a'));
+
+      function normalize(s){ return s.normalize('NFD').replace(/\p{Diacritic}/gu,'').toLowerCase(); }
+
+      function applyFilter(term) {
+        const t = normalize(term);
+        items.forEach(el => {
+          const title = normalize(el.dataset.title || el.querySelector('h2').textContent);
+          const match = !t || title.includes(t);
+          el.style.display = match ? '' : 'none';
+        });
+        tocLinks.forEach(a => {
+          const title = normalize(a.textContent);
+          const match = !t || title.includes(t);
+          a.parentElement.style.display = match ? '' : 'none';
+        });
+      }
+
+      q.addEventListener('input', e => applyFilter(e.target.value));
+      // invio salta al primo risultato
+      q.addEventListener('keydown', e => {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          const firstVisible = document.querySelector('#songToc li:not([style*="display: none"]) a');
+          if (firstVisible) firstVisible.focus();
+        }
+      });
+    })();
+
+    </script>

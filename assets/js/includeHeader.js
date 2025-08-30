@@ -10,12 +10,15 @@
     document.dispatchEvent(new Event('siteheader:ready'));
   }
 
-  // Fallback markup (kept in sync with partials/header.html)
-  var FALLBACK = '<header class="site-header" role="banner">\
+// includeHeader.js (estratto)
+// Fallback markup (kept in sync with partials/header.html)
+var FALLBACK = '<header class="site-header" role="banner">\
   <div class="container header-inner">\
     <div class="brand">\
-      <img src="assets/img/favicon.png" alt="" width="28" height="28" class="logo" />\
-      <span class="brand-text">Pellegrinaggio Pompei 2025</span>\
+      <a class="logo" href="index.html">\
+        <img src="assets/img/logo_pompei_2025.png" alt="" role="presentation" class="logo-img" />\
+        <span class="sr-only">Fede e Luce – Pellegrinaggio Pompei 2025</span>\
+      </a>\
     </div>\
     <button id="menuToggle" class="menu-toggle" aria-expanded="false" aria-controls="nav">menu</button>\
     <nav id="nav" class="site-nav" role="navigation" aria-label="principale">\
@@ -23,6 +26,7 @@
     </nav>\
   </div>\
 </header>';
+
 
   // Try to fetch the external partial (works when served over http/https)
   try{
