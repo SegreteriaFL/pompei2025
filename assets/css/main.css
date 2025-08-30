@@ -9,7 +9,7 @@
   --bg:#fff; --fg:#1a1a1a; --muted:#5a5a5a; --line:#eee;
   --brand:#2457ff; --brand-2:#0ea5e9;
   --container:62rem; --radius:.8rem;
-  --card:#fafafa; --yellow:#fff7c2; --green:#daf5d8; --verde-acqua:#264789;--yellow-orange:#f3b310;--azzurro:#31b7e6;--grey:#f4f6ff;
+  --card:#fafafa; --yellow:#fff7c2; --green:#daf5d8; --verde-acqua:#264789;--yellow-orange:#f3b310;--azzurro:#31b7e6;--grey:#f4f6ff;--celeste:#e1f7ff;
   --ff-title:"Montserrat", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
   --ff-sub:"Fennario", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
   --ff-text:"PT Serif", ui-serif, Georgia, "Times New Roman", serif;
@@ -164,8 +164,6 @@ a{color:inherit}
 .postit.giallo{background:white;transform: rotate(2deg);}
 .postit.verde{background:var(--green);transform: rotate(-2deg);}
 
-/* footer */
-.site-footer{border-top:1px solid var(--line);margin-top:2rem;padding:1.25rem 0;color:var(--muted);font-size:.95rem}
 
 
 /* MAI all-caps forzato */
@@ -557,3 +555,56 @@ li.entry {
 }
 
 .invisibile{display: none}
+
+
+/* footer 
+.site-footer{border-top:1px solid var(--line);margin-top:2rem;padding:1.25rem 0;color:var(--muted);font-size:.95rem}*/
+
+.site-footer {
+  font-family: var(--ff-title);
+  background: var(--grey);
+  color: black;
+  font-size: 0.875rem;
+  padding: 2rem 1rem;
+  line-height: 1.6;
+}
+
+.site-footer a {
+  color: var(--verde-acqua);
+  text-decoration: none;
+}
+.site-footer a:hover {
+  text-decoration: underline;
+}
+.site-footer h3{margin: 0;  font-size: 120%;}
+/* griglia 2/3 + 1/3 */
+.footer-grid{
+  display:grid;
+  grid-template-columns: 2fr 1fr;
+  gap:2rem;
+  padding:2rem 1rem;
+}
+.footer-col.left{display:flex;gap:1rem;align-items:flex-start}
+.footer-logo{width:88px;height:auto;flex-shrink:0;filter:grayscale(100%) contrast(120%);opacity:.95}
+
+/* icone social */
+.social{display:flex;flex-wrap:wrap;gap:.6rem;margin-bottom:1rem}
+.btn-ico{
+  width:25px;height:25px;border-radius:999px;
+  display:inline-flex;align-items:center;justify-content:center;
+}
+.btn-ico:hover{background:#var(--verde-acqua)}
+.btn-ico svg{width:25px;height:25px;fill:var(--verde-acqua)}
+
+/* blocchi legali */
+.legal-links{font-size:.9rem}
+.legal-links .license{margin:0 0 .25rem 0}
+
+/* riga inferiore */
+.footer-bottom{background:#0b0b0b;border-top:1px solid #222;padding:.75rem 0;font-size:.9rem}
+
+/* responsive */
+@media (max-width: 860px){
+  .footer-grid{grid-template-columns:1fr;gap:1.5rem}
+  .footer-logo{width:72px}
+}

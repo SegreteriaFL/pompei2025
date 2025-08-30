@@ -1,26 +1,31 @@
-\
-// includeFooter.js
-(function(){
-  function injectFooter(html){
+// assets/js/includeFooter.js  — minimal, reusable
+(function () {
+  var URL = 'partials/footer.html?cb=' + Date.now(); // cache-buster semplice
+
+  function inject(html){
     var mount = document.getElementById('footer-root');
-    if (!mount) return;
+    if(!mount) return;
     mount.innerHTML = html;
     document.dispatchEvent(new Event('sitefooter:ready'));
   }
 
-  var FALLBACK = '<footer class="site-footer">\
-  <div class="container">\
-    <p><strong>Fede e Luce</strong> — Pellegrinaggio a Pompei 2025</p>\
-    <p class="small">Progetto statico ottimizzato per funzionare anche in locale senza build o include esterni.</p>\
-  </div>\
-</footer>';
+  function fallback(reason){
+    console.error('[footer] fallback:', reason);
+    inject('<footer class="site-footer"><div class="container"><p>© Fede e Luce</p></div></footer>');
+  }
 
-  try{
-    fetch('partials/footer.html?v=1', {cache:'no-cache'})
+  function init(){
+    var mount = document.getElementById('footer-root');
+    if(!mount){ console.error('[footer] #footer-root mancante'); return; }
+    fetch(URL, { cache: 'no-store' })
       .then(function(r){ if(!r.ok) throw new Error('HTTP '+r.status); return r.text(); })
-      .then(function(html){ injectFooter(html); })
-      .catch(function(){ injectFooter(FALLBACK); });
-  }catch(e){
-    injectFooter(FALLBACK);
+      .then(inject)
+      .catch(fallback);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
   }
 })();
