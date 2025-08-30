@@ -5,7 +5,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Install stylelint
+        run: npm install stylelint stylelint-config-standard --save-dev
       - name: Validate HTML
-        uses: actions/html-lint@v1
+        uses: Cyborch/html-validator-action@v0.1.0
+        with:
+          files: "*.html"
       - name: Check CSS
         run: npx stylelint "assets/css/*.css"
