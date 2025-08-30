@@ -7,11 +7,11 @@
 
     // mappa {id: etichetta}
     var giorni = [
-      ['giovedi-18','Giovedì'],
-      ['venerdi-19','Venerdì'],
-      ['sabato-20','Sabato'],
+      ['giovedi-18','Gio'],
+      ['venerdi-19','Ven'],
+      ['sabato-20','Sab'],
       ['veglia-itinerante','Veglia'],
-      ['domenica-21','Domenica']
+      ['domenica-21','Dom']
     ].filter(function(it){ return document.getElementById(it[0]); });
 
     // render pills

@@ -91,7 +91,7 @@ a{color:inherit}
 .programma-nav .pill{
   display:inline-block; margin:.2rem .25rem; padding:.45rem .75rem;
   border:1px solid var(--line); border-radius:999px; text-decoration:none;
-  font-family:var(--ff-sub); font-size:.95rem;
+  font-family:var(--ff-sub); font-size: 0.8rem;text-transform: uppercase;
 }
 .programma-nav .pill[aria-current="true"]{
   background:var(--yellow-orange);
@@ -103,7 +103,7 @@ a{color:inherit}
 }
 .programma .prevnext a{
   display:inline-block; padding:.45rem .75rem; border:1px solid var(--line);
-  border-radius:999px; text-decoration:none;
+  border-radius:999px; text-decoration:none;font-size: 90%;font-family: var(--ff-title);
 }
 /* Titoli/section con ID non finiscono sotto header + subnav */
 :root{
@@ -160,9 +160,9 @@ a{color:inherit}
 }
 
 /* post-it */
-.postit{display: inline-block; padding: 1.6rem 2.8rem .7rem; border-radius: .4rem; border: 1px solid var(--line); box-shadow: 0 6px 13px rgba(0, 0, 0, .04); max-width: 30ch; margin: 1.25rem 1.5rem 3.25rem 0; font-family: var(--ff-sub); font-weight: bold; }
-.postit.giallo{background:white;transform: rotate(2deg);}
-.postit.verde{background:var(--green);transform: rotate(-2deg);}
+.postit{display: inline-block; padding: 1.6rem 2.8rem .7rem; border-radius: .4rem; border: 1px solid var(--line); box-shadow: 0 6px 13px rgba(0, 0, 0, .04); max-width: 26ch; margin: 1.25rem 1.5rem 3.25rem 0; font-family: var(--ff-sub); font-weight: bold; height: 170px; text-align: center; }
+.postit.giallo{transform: rotate(2deg);background: linear-gradient(35deg, #FFC107, #FF9800); border-radius: 10px; box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);}
+.postit.verde{background: linear-gradient(35deg, #A3D8A2, #6BAF6A); border-radius: 10px; box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);transform: rotate(-2deg);}
 
 
 
@@ -302,7 +302,7 @@ blockquote.citazione footer cite {
   align-items: start;
 }
 .programma .riga header{background: var(--green); margin:1rem 0 0;}
-.programma .riga .contenuto .subriga {background:var(--yellow) ; padding: 1rem;}
+.programma .riga .contenuto .subriga {background:var(--yellow) ; padding: 1rem;margin-bottom: 2rem;}
 
 /* Orario in colonna fissa */
 .programma .orario{
@@ -319,6 +319,7 @@ blockquote.citazione footer cite {
   font-weight: 600;
   color: var(--muted);
   margin-top: 2.3rem;
+  display: none;
 }
 
 /* Contenuti nella colonna destra */
@@ -519,7 +520,7 @@ html.is-loaded body { opacity: 1; transition: opacity .35s ease; }
 
 /* === add: sticky header (non cambia layout esistente) === */
 .site-header{
-  position: sticky; top: -10px; z-index: 1000;
+  position: sticky; top: 0px; z-index: 1000;
   background: var(--bg, #fff);
   box-shadow: 0 1px 0 rgba(0,0,0,.06);
 }
@@ -608,3 +609,43 @@ li.entry {
   .footer-grid{grid-template-columns:1fr;gap:1.5rem}
   .footer-logo{width:72px}
 }
+
+
+@media (max-width: 560px){
+  .programma .riga {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  /* nuova regola: se contiene titolo, affianca orario + titolo */
+  .programma .riga:has(.programma_titolo) {
+    flex-direction: row;
+    align-items: baseline;
+    flex-wrap: wrap;
+  }
+
+  .programma .orario {
+    margin: 0;
+    min-width: 2.5rem;
+  }
+
+  .programma .programma_titolo {
+    margin: 0;
+  }
+
+  .programma .riga .contenuto {
+    flex: 1;
+  }
+}
+ul.contact-list {
+  font-family: var(--ff-title);
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+ul.contact-list li{margin: 0 0 1rem;}
+.muted{text-transform: uppercase;line-height: 1.;color: var(--azzurro)}
+
+ul.contact-list li 
+address{margin: 1rem 0 0;}
