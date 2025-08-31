@@ -15,20 +15,23 @@
 
   <div id="siteHeader"></div>
 
-    <main id="contenuto" class="container page-wrapper">
-    <section class="hero" aria-label="introduzione">
-      <h1>Canti...</h1>
-      <p class="lead">... che ti passi!</p>
-    <form id="cercaCanti" role="search" aria-label="cerca nei canti" class="search">
-      <label for="songSearch" class="sr-only">cerca titolo</label>
-      <input id="songSearch" type="search" placeholder="cerca un canto… (es. ‘Madre’, ‘Viva la gente’)">
+    <main class="container page-wrapper">
+  <section class="hero" data-fade>
+    <h1>Canti</h1>
+  </section>
+
+  <section class="cerca-filtra sticky-search" data-fade>
+    <form id="formCercaCanti" role="search" aria-label="Cerca canti">
+      <label for="qCanti" class="sr-only">Cerca un canto</label>
+      <input id="qCanti" name="q" type="search" placeholder="Cerca per titolo o testo…"
+             autocomplete="off" />
+      <button type="button" id="clearCanti" aria-label="Pulisci ricerca">✕</button>
+      <span id="countCanti" class="meta" aria-live="polite"></span>
     </form>
-    <p class="search-hint small invisibile">digita per filtrare i titoli. invio ↵ per andare al primo risultato.</p>
-      
-    </section>
+  </section>
   </header>
 
-  <nav class="toc" aria-label="elenco canti">
+  <nav class="toc" aria-label="elenco canti" data-fade>
     <ul id="songToc" class="toc-list">
       <li><a href="#grandi-cose">Grandi cose</a></li>
       <li><a href="#voglio-soltanto">Voglio soltanto (un milione di amici)</a></li>

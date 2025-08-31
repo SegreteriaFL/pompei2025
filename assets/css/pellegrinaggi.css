@@ -103,7 +103,7 @@ main#articoli-pellegrinaggi{font-family: var(--ff-title);}
 /* TAG (pellegrinaggio) in alto sulla foto */
 .pellegrinaggio-card .tag{
   position: absolute;
-  top: 0rem;
+  top: .6rem;
   right: .6rem;
   background: var(--azzurro);
   color: #fff;

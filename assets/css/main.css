@@ -479,7 +479,7 @@ h4.tema{font-size:2.5rem!important;line-height: 1!important;}
 
 .search { margin-block: 1rem 0.5rem; }
 .search input[type="search"] { width: 100%; max-width: 32rem; padding: .6rem .8rem; border: 1px solid var(--border, #ddd); border-radius: .6rem; }
-.toc-list { columns: 2; gap: 2rem; margin: 1rem 0 2rem; }
+.toc-list { columns: 2; gap: 2rem; margin: 1rem 0 2rem;font-family:var(--ff-title);font-size:80% }
 @media (min-width: 900px){ .toc-list { columns: 3; } }
 .songs .canto { padding: 1rem 0; border-top: 1px solid #eee; }
 .songs .canto h2 { margin: .2rem 0 .6rem; font-weight: 600; }
@@ -522,9 +522,31 @@ pre [RE], pre [LA], pre [MIm], pre [SIm], pre [SOL], pre [LA4], pre [MIm7], pre 
   transition: width .1s linear;
 }
 
-/* === add: fade-in non invasivo === */
+/* === Fade-in non invasivo: pagina intera === */
+/* Nasconde il body finché non marchiamo l'HTML come is-loaded */
 html:not(.is-loaded) body { opacity: 0; }
-html.is-loaded body { opacity: 1; transition: opacity .35s ease; }
+html.is-loaded body { opacity: 1; transition: opacity .6s ease; }
+
+/* === Fade-in elementi: approccio data-attribute === */
+[data-fade] {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity .35s ease, transform .35s ease;
+}
+
+/* Trigger del fade: accetta sia html.is-loaded sia body.is-ready */
+html.is-loaded [data-fade],
+body.is-ready [data-fade] {
+  opacity: 1;
+  transform: none;
+}
+
+/* Accessibilità: riduci o elimina il movimento se richiesto */
+@media (prefers-reduced-motion: reduce) {
+  [data-fade] { transition: none; transform: none; }
+  html.is-loaded body { transition: none; }
+}
+
 
 /* === add: sticky header (non cambia layout esistente) === */
 .site-header{
@@ -680,3 +702,5 @@ address{margin: 1rem 0 0;}
   border: 0;
   display: block;
 }
+
+

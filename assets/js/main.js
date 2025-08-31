@@ -1,4 +1,30 @@
+// init fade once DOM is ready and header/footer (if async) are in.
+(function () {
+  function markReady() {
+    document.body.classList.add('is-ready');
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', markReady, { once: true });
+  } else {
+    markReady();
+  }
+
+  // Utility per far animare anche contenuti aggiunti dopo (es. liste dinamiche)
+  window.fadeInChildren = function (root) {
+    var els = (root || document).querySelectorAll('[data-fade]:not(.fade-seen)');
+    els.forEach(function (el, i) {
+      el.style.transitionDelay = (i * 40) + 'ms';
+      // forza ricalcolo e poi mostra con transizione
+      el.getBoundingClientRect();
+      el.classList.add('fade-seen');
+    });
+  };
+})();
+
+
 // main.js — Unified header + subnav + anchor offset (2025-08-30)
+
+
 (function () {
   // ===== utilities =====
   const $ = (sel, root) => (root || document).querySelector(sel);
