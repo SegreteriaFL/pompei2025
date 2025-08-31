@@ -477,7 +477,7 @@ h4.tema{font-size:2.5rem!important;line-height: 1!important;}
 .text-verde { color: var(--verde-acqua); }
 .text-giallo { color: var(--yellow-orange); }
 
-.search { margin-block: 1rem 0.5rem; }
+.search { margin-block: 1rem 0.5rem 0; }
 .search input[type="search"] { width: 100%; max-width: 32rem; padding: .6rem .8rem; border: 1px solid var(--border, #ddd); border-radius: .6rem; }
 .toc-list { columns: 2; gap: 2rem; margin: 1rem 0 2rem;font-family:var(--ff-title);font-size:80% }
 @media (min-width: 900px){ .toc-list { columns: 3; } }
@@ -704,3 +704,41 @@ address{margin: 1rem 0 0;}
 }
 
 
+/* === Sticky system (unificato) === */
+:root{
+  --header-height: 64px;       /* sovrascritto via JS in base all’header reale */
+  --sticky-gap: 0px;           /* margine aria tra header e sticky */
+  --active-sticky: 0px;        /* altezza sticky attiva, gestita via JS */
+  --page-bg: #fff;
+}
+
+/* Barra sticky riutilizzabile ovunque */
+.sticky-bar{
+  position: sticky;
+  top: calc(var(--header-height) + var(--sticky-gap));
+  z-index: 900;
+  background: var(--page-bg);
+  /* stile base sobrio; personalizzalo con utility già in progetto */
+  padding: .5rem 0;
+  border-bottom: 1px solid #eee;
+}
+
+/* Effetto quando realmente “attacca” */
+.sticky-bar.is-stuck{
+  box-shadow: 0 none
+}
+
+/* Contenitore opzionale per toolbar/forms */
+.sticky-bar .toolbar{
+  display: flex; gap: .5rem; align-items: center; flex-wrap: wrap;
+}
+
+/* Offset degli anchor: tutti gli elementi con id scrollano sotto header+sticky */
+[id]{
+  scroll-margin-top: calc(var(--header-height) + var(--active-sticky) + 12px);
+}
+
+/* Accessibilità movimento ridotto */
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior: auto; }
+}

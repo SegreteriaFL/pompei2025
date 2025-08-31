@@ -263,3 +263,125 @@ function fixInitialHashOffset() {
   });
 })();
 
+// === Sticky System Unificato ===
+(function(){
+  const $doc = document.documentElement;
+
+  function getHeaderEl(){
+    // Adatta il selettore al tuo header reale (es. '.site-header' o '#siteHeader .site-header')
+    return document.querySelector('.site-header') || document.querySelector('#siteHeader') || null;
+  }
+
+  function setHeaderHeightVar(){
+    const h = getHeaderEl();
+    const hh = h ? Math.ceil(h.getBoundingClientRect().height) : 0;
+    $doc.style.setProperty('--header-height', hh + 'px');
+  }
+
+  // Attiva ombra e calcola altezza sticky attiva
+  function attachStickyObserver(el){
+    // sentinella prima della barra
+    const sentinel = document.createElement('div');
+    sentinel.setAttribute('aria-hidden', 'true');
+    sentinel.style.position = 'relative';
+    sentinel.style.height = '1px';
+    el.parentNode.insertBefore(sentinel, el);
+
+    const updateActiveSticky = () => {
+      if (el.classList.contains('is-stuck')){
+        const h = Math.ceil(el.getBoundingClientRect().height);
+        $doc.style.setProperty('--active-sticky', h + 'px');
+      } else {
+        // Se ci sono più sticky, prendiamo la maggiore
+        const all = Array.from(document.querySelectorAll('.sticky-bar.is-stuck'));
+        const maxH = all.reduce((m, n) => Math.max(m, Math.ceil(n.getBoundingClientRect().height)), 0);
+        $doc.style.setProperty('--active-sticky', (maxH || 0) + 'px');
+      }
+    };
+
+    // L’header occupa spazio: spostiamo la rootMargin in alto di header-height
+    const obs = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        // quando la sentinella esce dall’area visibile, la barra è "stuck"
+        if (entry.isIntersecting){
+          el.classList.remove('is-stuck');
+        } else {
+          el.classList.add('is-stuck');
+        }
+        updateActiveSticky();
+      });
+    },{
+      root: null,
+      rootMargin: `-${getVarPx('--header-height')}px 0px 0px 0px`,
+      threshold: [1]
+    });
+
+    obs.observe(sentinel);
+
+    // Aggiorna su resize/layout changes
+    const ro = new ResizeObserver(()=>{ setHeaderHeightVar(); updateActiveSticky(); });
+    ro.observe(el);
+  }
+
+  function getVarPx(name){
+    const v = getComputedStyle($doc).getPropertyValue(name).trim();
+    return parseInt(v || '0', 10);
+  }
+
+  function initAllStickyBars(){
+    setHeaderHeightVar();
+    const bars = document.querySelectorAll('.sticky-bar');
+    bars.forEach(attachStickyObserver);
+    // set iniziale per scroll-margin-top coerente
+    $doc.style.setProperty('--active-sticky',
+      String(Math.max(0, ...Array.from(bars).map(b=>Math.ceil(b.getBoundingClientRect().height)))) + 'px'
+    );
+  }
+
+  // Anchor offset FIX (click e page-load con hash)
+  function offsetScrollTo(target){
+    if (!target) return;
+    const y = target.getBoundingClientRect().top + window.scrollY
+            - getVarPx('--header-height') - getVarPx('--active-sticky') - 12;
+    window.scrollTo({ top: y, behavior: 'smooth' });
+  }
+
+  function initAnchorFix(){
+    // Click su link interni
+    document.addEventListener('click', function(e){
+      const a = e.target.closest('a[href^="#"]:not([href="#"])');
+      if (!a) return;
+      const id = a.getAttribute('href').slice(1);
+      const target = document.getElementById(id);
+      if (!target) return;
+      e.preventDefault();
+      history.pushState(null, '', '#' + id);
+      offsetScrollTo(target);
+    });
+
+    // Se la pagina apre già con hash
+    if (location.hash && location.hash.length > 1){
+      const target = document.getElementById(location.hash.slice(1));
+      if (target){
+        // aspetta un frame per calcolare header/sticky esatti
+        requestAnimationFrame(()=>offsetScrollTo(target));
+      }
+    }
+  }
+
+  // Init on ready + su resize
+  function onReady(fn){
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', fn, { once: true });
+    } else { fn(); }
+  }
+
+  onReady(function(){
+    initAllStickyBars();
+    initAnchorFix();
+  });
+
+  window.addEventListener('resize', setHeaderHeightVar);
+})();
+
+

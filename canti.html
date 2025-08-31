@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Introduzioni – Pellegrinaggio Pompei 2025</title>
+  <title>Canti – Pellegrinaggio Pompei 2025</title>
   <meta name="description" content="Introduzioni e messaggi dal libretto.">
   <meta name="theme-color" content="#ffffff">
   <link rel="preload" href="assets/css/main.css" as="style">
@@ -16,17 +16,27 @@
   <div id="siteHeader"></div>
 
     <main id="contenuto" class="container page-wrapper">
-    <section class="hero stickysticky" aria-label="introduzione">
+    <section class="hero" aria-label="introduzione">
       <h1>Canti...</h1>
       <p class="lead">... che ti passi!</p>
-    <form id="cercaCanti" role="search" aria-label="cerca nei canti" class="search">
-      <label for="songSearch" class="sr-only">cerca titolo</label>
-      <input id="songSearch" type="search" placeholder="cerca un canto… (es. ‘Madre’, ‘Viva la gente’)">
-    </form>
     <p class="search-hint small invisibile">digita per filtrare i titoli. invio ↵ per andare al primo risultato.</p>
       
     </section>
-  </header>
+
+    <!-- Barra sticky riutilizzabile -->
+    <section class="sticky-bar" aria-label="Cerca nei canti" data-fade>
+      <form id="cercaCanti" class="toolbar search" role="search" aria-label="Cerca nei canti" aria-describedby="hintCanti">
+        <label for="songSearch" class="sr-only">Cerca un canto</label>
+        <input id="songSearch"
+               type="search"
+               placeholder="Cerca un canto… (es. “Madre”, “Viva la gente”)"
+               autocomplete="off"
+               aria-controls="listaCanti">
+        <button type="button" id="clearCanti" aria-label="Pulisci ricerca" title="Pulisci" class="invisibile">✕</button>
+        <span id="countCanti" class="meta" aria-live="polite"></span>
+      </form>
+      <p id="hintCanti" class="hint small invisibile">Digita per filtrare i titoli/testi. Premi Invio ↵ per aprire il primo risultato.</p>
+    </section>
 
   <nav class="toc" aria-label="elenco canti">
     <ul id="songToc" class="toc-list">
@@ -1268,6 +1278,8 @@ sia.</pre>
   <script src="assets/js/includeFooter.js" defer></script>
   <script src="assets/js/casefix.js" defer></script>
   <script src="assets/js/main.js" defer></script>
+  <!-- Sblocco fade globale -->
+  <script>requestAnimationFrame(()=>document.documentElement.classList.add('is-loaded'));</script>
 </body>
 </html>
 
