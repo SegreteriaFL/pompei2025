@@ -94,6 +94,7 @@ function fixInitialHashOffset() {
       ['canti.html',        'Canti'],
       ['guida-pompei.html', 'Info'],
       ['staff.html',        'Staff'],
+      ['pellegrinaggi.html','Letture'],
     ];
 
     const currentPath = normalizePath(window.location.pathname);

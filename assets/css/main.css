@@ -32,7 +32,15 @@ a{color:inherit}
 .header-inner{display:flex;align-items:center;gap:1rem;min-height:64px}
 .brand{display:flex;align-items:center;gap:.55rem;font-weight:700;font-family:var(--ff-title)}
 .brand .logo{font-size:1.25rem}
-.menu-toggle{margin-left:auto;display:none;background:#fff;border:1px solid var(--line);border-radius:999px;padding:.4rem .8rem}
+.menu-toggle{margin-left: auto;
+    display: none;
+    background: var(--grey);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: .6rem .8rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: var(--verde-acqua);}
 .site-nav{font-family:var(--ff-title); margin-left:auto; text-transform: uppercase;font-size: 13px}
 .nav-list{display:flex;flex-wrap:wrap;gap:.5rem;list-style:none;margin:0;padding:0}
 .nav-list a{display:block;padding:.45rem .7rem;border-radius:.6rem;text-decoration:none}
@@ -649,3 +657,26 @@ ul.contact-list li{margin: 0 0 1rem;}
 
 ul.contact-list li 
 address{margin: 1rem 0 0;}
+
+/* forza il ridimenionamento */
+
+.responsive {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 */
+  margin: 1rem 0;
+  height: 0;
+  overflow: hidden;
+}
+
+.responsive iframe,
+.responsive video,
+.responsive embed,
+.responsive object {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}

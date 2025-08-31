@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <title>Racconti di pellegrinaggi prima di noi</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Esperienze, cammini e testimonianze dei pellegrinaggi nelle pagine di Ombre e Luci">
+
+  <!-- stessi include delle altre pagine -->
+  <link rel="preload" href="assets/css/main.css" as="style">
+  <link rel="stylesheet" href="assets/css/main.css">
+
+  <!-- stile specifico di questa pagina -->
+  <link rel="preload" href="assets/css/pellegrinaggi.css" as="style">
+  <link rel="stylesheet" href="assets/css/pellegrinaggi.css">
+</head>
+<body>
+  <div class="scroll-progress" aria-hidden="true"></div>
+  <a class="skip-link" href="#contenuto">salta al contenuto</a>
+
+  <!-- header/logo/nav iniettati come nelle altre pagine -->
+  <div id="siteHeader"></div>
+
+  <!-- MAIN -->
+  <main id="articoli-pellegrinaggi" class="container page-wrapper">
+    <section class="hero" aria-label="pellegrinaggi">
+      <h1>Racconti di pellegrinaggi... prima di noi</h1>
+      <p class="lead">Esperienze, cammini e testimonianze dalle pagine di <em>Ombre e Luci</em></p>
+    </section>
+
+    <section class="cerca-filtra" aria-label="filtra e cerca articoli">
+      <form id="filtriPellegrinaggi" class="toolbar" role="search" aria-label="cerca e filtra">
+        <div class="field">
+          <label for="filter" class="sr-only">Filtra per pellegrinaggio</label>
+          <select id="filter" class="input input--select" aria-label="Filtra per pellegrinaggio">
+            <option value="tutti">Tutti i pellegrinaggi</option>
+          </select>
+        </div>
+
+        <div class="field field--grow">
+          <label for="q" class="sr-only">Cerca</label>
+          <input id="q" class="input input--search" type="search" placeholder="cerca per titolo o testo…">
+        </div>
+
+        <div class="field buttons">
+          <button class="btn" id="sort-new" type="button" aria-pressed="true">Dal più recente</button>
+          <button class="btn btn--ghost" id="sort-old" type="button" aria-pressed="false">Dal più antico</button>
+        </div>
+
+        <p class="count" id="count" aria-live="polite">—</p>
+      </form>
+    </section>
+
+    <section id="contenuto" class="risultati" aria-label="elenco articoli">
+      <div id="list" class="grid" role="list"></div>
+    </section>
+
+    <section class="timeline-wrap" aria-label="timeline pellegrinaggi">
+      <h2 class="section-title">Timeline pellegrinaggi</h2>
+      <div id="timeline" class="timeline" aria-label="Timeline dei pellegrinaggi"></div>
+    </section>
+
+    <p class="credits"><small>Fonte: <a href="https://www.ombreeluci.it">ombreeluci.it</a> · Raccolta tematica a cura di Fede e Luce – Pompei 2025</small></p>
+  </main>
+
+  <!-- footer -->
+  <div id="footer-root"></div>
+
+  <!-- JS di sito (come le altre pagine) -->
+  <script src="assets/js/header.inc.js" defer></script>
+  <script src="assets/js/includeFooter.js" defer></script>
+  <script src="assets/js/casefix.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
+
+  <!-- JS della pagina (già nel repo) -->
+  <script type="module" src="assets/js/renderPellegrinaggi.js"></script>
+
+  <!-- sblocca la regola html:not(.is-loaded) body { opacity:0 } -->
+  <script>document.documentElement.classList.add('is-loaded');</script>
+</body>
+</html>
