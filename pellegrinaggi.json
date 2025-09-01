@@ -103,16 +103,6 @@
       "pellegrinaggio": "Assisi 1986"
     },
     {
-      "title": "Il pellegrinaggio a Fede e Luce",
-      "url": "https://www.ombreeluci.it/1981/il-pellegrinaggio-a-fede-e-luce/",
-      "subtitle": "Un momento speciale della comunità.",
-      "author": "Mariangela Bertolini",
-      "date": "1981-12-20",
-      "image": "auto",
-      "why": "Riflessione fondativa sul senso del pellegrinare a Fede e Luce.",
-      "pellegrinaggio": "—"
-    },
-    {
       "title": "Preparazione al pellegrinaggio Fede e Luce ad Assisi 1978",
       "url": "https://www.ombreeluci.it/1978/preparazione-al-pellegrinaggio-fede-e-luce-ad-assisi-1978/",
       "subtitle": "Invito, materiali e spirito con cui mettersi in cammino.",
@@ -179,7 +169,7 @@
       "author": "Redazione",
       "date": "1978-04-01",
       "image": "auto",
-      "why": "Riscoperta delle Beatitudini come chiave per vivere pienamente anche il pellegrinaggio di Pompei.",
+      "why": "Le Beatitudini come chiave per vivere pienamente anche il pellegrinaggio di Pompei.",
       "pellegrinaggio": "Assisi 1978"
     },
     {
@@ -189,7 +179,7 @@
       "author": "Luis Sankalé",
       "date": "1978-06-01",
       "image": "auto",
-      "why": "Uno sguardo universale che parla anche al pellegrinaggio di Pompei: la fede che unisce oltre i confini.",
+      "why": "Uno sguardo universale che parla anche a Pompei: la fede unisce oltre i confini.",
       "pellegrinaggio": "Assisi 1978"
     },
     {
@@ -199,7 +189,7 @@
       "author": "Redazione",
       "date": "1975-12-01",
       "image": "auto",
-      "why": "Pompei sarà anche questo: portare il Vangelo nelle nostre comunità, come allora a Roma.",
+      "why": "Come a Roma 1975, anche Pompei porta il Vangelo nelle nostre comunità.",
       "pellegrinaggio": "Roma 1975"
     },
     {
@@ -209,7 +199,7 @@
       "author": "Redazione",
       "date": "1975-12-02",
       "image": "auto",
-      "why": "Domande e risposte che parlano anche a noi oggi: cosa lascerà Pompei?",
+      "why": "Le domande di ieri per il dopo‑Pompei di oggi: cosa ci resterà?",
       "pellegrinaggio": "Roma 1975"
     },
     {
@@ -219,7 +209,7 @@
       "author": "Redazione",
       "date": "1986-04-01",
       "image": "auto",
-      "why": "Pompei sarà anche un’occasione di incontro, gioco e riflessione come ad Assisi.",
+      "why": "Pompei sarà anche incontro, gioco e riflessione — come ad Assisi.",
       "pellegrinaggio": "Assisi 1986"
     },
     {
@@ -229,7 +219,7 @@
       "author": "Redazione",
       "date": "1986-05-01",
       "image": "auto",
-      "why": "Ogni pellegrinaggio ha i suoi ‘giorni speciali’. E Pompei sarà uno di questi.",
+      "why": "Ogni pellegrinaggio ha i suoi giorni speciali: Pompei sarà uno di questi.",
       "pellegrinaggio": "Assisi 1986"
     },
     {
@@ -239,7 +229,7 @@
       "author": "Redazione",
       "date": "1986-05-02",
       "image": "auto",
-      "why": "Uno sguardo fresco e sincero che ci prepara a guardare Pompei con occhi nuovi.",
+      "why": "Uno sguardo fresco che ci prepara a Pompei con occhi nuovi.",
       "pellegrinaggio": "Assisi 1986"
     },
     {
@@ -249,7 +239,7 @@
       "author": "Redazione",
       "date": "1986-06-01",
       "image": "auto",
-      "why": "Pompei può essere anche questo: una profezia di comunione e gioia per il futuro.",
+      "why": "Pompei come profezia di comunione e gioia per il futuro.",
       "pellegrinaggio": "Assisi 1986"
     },
     {
@@ -259,7 +249,7 @@
       "author": "Redazione",
       "date": "1995-06-10",
       "image": "auto",
-      "why": "Pompei sarà un’occasione per ringraziare: le persone, il cammino, Dio.",
+      "why": "Pompei è anche gratitudine: per le persone, il cammino, Dio.",
       "pellegrinaggio": "Assisi 1995"
     },
     {
@@ -269,9 +259,98 @@
       "author": "Mariangela Bertolini",
       "date": "1981-12-20",
       "image": "auto",
-      "why": "Una riflessione profonda sul senso stesso del pellegrinaggio, che accompagna anche Pompei.",
+      "why": "Riflessione sul senso del pellegrinare che accompagna anche Pompei.",
+      "pellegrinaggio": "—"
+    },
+    {
+      "title": "Perché si manifestassero le opere di Dio",
+      "url": "https://www.ombreeluci.it/1986/perche-si-manifestassero-le-opere-dio/",
+      "subtitle": "Il Card. Martini medita il senso del pellegrinaggio come spazio di grazia.",
+      "author": "Carlo Maria Martini",
+      "date": "1986-04-25",
+      "image": "auto",
+      "why": "Pompei come momento in cui la fede diventa segno tangibile delle opere di Dio.",
+      "pellegrinaggio": "Assisi 1986"
+    },
+    {
+      "title": "I genitori commentano le parole del Cardinal Martini",
+      "url": "https://www.ombreeluci.it/1986/i-genitori-commentano-le-parole-del-cardinal-martini/",
+      "subtitle": "Voci dal cuore di mamme e papà dopo l’intervento del Cardinal Martini.",
+      "author": "Redazione",
+      "date": "1986-06-01",
+      "image": "auto",
+      "why": "La voce dei genitori ci ricorda che Pompei è il luogo dei cuori che parlano.",
+      "pellegrinaggio": "Assisi 1986"
+    },
+    {
+      "title": "Dopo Assisi",
+      "url": "https://www.ombreeluci.it/1986/dopo-assisi/",
+      "subtitle": "Il ritorno a casa dopo il pellegrinaggio: cosa è cambiato.",
+      "author": "Redazione",
+      "date": "1986-06-01",
+      "image": "auto",
+      "why": "Ci prepara al dopo‑Pompei: il cammino continua nel quotidiano.",
+      "pellegrinaggio": "Assisi 1986"
+    },
+    {
+      "title": "La lettera di Paolo VI ai pellegrini di Fede e Luce",
+      "url": "https://www.ombreeluci.it/1975/la-lettera-di-paolo-vi-ai-pellegrini-di-fede-e-luce/",
+      "subtitle": "Un messaggio di consolazione e speranza da parte di Papa Paolo VI (1975).",
+      "author": "Redazione",
+      "date": "1975-10-27",
+      "image": "auto",
+      "why": "Un legame diretto con Roma 1975 che accende l’attesa spirituale per Pompei.",
+      "pellegrinaggio": "Roma 1975"
+    },
+    {
+      "title": "Parole per persone grandi",
+      "url": "https://www.ombreeluci.it/2010/parole-per-persone-grandi/",
+      "subtitle": "Il racconto semplice di un capo indiano accende la comunità.",
+      "author": "Redazione",
+      "date": "2010-01-01",
+      "image": "auto",
+      "why": "Uno stile narrativo che parla al cuore e accompagna anche Pompei.",
+      "pellegrinaggio": "—"
+    },
+    {
+      "title": "La presenza dei più piccoli",
+      "url": "https://www.ombreeluci.it/2001/la-presenza-dei-piu-piccoli/",
+      "subtitle": "Editoriale che celebra l’arrivo dei bambini nei raduni di Fede e Luce.",
+      "author": "Mariangela Bertolini",
+      "date": "2001-06-01",
+      "image": "auto",
+      "why": "I più piccoli rendono vivo ogni cammino: anche Pompei sarà animata da loro.",
+      "pellegrinaggio": "—"
+    },
+    {
+      "title": "Fede e Luce: essere movimento",
+      "url": "https://www.ombreeluci.it/2015/fede-e-luce-essere-movimento/",
+      "subtitle": "Riflessione sul carisma che unisce e muove il movimento.",
+      "author": "Stefano Di Franco",
+      "date": "2015-03-19",
+      "image": "auto",
+      "why": "Fondamento vitale: Pompei è il luogo dove tutto si muove e si incontra.",
+      "pellegrinaggio": "—"
+    },
+    {
+      "title": "Nel mare di Assisi",
+      "url": "https://www.ombreeluci.it/2005/nel-mare-di-assisi/",
+      "subtitle": "Riflessione sull’illusione della massa e il valore della persona.",
+      "author": "Vito Giannulo",
+      "date": "2005-06-17",
+      "image": "auto",
+      "why": "Pompei, come Assisi, sarà un mare: ma il valore è in ogni singolo pellegrino.",
+      "pellegrinaggio": "Assisi 1986"
+    },
+    {
+      "title": "Il nostro incontro con Liliana Segre",
+      "url": "https://www.ombreeluci.it/2018/il-nostro-incontro-con-liliana-segre/",
+      "subtitle": "Un dialogo profondo con Liliana Segre sul significato della memoria.",
+      "author": "Redazione",
+      "date": "2018-01-01",
+      "image": "auto",
+      "why": "Pompei come luogo di memoria e speranza, illuminato dalla forza delle parole.",
       "pellegrinaggio": "—"
     }
-
   ]
 }
