@@ -15,6 +15,10 @@
 .hero .lead { color: var(--muted, #6b7280); }
 */
 
+a{color: var(--verde-acqua); text-decoration: none;}
+a:hover{color: black;}
+
+
 main#articoli-pellegrinaggi{font-family: var(--ff-title);}
 /* ==== barra filtri/cerca (coerente con canti.html) ==== */
 .toolbar {
@@ -124,12 +128,12 @@ main#articoli-pellegrinaggi{font-family: var(--ff-title);}
 
 /* ==== timeline ==== */
 .timeline{ position: relative; margin: 1.25rem 0 0; }
-.timeline::before{ content:""; position:absolute; left:10px; top:0; bottom:0; width:2px; background:#e5e7eb; }
+.timeline::before{ content:""; position:absolute; left:8px; top:12px; bottom:0; width:2px; background:var(--azzurro); }
 .timeline-group{ display:flex; gap:1rem; margin:.6rem 0; }
-.timeline-dot{ width:18px; height:18px; border-radius:999px; background:#111827; margin-top:.25rem; }
-.timeline-content h4{ margin:.15rem 0; }
-.timeline-content .year{ color:#6b7280; font-weight:400; }
-.timeline-ul{ margin:.25rem 0 0; padding-left:1rem; }
+.timeline-dot{ width:18px; height:18px; border-radius:999px; background:var(--azzurro); margin-top:.6rem; }
+.timeline-content h4{ margin:.15rem 0; font-size: 115%;color: var(--azzurro);}
+.timeline-content .year{ color:#6b7280; font-weight:400; display: none;}
+.timeline-ul{ margin:.25rem 0 0; padding-left:0rem; list-style: none;}
 .timeline-ul li{ margin:.15rem 0; }
 
 /* credits */

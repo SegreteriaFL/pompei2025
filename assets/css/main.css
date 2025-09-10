@@ -27,6 +27,9 @@ a{color:inherit}
 .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
 .skip-link:focus{left:1rem;top:1rem;width:auto;height:auto;padding:.5rem 1rem;background:#000;color:#fff;z-index:999}
 
+/* Icone SVG */
+.icon{width:1.2em;height:1.2em;display:inline-block;vertical-align:middle;margin-right:.5em}
+
 /* header+menu */
 .site-header{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--line); z-index: 1000;  /* sopra tutto */}
 .header-inner{display:flex;align-items:center;gap:1rem;min-height:64px}
@@ -129,8 +132,9 @@ a{color:inherit}
 .hero{padding:2rem 0 1.4rem;border-bottom:1px solid var(--line)}
 .hero h1{line-height:1;font-family:var(--ff-title); font-size:clamp(1.9rem,3vw,2.2rem); margin:.2em 0 .3em}
 .lead{line-height:1;font-size:1.05rem;color:var(--muted);max-width:60ch;font-family:var(--ff-title)}
+body#intro .lead{line-height:1.4;font-size:1.3rem;color:var(--muted);max-width:60ch;font-family:var(--ff-text);font-style: italic;}
 .hero-actions{display:flex;gap:.6rem;margin-top:1rem}
-.btn{display:inline-block;padding:.6rem 1rem;border-radius:var(--radius);background:linear-gradient(90deg,var(--brand),var(--brand-2));color:#fff;text-decoration:none}
+.btn{display:inline-block;padding:.6rem 1rem;border-radius:var(--radius);background:var(--azzurro);color:#fff;text-decoration:none; font-family: var(--ff-title);}
 .btn.ghost{background:transparent;border:1px solid var(--line);color:var(--fg)}
 
 /* sezioni */
@@ -182,10 +186,10 @@ h6{font-size: inherit; font-style: italic; margin:1rem 0 0;}
 /* mobile nav */
 @media (max-width: 860px){
   .menu-toggle{display:inline-block}
-  .site-nav{display:none;position:absolute;top:64px;left:0;right:0;background:#fff;border-bottom:1px solid var(--line)}
+  .site-nav{display:none;position:absolute;top:64px;left:0;right:0;background:#fff;border-bottom:1px solid var(--line); font-size: 16px}
   .site-nav.open{display:block}
   .nav-list{flex-direction:column;padding:0.75rem}
-  .nav-list a{padding:.75rem 1rem}
+  .nav-list a{padding:.75rem 1rem; font-size: 16px}
 }
 
 
@@ -638,6 +642,8 @@ li.entry {
 @media (max-width: 860px){
   .footer-grid{grid-template-columns:1fr;gap:1.5rem}
   .footer-logo{width:72px}
+  .footer-col.left{display:block}
+  .footer-col.left > div{margin-top:1rem}
 }
 
 
@@ -675,7 +681,7 @@ ul.contact-list {
   padding: 0;
 }
 ul.contact-list li{margin: 0 0 1rem;}
-.muted{text-transform: uppercase;line-height: 1.;color: var(--azzurro)}
+.muted{text-transform: uppercase;line-height: 1.;}
 
 ul.contact-list li 
 address{margin: 1rem 0 0;}
@@ -701,6 +707,7 @@ address{margin: 1rem 0 0;}
   height: 100%;
   border: 0;
   display: block;
+  border-radius: 10px;
 }
 
 
@@ -741,4 +748,296 @@ address{margin: 1rem 0 0;}
 /* Accessibilità movimento ridotto */
 @media (prefers-reduced-motion: reduce){
   html{ scroll-behavior: auto; }
+}
+
+/* Album grid */
+.album-grid { 
+  display: grid; 
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); 
+  gap: 1rem; 
+  margin: 1.5rem 0;
+}
+
+.album-card { 
+  background: #fff; 
+  border-radius: .75rem; 
+  overflow: hidden; 
+  box-shadow: 0 1px 4px rgba(0,0,0,.08); 
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.album-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,.15);
+}
+
+.album-card img { 
+  width: 100%; 
+  height: 220px; 
+  object-fit: cover; 
+  display: block; 
+}
+
+.album-card figcaption { 
+  padding: .75rem; 
+  font-size: .95rem; 
+}
+
+.album-card .meta { 
+  color: #64748b; 
+  font-size: .85rem; 
+  margin: .25rem 0; 
+}
+
+/* Responsive album */
+@media (max-width: 768px) {
+  .album-grid {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: .75rem;
+  }
+  
+  .album-card img {
+    height: 180px;
+  }
+}
+
+
+/* Form container */
+.form-container {
+  text-align: center;
+  padding: 2rem;
+  background: var(--card);
+  border-radius: 1rem;
+  border: 2px dashed var(--line);
+  margin: 1.5rem 0;
+}
+
+.form-container .btn {
+  font-size: 1.1rem;
+  padding: 1rem 2rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.form-note {
+  margin: 1rem 0 0 0;
+  color: var(--muted);
+  font-style: italic;
+}
+
+.form-note small {
+  font-size: 0.9rem;
+}
+
+/* Placeholder wall */
+.placeholder-wall {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  padding: 2rem;
+  text-align: center;
+  background: var(--card);
+  border: 2px dashed var(--line);
+  border-radius: 1rem;
+  color: var(--muted);
+}
+
+.placeholder-wall h3 {
+  margin: 0 0 1rem 0;
+  color: var(--fg);
+  font-size: 1.5rem;
+}
+
+.placeholder-wall p {
+  margin: 0.5rem 0;
+  max-width: 400px;
+}
+
+.placeholder-wall code {
+  background: var(--line);
+  padding: 0.2rem 0.4rem;
+  border-radius: 0.3rem;
+  font-family: monospace;
+  font-size: 0.9rem;
+}
+
+/* Placeholder album */
+.placeholder-album {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+  padding: 2rem;
+  text-align: center;
+  background: var(--card);
+  border: 2px dashed var(--line);
+  border-radius: 1rem;
+  color: var(--muted);
+  grid-column: 1 / -1; /* Occupa tutta la griglia */
+}
+
+.placeholder-album h3 {
+  margin: 0 0 1rem 0;
+  color: var(--fg);
+  font-size: 1.5rem;
+}
+
+.placeholder-album p {
+  margin: 0.5rem 0;
+  max-width: 400px;
+}
+
+.placeholder-album a {
+  color: var(--brand);
+  text-decoration: none;
+}
+
+.placeholder-album a:hover {
+  text-decoration: underline;
+}
+
+/* Social Links Container */
+.social-links-container {
+  text-align: center;
+  padding: 2rem;
+  background: var(--card);
+  border-radius: 1rem;
+  margin: 1.5rem 0;
+}
+
+.social-links-container h3 {
+  margin: 0 0 1rem 0;
+  color: var(--fg);
+  font-size: 1.5rem;
+}
+
+.social-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 1.5rem 0;
+}
+
+.social-buttons .btn {
+  padding: 1rem 1.5rem;
+  text-decoration: none;
+  border-radius: 999px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn-instagram {
+  background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
+  color: white;
+}
+
+.btn-twitter {
+  background: #1da1f2;
+  color: white;
+}
+
+.btn-facebook {
+  background: #1877f2;
+  color: white;
+}
+
+.btn-tiktok {
+  background: #000000;
+  color: white;
+}
+
+.social-buttons .btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* Social CTA Section */
+.social-cta {
+   color: white;
+  padding: 3rem 0;
+  margin: 0;
+  font-family: var(--ff-title);
+}
+
+.social-cta .social-links-container {
+  background: linear-gradient(135deg, var(--verde-acqua) 0%, var(--azzurro) 100%);
+  border-radius: 1rem;
+  padding: 2rem;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.social-cta .social-links-container h3 {
+  color: white;
+  margin: 0 0 1rem 0;
+  font-size: 2rem;
+}
+
+.cta-title {
+  font-family: var(--ff-title);
+}
+
+.text-giallo {
+  color: var(--yellow-orange);
+}
+
+.social-cta .social-links-container p {
+  color: rgba(255, 255, 255, 0.95);
+  margin: 0 0 1.5rem 0;
+  font-size: 1.2rem;
+}
+
+.social-cta .social-buttons .btn {
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  backdrop-filter: blur(10px);
+}
+
+.social-cta .social-buttons .btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Social CTA */
+@media (max-width: 768px) {
+  .social-cta {
+    padding: 2rem 0;
+  }
+  
+  .social-cta .social-links-container {
+    padding: 1.5rem;
+  }
+  
+  .social-cta .social-links-container h3 {
+    font-size: 1.8rem;
+  }
+}
+
+/* Responsive social buttons */
+@media (max-width: 768px) {
+  .social-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .social-buttons .btn {
+    width: 100%;
+    max-width: 250px;
+    justify-content: center;
+  }
+  
+  .social-feed-container {
+    padding: 1rem;
+    margin: 1rem 0;
+  }
 }

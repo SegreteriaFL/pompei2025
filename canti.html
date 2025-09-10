@@ -4,7 +4,27 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Canti – Pellegrinaggio Pompei 2025</title>
-  <meta name="description" content="Introduzioni e messaggi dal libretto.">
+  <meta name="description" content="Canti liturgici e di animazione per il pellegrinaggio.">
+  <link rel="canonical" href="https://www.fedeeluce.it/pompei2025/canti.html">
+  
+  <!-- Open Graph -->
+  <meta property="og:site_name" content="Fede e Luce – Pompei 2025">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Canti – Pellegrinaggio Pompei 2025">
+  <meta property="og:description" content="Canti liturgici e di animazione per il pellegrinaggio.">
+  <meta property="og:url" content="https://www.fedeeluce.it/pompei2025/canti.html">
+  <meta property="og:image" content="https://www.fedeeluce.it/wp-content/uploads/2025/09/Cover-Pompei-Pellegrinaggio-2025.webp">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Canti – Pellegrinaggio Pompei 2025">
+  <meta name="twitter:description" content="Canti liturgici e di animazione per il pellegrinaggio.">
+  <meta name="twitter:image" content="https://www.fedeeluce.it/wp-content/uploads/2025/09/Cover-Pompei-Pellegrinaggio-2025.webp">
+
+  <!-- Tecnici -->
   <meta name="theme-color" content="#ffffff">
   <link rel="preload" href="assets/css/main.css" as="style">
   <link rel="stylesheet" href="assets/css/main.css">
@@ -1320,3 +1340,51 @@ sia.</pre>
     })();
 
     </script>
+<script>
+(function(){
+  const q = document.getElementById('songSearch');
+  const sticky = document.querySelector('.sticky-bar');
+  if (!q || !sticky) return;
+
+  const root = document.documentElement;
+  const getVarPx = (name) => parseInt(getComputedStyle(root).getPropertyValue(name) || '0', 10);
+
+  function targetY(){
+    // header-height può arrivare da --header-height o --header-h
+    const headerH = getVarPx('--header-height') || getVarPx('--header-h') || 64;
+    const gap     = getVarPx('--sticky-gap') || 0; // è 0px per questa pagina
+    return sticky.getBoundingClientRect().top + window.scrollY - headerH - gap;
+  }
+
+  function snapStickyIntoView(behavior='smooth'){
+    const y = targetY();
+    // evita jitter: scrolla solo se siamo “lontani” dalla posizione giusta
+    if (Math.abs(window.scrollY - y) > 6) {
+      window.scrollTo({ top: y, behavior });
+    }
+  }
+
+  let aligned = false;
+
+  // 1) appena inizi a digitare (da vuoto → primo carattere) allinea
+  q.addEventListener('input', () => {
+    if (!aligned && q.value.length > 0) {
+      aligned = true;
+      // usa rAF per assicurare che lo sticky abbia calcolato la posizione
+      requestAnimationFrame(() => snapStickyIntoView('smooth'));
+    }
+    if (q.value.length === 0) aligned = false; // reset quando svuoti
+  });
+
+  // 2) se entri col focus a metà pagina, allinea subito (una volta)
+  q.addEventListener('focus', () => {
+    if (!aligned) requestAnimationFrame(() => snapStickyIntoView('smooth'));
+  });
+
+  // 3) se arrivi con ?q= già valorizzato, allinea subito
+  if (new URLSearchParams(location.search).get('q')) {
+    requestAnimationFrame(() => snapStickyIntoView('instant'));
+    aligned = true;
+  }
+})();
+</script>

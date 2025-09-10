@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Album | Pellegrinaggio Pompei 2025 – Fede e Luce</title>
+  <meta name="description" content="L'album dei contributi dei pellegrini: post social e foto/video inviati.">
+  <link rel="canonical" href="https://www.fedeeluce.it/pompei2025/album.html">
+  
+  <!-- Open Graph -->
+  <meta property="og:site_name" content="Fede e Luce – Pompei 2025">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Album | Pellegrinaggio Pompei 2025 – Fede e Luce">
+  <meta property="og:description" content="L'album dei contributi dei pellegrini: post social e foto/video inviati.">
+  <meta property="og:url" content="https://www.fedeeluce.it/pompei2025/album.html">
+  <meta property="og:image" content="https://www.fedeeluce.it/wp-content/uploads/2025/09/Cover-Pompei-Pellegrinaggio-2025.webp">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Album | Pellegrinaggio Pompei 2025 – Fede e Luce">
+  <meta name="twitter:description" content="L'album dei contributi dei pellegrini: post social e foto/video inviati.">
+  <meta name="twitter:image" content="https://www.fedeeluce.it/wp-content/uploads/2025/09/Cover-Pompei-Pellegrinaggio-2025.webp">
+
+  <!-- Tecnici -->
+  <meta name="theme-color" content="#ffffff">
+  <link rel="preload" href="assets/css/main.css" as="style">
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+  <div class="scroll-progress" aria-hidden="true"></div>
+  <a class="skip-link" href="#contenuto">Salta al contenuto</a>
+
+  <div id="siteHeader"></div>
+
+  <main id="contenuto" class="container page-wrapper">
+    <section class="hero" aria-label="Album">
+      <h1>Album dei pellegrini</h1>
+      <p class="lead">Una raccolta dei vostri sguardi su Pompei. Hashtag ufficiale: <strong>#FLPompei2025</strong>.</p>
+    </section>
+
+
+    <section class="section-group entry">
+      <h2>Contributi caricati</h2>
+      <div id="albumGrid" class="album-grid"></div>
+    </section>
+
+    <div class="backtop"><a href="#top" class="btn">Torna su</a></div>
+  </main>
+
+  <div id="footer-root"></div>
+
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const grid = document.getElementById('albumGrid');
+    if (grid) {
+      grid.innerHTML = `
+        <div class="placeholder-album">
+          <h3>📸 Album in preparazione</h3>
+          <p>I contributi dei pellegrini saranno pubblicati qui dopo la moderazione.</p>
+          <p><small>Per caricare le tue foto, vai alla pagina <a href="partecipa.html">Partecipa</a>.</small></p>
+        </div>
+      `;
+    }
+  });
+  </script>
+
+
+  <script src="assets/js/header.inc.js" defer></script>
+  <script src="assets/js/casefix.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
+  
+  <!-- Footer semplificato per evitare errori -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const footerRoot = document.getElementById('footer-root');
+      if (footerRoot) {
+        footerRoot.innerHTML = `
+          <footer class="site-footer" role="contentinfo">
+            <div class="container">
+              <p>© 2025 Fede e Luce – Pellegrinaggio Pompei 2025</p>
+              <p><a href="https://www.fedeeluce.it/" target="_blank" rel="noopener">fedeeluce.it</a></p>
+            </div>
+          </footer>
+        `;
+      }
+    });
+  </script>
+</body>
+</html>

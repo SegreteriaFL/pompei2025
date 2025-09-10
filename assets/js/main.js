@@ -116,11 +116,11 @@ function fixInitialHashOffset() {
 
     const items = [
       ['intro.html',        'Per iniziare'],
-      ['programma.html',    'Programma'],
+      ['programma-sintetico.html',    'Programma'],
       ['canti.html',        'Canti'],
       ['guida-pompei.html', 'Info'],
       ['staff.html',        'Staff'],
-      ['pellegrinaggi.html','Letture'],
+      ['pellegrinaggi.html','Letture']
     ];
 
     const currentPath = normalizePath(window.location.pathname);

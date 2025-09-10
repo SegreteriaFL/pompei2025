@@ -1,0 +1,81 @@
+* Appunti
+
+** Link Qrcode
+https://www.fedeeluce.it/pompei2025/partecipa.html?utm_source=badge&utm_medium=qr&utm_campaign=pompei2025
+
+** Partial per header SEO
+
+<!-- SEO base -->
+<title><!-- TITOLO PAGINA --> | Pellegrinaggio Pompei 2025 – Fede e Luce</title>
+<meta name="description" content="<!-- DESCRIZIONE BREVE DELLA PAGINA (≤160) -->">
+<link rel="canonical" href="https://www.fedeeluce.it/pompei2025/<!-- FILE-PAGINA.html -->">
+
+<!-- Open Graph -->
+<meta property="og:site_name" content="Fede e Luce – Pompei 2025">
+<meta property="og:locale" content="it_IT">
+<meta property="og:type" content="website">
+<meta property="og:title" content="<!-- TITOLO OG -->">
+<meta property="og:description" content="<!-- DESCRIZIONE OG -->">
+<meta property="og:url" content="https://www.fedeeluce.it/pompei2025/<!-- FILE-PAGINA.html -->">
+<meta property="og:image" content="https://www.fedeeluce.it/wp-content/uploads/2025/09/Cover-Pompei-Pellegrinaggio-2025.webp">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="<!-- TITOLO -->">
+<meta name="twitter:description" content="<!-- DESCRIZIONE -->">
+<meta name="twitter:image" content="https://www.fedeeluce.it/wp-content/uploads/2025/09/Cover-Pompei-Pellegrinaggio-2025.webp">
+
+<!-- Tecnici -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#ffffff">
+<link rel="preload" href="assets/css/main.css" as="style">
+<link rel="stylesheet" href="assets/css/main.css">
+
+
+** Statistiche sito e QR
+
+GA4 sulla root fedeeluce.it: va benissimo anche per il minisito /pompei2025. Crea segmenti o report filtrati su Page path contains /pompei2025 e su utm_campaign=pompei2025.
+
+Eventi utili:
+
+view_partecipa (trigger quando si apre la pagina),
+
+qr_scan (derivabile dai parametri UTM),
+
+form_upload_click (click sul bottone “Apri modulo”),
+
+social_wall_view (visibilità dell’iframe o click “vedi di più”).
+
+Google Business Profile: non è lo strumento giusto (serve una sede fisica). Meglio GA4 + UTM.
+
+Facoltativo: Bitly per contare scan/click del QR in modo separato (ma GA4 copre già le analisi principali).
+
+
+** BADGE code
+<div class="badge">
+  <h3>Condividi il tuo viaggio</h3>
+  <img class="qr" src="assets/img/qr_partecipa_pompei2025.svg" alt="QR Partecipa" />
+  <p class="url">fedeeluce.it/pompei2025/partecipa.html</p>
+  <div class="hashtags">#Pompei2025 · <strong>#FLPompei2025</strong></div>
+  <ol class="rules">
+    <li>Rendi <b>pubblico</b> il post e usa <b>#FLPompei2025</b>.</li>
+    <li>Evita volti di minori senza consenso.</li>
+    <li>Niente social? Carica da <b>Partecipa</b>.</li>
+  </ol>
+  <p class="note">Aggiungi comunità/città per essere citato.</p>
+</div>
+
+<style>
+.badge{ width:105mm; height:148mm; border:1px solid #e2e8f0; padding:14mm; 
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",sans-serif; 
+  display:flex; flex-direction:column; justify-content:center; align-items:center; gap:8px; }
+.badge h3{ margin:0 0 6px; font-size:20pt; }
+.badge .qr{ width:54mm; height:54mm; object-fit:contain; margin:2mm 0; }
+.badge .url{ font-size:10pt; color:#334155; margin:0 0 6px; }
+.badge .hashtags{ font-size:12pt; margin:2mm 0 4mm; }
+.badge .rules{ font-size:10.5pt; line-height:1.35; margin:0 0 6px; padding-left:16px; }
+.badge .note{ font-size:9.5pt; color:#475569; margin:4px 0 0; }
+@media print { .badge{ box-shadow:none; } }
+</style>

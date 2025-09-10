@@ -1,0 +1,224 @@
+*Situazone cose da fare
+**Stato attuale
+✅ Pagine partecipa.html e album.html create (ma “buggose”).
+⏳ Walls.io: da configurare e incorporare.
+⏳ Google Form: da creare.
+✅ album.json: esiste.
+⏳ Apps Script: da fare per trasformare risposte del Form → JSON (o endpoint web).
+❌ Badge cartaceo: non serve più (gestiamo tutto online).
+⏳ Sub‑nav / tabs: per ora ok, revisione grafica dopo.
+
+** Fix rapidi (oggi)
+Valida HTML: rimuovi doppi </body></html>, chiudi tag, aria- coerente.
+Head unico: usa il partial OG che ti ho dato in tutte le pagine.
+Embed responsive: racchiudi l’iframe Walls.io in .responsive (già usata nel sito).
+Album: fai puntare il fetch a un endpoint Apps Script (eviti commit manuali di JSON).
+CTA interlink: da programma*.html e info.html link evidenti → partecipa.html.
+
+** Walls.io (in pratica, 5 minuti)
+Crea account su walls.io → “Create a Wall”.
+Sources: aggiungi hashtag #FLPompei2025 dai social supportati (nota: ogni piattaforma ha limiti/API propri; meglio attivare anche “page/profile” dove possibile).
+Moderation: ON (così approvi prima di mostrare).
+Design: scegli layout + colori.
+Embed: copia l’URL embed (iframe) e incollalo in:
+partecipa.html → sezione “Social wall (live)”
+album.html → sezione “Dal Social”
+Se vedi blocchi in produzione, abilita il dominio www.fedeeluce.it nelle impostazioni di embed.
+HTML (placeholder):
+
+** Google Form (schema)
+
+Titolo: Carica foto/video – Pompei 2025 (Fede e Luce)
+Sezione Dati
+
+Nome e cognome (obbl.)
+
+Email (obbl.)
+
+Comunità / Città (obbl.)
+
+Consenso utilizzo immagini (checkbox obbl.)
+Sezione Contenuti
+
+Foto (File upload, JPG/PNG, multi fino a 10)
+
+Video (File upload, MP4, opzionale)
+
+Descrizione breve / contesto (testo, 280–500)
+Sezione Privacy
+
+“Non carico volti di minori senza consenso” (checkbox)
+
+“Accetto l’informativa” (checkbox, link informativa)
+
+Impostazioni
+
+Risposte su Google Sheet dedicato.
+
+Upload su cartella Drive dedicata.
+
+Aggiungi nel foglio una colonna APPROVATO (sì/no).
+
+
+
+** Apps Script → endpoint JSON (plug‑and‑play)
+
+Pubblicherai un Web App che espone i contributi approvati come JSON.
+In album.html punterai direttamente a quell’URL.
+
+Come usare
+
+Apri il Foglio delle risposte → Estensioni → Apps Script → incolla codice → “Deploy” → Web app → Access: Anyone with the link.
+
+Sostituisci in album.html l’URL del fetch con quello generato.
+
+Codice (incolla tutto)
+
+/** Config **/
+const CONFIG = {
+  SHEET_NAME: 'Form Responses 1', // o 'Risposte al modulo 1'
+  // Riconoscimento colonne per nome (case-insensitive, usa regex ampie)
+  COLS: {
+    nome: /nome.*cognome|nome/i,
+    email: /mail/i,
+    comunita: /comunit|citt|gruppo/i,
+    descrizione: /descriz|note/i,
+    approvato: /approv|modera/i,
+    foto: /foto/i,
+    video: /video/i
+  },
+  // Se true, rende pubblici i file su Drive (anyone with link -> view)
+  FORCE_PUBLIC: true
+};
+
+/** Endpoint pubblico: GET → JSON */
+function doGet() {
+  const out = buildItems_();
+  return ContentService
+    .createTextOutput(JSON.stringify(out))
+    .setMimeType(ContentService.MimeType.JSON)
+    .setHeader('Access-Control-Allow-Origin', '*');
+}
+
+/** Core: legge sheet, filtra APPROVATO, espone uno item per file (foto/video) */
+function buildItems_() {
+  const sh = SpreadsheetApp.getActive().getSheetByName(CONFIG.SHEET_NAME);
+  if (!sh) return [];
+  const values = sh.getDataRange().getValues();
+  if (values.length < 2) return [];
+  const headers = values[0].map(String);
+
+  // Mappa indici colonne
+  const idx = {};
+  headers.forEach((h, i) => {
+    const H = h.trim();
+    for (const key in CONFIG.COLS) {
+      if (!idx[key] && CONFIG.COLS[key].test(H)) idx[key] = i;
+    }
+  });
+
+  const rows = values.slice(1);
+  const items = [];
+
+  rows.forEach(r => {
+    const approv = idx.approvato != null ? String(r[idx.approvato] || '').toLowerCase() : 'sì';
+    if (!/s[iìi]|yes|ok|true/.test(approv)) return;
+
+    const base = {
+      nome: idx.nome != null ? String(r[idx.nome] || '').trim() : '',
+      comunita: idx.comunita != null ? String(r[idx.comunita] || '').trim() : '',
+      note: idx.descrizione != null ? String(r[idx.descrizione] || '').trim() : ''
+    };
+
+    // Foto
+    if (idx.foto != null && r[idx.foto]) {
+      parseLinks_(String(r[idx.foto])).forEach(id => {
+        if (CONFIG.FORCE_PUBLIC) setPublic_(id);
+        items.push(Object.assign({}, base, {
+          type: 'image',
+          url: viewUrl_(id),
+          alt: base.note || 'Foto pellegrinaggio'
+        }));
+      });
+    }
+    // Video
+    if (idx.video != null && r[idx.video]) {
+      parseLinks_(String(r[idx.video])).forEach(id => {
+        if (CONFIG.FORCE_PUBLIC) setPublic_(id);
+        items.push(Object.assign({}, base, {
+          type: 'video',
+          url: viewUrl_(id),
+          alt: base.note || 'Video pellegrinaggio'
+        }));
+      });
+    }
+  });
+
+  return items;
+}
+
+/** Estrae ID file da link Drive multipli in una cella (separati da virgole/newline) */
+function parseLinks_(cell) {
+  return cell
+    .split(/[,;\n]+/)
+    .map(s => s.trim())
+    .map(s => {
+      let m = s.match(/\/file\/d\/([a-zA-Z0-9_-]+)/); if (m) return m[1];
+      m = s.match(/[?&]id=([a-zA-Z0-9_-]+)/);        if (m) return m[1];
+      m = s.match(/\/d\/([a-zA-Z0-9_-]+)/);          if (m) return m[1];
+      return null;
+    })
+    .filter(Boolean);
+}
+
+/** Rende pubblico il file (anyone with link, view) */
+function setPublic_(id) {
+  try {
+    const f = DriveApp.getFileById(id);
+    f.setSharing(DriveApp.Access.ANYONE_WITH_LINK, DriveApp.Permission.VIEW);
+  } catch(e) {}
+}
+
+/** URL visualizzazione inline (immagini/video) */
+function viewUrl_(id) {
+  // Per immagini funziona bene; per MP4 spesso ok, in alternativa si può usare il link /preview
+  return 'https://drive.google.com/uc?export=view&id=' + id;
+}
+// Facoltativo: per video potresti preferire:
+// return 'https://drive.google.com/file/d/' + id + '/preview';
+
+
+In album.html sostituisci il fetch:
+<script>
+(async function(){
+  const ENDPOINT = 'https://script.google.com/macros/s/XXXXX/exec'; // URL Web App
+  try {
+    const res = await fetch(ENDPOINT, { cache: 'no-store' });
+    const items = await res.json();
+    const grid = document.getElementById('albumGrid');
+    grid.innerHTML = items.map(it => `
+      <figure class="card">
+        ${it.type === 'video'
+          ? `<iframe src="${it.url.replace('uc?export=view','file/d')+'/preview'}" allowfullscreen loading="lazy"></iframe>`
+          : `<img src="${it.url}" alt="${it.alt || 'Contributo'}" loading="lazy">`}
+        <figcaption>
+          <strong>${it.nome || 'Anonimo'}</strong>
+          ${it.comunita ? `<div class="meta">${it.comunita}</div>` : ''}
+          ${it.note ? `<p>${it.note}</p>` : ''}
+        </figcaption>
+      </figure>
+    `).join('');
+  } catch(e){ console.error('Album load error', e); }
+})();
+</script>
+<style>
+.card iframe{ width:100%; height:220px; border:0; display:block; }
+</style>
+
+
+
+** To‑Do (ordinato per priorità)
+
+Ripulisci HTML (tag doppi/chiusure), applica head OG su tutte le pagine.
+Aggiungi colonna APPROVATO nel foglio; modera i contenuti.
+Rifinitura tabs/sub‑nav (stile unico, focus states, mobile).
