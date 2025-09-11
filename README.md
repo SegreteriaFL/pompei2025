@@ -1,4 +1,4 @@
-# Pellegrinaggio Pompei 2025 - Deploy automatico FUNZIONANTE! 🚀 – Sito ufficiale
+# Pellegrinaggio Pompei 2025 - Test con secrets corretti! 🚀 – Sito ufficiale
 
 Questo repository contiene il sito web statico del Pellegrinaggio nazionale di **Fede e Luce** a **Pompei**, in programma dal **18 al 21 settembre 2025**, in occasione dei 50 anni del movimento in Italia.
 
