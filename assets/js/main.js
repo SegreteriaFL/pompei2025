@@ -437,13 +437,13 @@ function fixInitialHashOffset() {
     
     socialLinks.forEach(link => {
       link.addEventListener('click', function(e) {
-        if (!isMobile()) return; // Solo su mobile
-        
         const appUrl = this.getAttribute('data-app-url');
         const webUrl = this.getAttribute('href');
         
         if (!appUrl) return;
         
+        // Su mobile: prova app prima, poi browser
+        if (isMobile()) {
         e.preventDefault();
         
         // Prova ad aprire l'app
@@ -457,6 +457,8 @@ function fixInitialHashOffset() {
           document.body.removeChild(iframe);
           window.open(webUrl, '_blank', 'noopener,noreferrer');
         }, 2500);
+        }
+        // Su desktop: lascia che il browser gestisca normalmente (target="_blank")
       });
     });
   }
