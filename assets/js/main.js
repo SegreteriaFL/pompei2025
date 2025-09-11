@@ -158,37 +158,7 @@ function fixInitialHashOffset() {
   }
 
   // ===== Subnav (riuso per Programma, Info, ecc.) =====
-  function initSubnavs() {
-    // evidenziazione attiva per *tutte* le subnav presenti
-    $all('.subnav').forEach(subnav => {
-      const links = $all('a[href^="#"]', subnav);
-      if (!links.length) return;
-
-      // click con offset (se non già gestito globalmente)
-      enhanceHashLinks(subnav);
-
-      const ids = links.map(a => a.getAttribute('href').slice(1)).filter(Boolean);
-      const sections = ids.map(id => document.getElementById(id)).filter(Boolean);
-      if (!sections.length) return;
-
-      const headerH = getHeaderH();
-      const subnavH = subnav.offsetHeight || 56;
-
-      const obs = new IntersectionObserver((entries) => {
-        entries.forEach(e => {
-          if (!e.isIntersecting) return;
-          const id = e.target.id;
-          links.forEach(a => {
-            const active = a.getAttribute('href') === '#' + id;
-            a.classList.toggle('active', active);
-            a.setAttribute('aria-current', active ? 'true' : 'false');
-          });
-        });
-      }, { rootMargin: `-${headerH + subnavH + 8}px 0px -60% 0px`, threshold: 0.1 });
-
-      sections.forEach(sec => obs.observe(sec));
-    });
-  }
+  // RIMOSSO: conflitto con sistema più completo sotto
 
   // ===== progress bar =====
   (function () {
@@ -209,7 +179,7 @@ function fixInitialHashOffset() {
     document.documentElement.classList.add('is-loaded');
     initHeaderAndNav();
     enhanceHashLinks(document);
-    initSubnavs();
+    // initSubnavs(); // RIMOSSO: conflitto con sistema più completo
     fixInitialHashOffset();
   }
 
@@ -248,15 +218,30 @@ function fixInitialHashOffset() {
     const headerH = header ? header.offsetHeight : 64;
 
     const obs = new IntersectionObserver((entries) => {
+      // Trova la sezione più visibile
+      let mostVisible = null;
+      let maxVisibility = 0;
+      
       entries.forEach(e => {
-        if (!e.isIntersecting) return;
-        const id = e.target.id;
+        if (e.isIntersecting) {
+          const rect = e.boundingClientRect;
+          const visibility = Math.min(rect.height, window.innerHeight - rect.top, rect.bottom);
+          if (visibility > maxVisibility) {
+            maxVisibility = visibility;
+            mostVisible = e.target;
+          }
+        }
+      });
+      
+      // Aggiorna solo se c'è una sezione visibile
+      if (mostVisible) {
+        const id = mostVisible.id;
         links.forEach(a => {
           const on = a.getAttribute('href') === '#' + id;
-          a.toggleAttribute('aria-current', on);
+          a.setAttribute('aria-current', on ? 'true' : 'false');
           a.classList.toggle('active', on);
         });
-      });
+      }
     }, { rootMargin: `-${headerH + subnav.offsetHeight + 8}px 0px -60% 0px`, threshold: 0.1 });
 
     sections.forEach(sec => obs.observe(sec));
@@ -382,6 +367,161 @@ function fixInitialHashOffset() {
   });
 
   window.addEventListener('resize', setHeaderHeightVar);
+})();
+
+// === BACK TO TOP BUTTON ===
+(function() {
+  // Crea il pulsante back2top se non esiste
+  function createBack2TopButton() {
+    let back2topBtn = document.getElementById('back2top');
+    
+    if (!back2topBtn) {
+      back2topBtn = document.createElement('button');
+      back2topBtn.id = 'back2top';
+      back2topBtn.className = 'btn back2top';
+      back2topBtn.setAttribute('aria-label', 'Torna all\'inizio');
+      back2topBtn.setAttribute('title', 'Torna all\'inizio');
+      
+      back2topBtn.innerHTML = `
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 19V5M5 12l7-7 7 7"/>
+        </svg>
+      `;
+      
+      document.body.appendChild(back2topBtn);
+    }
+    
+    return back2topBtn;
+  }
+  
+  const back2topBtn = createBack2TopButton();
+
+  // Mostra/nascondi il pulsante in base allo scroll
+  function toggleBack2Top() {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    const showThreshold = 300; // Mostra dopo 300px di scroll
+    
+    if (scrollTop > showThreshold) {
+      back2topBtn.classList.add('visible');
+    } else {
+      back2topBtn.classList.remove('visible');
+    }
+  }
+
+  // Scroll to top quando si clicca il pulsante
+  back2topBtn.addEventListener('click', function(e) {
+    e.preventDefault();
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+
+  // Ascolta lo scroll per mostrare/nascondere il pulsante
+  window.addEventListener('scroll', toggleBack2Top, { passive: true });
+  
+  // Controllo iniziale
+  toggleBack2Top();
+})();
+
+// === SOCIAL APP LINKS ===
+(function() {
+  // Funzione per rilevare se siamo su mobile
+  function isMobile() {
+    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  }
+
+  // Gestisce i click sui link social per aprire l'app se disponibile
+  function handleSocialLinks() {
+    const socialLinks = document.querySelectorAll('a[data-app-url]');
+    
+    socialLinks.forEach(link => {
+      link.addEventListener('click', function(e) {
+        if (!isMobile()) return; // Solo su mobile
+        
+        const appUrl = this.getAttribute('data-app-url');
+        const webUrl = this.getAttribute('href');
+        
+        if (!appUrl) return;
+        
+        e.preventDefault();
+        
+        // Prova ad aprire l'app
+        const iframe = document.createElement('iframe');
+        iframe.style.display = 'none';
+        iframe.src = appUrl;
+        document.body.appendChild(iframe);
+        
+        // Se l'app non si apre entro 2.5 secondi, apri la pagina web
+        setTimeout(() => {
+          document.body.removeChild(iframe);
+          window.open(webUrl, '_blank', 'noopener,noreferrer');
+        }, 2500);
+      });
+    });
+  }
+
+  // Inizializza quando il DOM è pronto e quando il footer è caricato
+  function initSocialLinks() {
+    handleSocialLinks();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initSocialLinks);
+  } else {
+    initSocialLinks();
+  }
+  
+  // Re-inizializza quando il footer è caricato (per i link social nel footer)
+  document.addEventListener('sitefooter:ready', initSocialLinks);
+})();
+
+// === NAVIGAZIONE AVATAR AUTORI INTRO ===
+(function() {
+  const avatarNav = document.querySelector('.programma-nav[aria-label="Navigazione per autore"]');
+  if (!avatarNav) return; // Solo su intro.html
+
+  const avatarLinks = Array.from(avatarNav.querySelectorAll('.pill'));
+  const sections = avatarLinks.map(link => document.getElementById(link.getAttribute('href').slice(1))).filter(Boolean);
+
+  if (!sections.length) return;
+
+  // Evidenzia il link attivo in base alla sezione visibile
+  function updateActiveAvatar() {
+    const headerHeight = 64; // Altezza header
+    const offset = headerHeight + 100; // Offset per considerare la sezione "attiva"
+    
+    let activeSection = null;
+    let minDistance = Infinity;
+
+    sections.forEach(section => {
+      const rect = section.getBoundingClientRect();
+      const distance = Math.abs(rect.top - offset);
+      
+      if (rect.top <= offset && rect.bottom > offset) {
+        activeSection = section;
+      } else if (rect.top > offset && distance < minDistance) {
+        minDistance = distance;
+        activeSection = section;
+      }
+    });
+
+    // Aggiorna i link attivi
+    avatarLinks.forEach(link => {
+      const sectionId = link.getAttribute('href').slice(1);
+      const isActive = activeSection && activeSection.id === sectionId;
+      link.classList.toggle('active', isActive);
+      link.setAttribute('aria-current', isActive ? 'true' : 'false');
+    });
+  }
+
+  // Ascolta lo scroll per aggiornare la navigazione
+  window.addEventListener('scroll', function() {
+    updateActiveAvatar();
+  }, { passive: true });
+
+  // Controllo iniziale
+  updateActiveAvatar();
 })();
 
 

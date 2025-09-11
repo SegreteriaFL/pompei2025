@@ -222,3 +222,7 @@ In album.html sostituisci il fetch:
 Ripulisci HTML (tag doppi/chiusure), applica head OG su tutte le pagine.
 Aggiungi colonna APPROVATO nel foglio; modera i contenuti.
 Rifinitura tabs/sub‑nav (stile unico, focus states, mobile).
+
+
+
+in partecipa manca tutto il footer del sito e i testi sembrano non rendereizzati correttamente tipo "nellâ€™album ufficiale"

@@ -69,10 +69,15 @@ a{color:inherit}
   z-index: 900;
   background:#fff;
   border:1px solid var(--line);
-  border-radius:.6rem;
+  border-radius: 0 0 .6rem .6rem;
   padding:.4rem;
-  margin:.8rem 0 1.2rem;
+  margin: -.2rem 0 1.2rem;
   overflow:auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.25rem;
 }
 
 /* Link interni: stessa resa per .pill (Programma) e .tab (generico) */
@@ -502,9 +507,8 @@ pre {
 }
 
 /* Stile specifico per accordi (opzionale: renderli in grassetto o colorati) */
-pre [RE], pre [LA], pre [MIm], pre [SIm], pre [SOL], pre [LA4], pre [MIm7], pre [FA#m7] {
-    /* Nota: Per stilizzare gli accordi, usa <span class="chord">[RE]</span> nell'HTML invece di testo piano */
-    /* Qui assumo testo piano; per avanzato, modifica HTML */
+/* Nota: Per stilizzare gli accordi, usa <span class="chord">[RE]</span> nell'HTML invece di testo piano */
+.chord {
     font-weight: bold;
     color: var(--brand, #2457ff);
 }
@@ -628,7 +632,7 @@ li.entry {
   width:25px;height:25px;border-radius:999px;
   display:inline-flex;align-items:center;justify-content:center;
 }
-.btn-ico:hover{background:#var(--verde-acqua)}
+.btn-ico:hover{background:var(--verde-acqua)}
 .btn-ico svg{width:25px;height:25px;fill:var(--verde-acqua)}
 
 /* blocchi legali */
@@ -723,10 +727,9 @@ address{margin: 1rem 0 0;}
 .sticky-bar{
   position: sticky;
   top: calc(var(--header-height) + var(--sticky-gap));
-  z-index: 900;
+  z-index: 950;
+  padding: 0.5rem 0 0.5rem 0.7rem;
   background: var(--page-bg);
-  /* stile base sobrio; personalizzalo con utility già in progetto */
-  padding: .5rem 0;
   border-bottom: 1px solid #eee;
 }
 
@@ -1041,3 +1044,146 @@ address{margin: 1rem 0 0;}
     margin: 1rem 0;
   }
 }
+
+/* === PULSANTE BACK TO TOP === */
+.btn.back2top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  background: var(--azzurro);
+  color: white;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+}
+
+.btn.back2top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.btn.back2top:hover {
+  background: var(--verde-acqua);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn.back2top:active {
+  transform: translateY(0);
+}
+
+.btn.back2top .icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin: 0;
+  color: white;
+  stroke: white;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .btn.back2top {
+    bottom: 1.5rem;
+    right: 1.5rem;
+    width: 3rem;
+    height: 3rem;
+  }
+  
+  .btn.back2top .icon {
+    width: 1.2rem;
+    height: 1.2rem;
+    color: white;
+    stroke: white;
+  }
+}
+
+/* Motion safe */
+@media (prefers-reduced-motion: reduce) {
+  .btn.back2top {
+    transition: none;
+  }
+}
+
+
+/* === NAVIGAZIONE AVATAR AUTORI === */
+.author-avatars {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.author-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid white;
+  object-fit: cover;
+  position: relative;
+  z-index: 1;
+}
+
+/* Per avatar multipli (come coordinatori-province.png) usa contain per evitare tagli */
+.author-avatar[src*="coordinatori-province"] {
+  object-fit: contain;
+  background-color: #f8f9fa;
+}
+
+/* Stili specifici per la navigazione di intro.html */
+body#intro .programma-nav .pill {
+  padding: 0.1rem;
+}
+
+body#intro .author-avatar {
+  width: 60px;
+  height: 60px;
+  border: none;
+}
+
+/* Mobile: riduci avatar a 50px per evitare andata a capo */
+@media (max-width: 768px) {
+  body#intro .author-avatar {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+/* Stile per i pill con solo avatar */
+.programma-nav .pill {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  min-width: 50px;
+}
+
+/* Hover effect per gli avatar */
+.programma-nav .pill:hover .author-avatar {
+  transform: scale(1.1);
+  transition: transform 0.2s ease;
+}
+
+/* Mobile responsive per avatar */
+@media (max-width: 768px) {
+  .author-avatar {
+    width: 35px;
+    height: 35px;
+  }
+  
+  .programma-nav .pill {
+    padding: 0.4rem;
+    min-width: 45px;
+  }
+}
+/* Cache buster - Thu Sep 11 11:06:39 CEST 2025 */
