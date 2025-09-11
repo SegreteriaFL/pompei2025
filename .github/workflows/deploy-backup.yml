@@ -1,0 +1,44 @@
+name: Deploy to Aruba (Backup - SFTP)
+
+on:
+  workflow_dispatch:
+    inputs:
+      protocol:
+        description: 'Protocol to use'
+        required: true
+        default: 'sftp'
+        type: choice
+        options:
+        - sftp
+        - ftp
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+      
+    - name: Deploy to Aruba via SFTP/FTP
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.3
+      with:
+        server: ftp.fedeeluce.it
+        username: ${{ secrets.FTP_USERNAME }}
+        password: ${{ secrets.FTP_PASSWORD }}
+        local-dir: ./
+        server-dir: /pompei2025/
+        protocol: ${{ github.event.inputs.protocol || 'sftp' }}
+        port: ${{ github.event.inputs.protocol == 'sftp' && '22' || '21' }}
+        timeout: 600000
+        retry-count: 5
+        retry-wait: 10000
+        log-level: verbose
+        exclude: |
+          .git*
+          .github/
+          comunicazione/
+          node_modules/
+          *.md
+          .DS_Store
+          Thumbs.db
