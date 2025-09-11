@@ -20,10 +20,6 @@ jobs:
         password: ${{ secrets.FTP_PASSWORD }}
         local-dir: ./
         server-dir: /pompei2025/
-        protocol: sftp
-        port: 22
-        timeout: 300000
-        log-level: verbose
         exclude: |
           .git*
           .github/
