@@ -15,11 +15,11 @@ jobs:
     - name: Deploy to Aruba via FTP
       uses: SamKirkland/FTP-Deploy-Action@v4.3.3
       with:
-        server: ftp://ftp.aruba.it
+        server: ftp://fedeeluce.it
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
         local-dir: ./
-        server-dir: /public_html/pompei2025/
+        server-dir: /pompei2025/
         exclude: |
           .git*
           .github/
