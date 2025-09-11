@@ -20,11 +20,9 @@ jobs:
         password: ${{ secrets.FTP_PASSWORD }}
         local-dir: ./
         server-dir: /pompei2025/
-        protocol: ftps
-        port: 21
+        protocol: sftp
+        port: 22
         timeout: 300000
-        retry-count: 3
-        retry-wait: 5000
         log-level: verbose
         exclude: |
           .git*
