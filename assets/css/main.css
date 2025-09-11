@@ -1159,6 +1159,49 @@ body#intro .author-avatar {
   }
 }
 
+/* Intro page layout improvements */
+body#intro .hero h1 {
+  margin: .2em 0 .1em;
+}
+
+body#intro .firma-con-foto {
+  margin-top: 1rem !important;
+  margin-bottom: 1.5rem;
+}
+
+body#intro .multi-firme {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: flex-start;
+  margin-top: 1rem !important;
+  margin-bottom: 1.5rem;
+}
+
+body#intro .multi-firme .firma-con-foto {
+  margin-top: 0 !important;
+  margin-bottom: 0;
+  flex: 0 0 auto;
+}
+
+@media (max-width: 768px) {
+  body#intro .multi-firme {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+body#intro .entry {
+  border-top: 2px solid var(--line);
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+}
+
+body#intro .entry:first-of-type {
+  border-top: none;
+  margin-top: 0;
+}
+
 /* Stile per i pill con solo avatar */
 .programma-nav .pill {
   display: flex;
