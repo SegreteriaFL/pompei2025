@@ -15,7 +15,7 @@ jobs:
     - name: Deploy to Aruba via FTP
       uses: SamKirkland/FTP-Deploy-Action@v4.3.3
       with:
-        server: ftp://ftp.tuodominio.it
+        server: ftp://ftp.aruba.it
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
         local-dir: ./
