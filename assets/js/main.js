@@ -428,7 +428,35 @@ function fixInitialHashOffset() {
 (function() {
   // Funzione per rilevare se siamo su mobile
   function isMobile() {
-    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    const userAgent = navigator.userAgent;
+    
+    // Pattern più completi per rilevare mobile
+    const mobilePatterns = [
+      /Android/i,
+      /webOS/i,
+      /iPhone/i,
+      /iPad/i,
+      /iPod/i,
+      /BlackBerry/i,
+      /IEMobile/i,
+      /Opera Mini/i,
+      /Mobile/i,
+      /Tablet/i,
+      /Windows Phone/i,
+      /Kindle/i,
+      /Silk/i,
+      /PlayBook/i,
+      /BB10/i,
+      /CriOS/i,
+      /FxiOS/i
+    ];
+    
+    const isMobileDevice = mobilePatterns.some(pattern => pattern.test(userAgent));
+    
+    // Controllo aggiuntivo per touch screen
+    const hasTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    
+    return isMobileDevice || hasTouch;
   }
 
   // Gestisce i click sui link social per aprire l'app se disponibile
@@ -444,19 +472,19 @@ function fixInitialHashOffset() {
         
         // Su mobile: prova app prima, poi browser
         if (isMobile()) {
-        e.preventDefault();
-        
-        // Prova ad aprire l'app
-        const iframe = document.createElement('iframe');
-        iframe.style.display = 'none';
-        iframe.src = appUrl;
-        document.body.appendChild(iframe);
-        
-        // Se l'app non si apre entro 2.5 secondi, apri la pagina web
-        setTimeout(() => {
-          document.body.removeChild(iframe);
-          window.open(webUrl, '_blank', 'noopener,noreferrer');
-        }, 2500);
+          e.preventDefault();
+          
+          // Prova ad aprire l'app
+          const iframe = document.createElement('iframe');
+          iframe.style.display = 'none';
+          iframe.src = appUrl;
+          document.body.appendChild(iframe);
+          
+          // Se l'app non si apre entro 2.5 secondi, apri la pagina web
+          setTimeout(() => {
+            document.body.removeChild(iframe);
+            window.open(webUrl, '_blank', 'noopener,noreferrer');
+          }, 2500);
         }
         // Su desktop: lascia che il browser gestisca normalmente (target="_blank")
       });
