@@ -191,3 +191,22 @@ Info
 ```
 
 **Risultato**: Navigazione più intuitiva e organizzata, menu responsive ottimizzato
+
+### ✅ Fix Social CTA iPhone (Completato)
+**Data**: Dicembre 2024
+**Problema**: Su iPhone, i social CTA non aprivano automaticamente le app ma mostravano solo il menu a tendina
+
+**Soluzione implementata**:
+- ✅ **Creato `social-cta.js`** - Script intelligente per gestione app/web
+- ✅ **Rilevamento dispositivo** - iOS, Android, Desktop
+- ✅ **Strategia iOS**: Try app first → fallback web (come Google)
+- ✅ **Strategia Android**: Intent URL → fallback web
+- ✅ **Aggiunta classe `social-link`** - Per targeting specifico
+- ✅ **Incluso script nel footer** - Caricamento automatico
+
+**Tecnica utilizzata**:
+- **iOS**: iframe nascosto + timeout per rilevare se l'app si apre
+- **Android**: Intent URL nativo + fallback
+- **Desktop**: Comportamento normale (web)
+
+**Risultato**: Social CTA ora funzionano correttamente su tutti i dispositivi, aprendo automaticamente le app quando disponibili
