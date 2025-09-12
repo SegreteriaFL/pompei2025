@@ -118,26 +118,88 @@ function fixInitialHashOffset() {
       ['intro.html',        'Per iniziare'],
       ['programma-sintetico.html',    'Programma'],
       ['canti.html',        'Canti'],
-      ['guida-pompei.html', 'Info'],
+      ['#', 'Info', [
+        ['contatti.html', 'Contatti'],
+        ['hotel.html', 'Hotel'],
+        ['info-turistiche.html', 'Info turistiche']
+      ]],
       ['staff.html',        'Staff'],
       ['pellegrinaggi.html','Letture']
     ];
 
     const currentPath = normalizePath(window.location.pathname);
 
-    items.forEach(([href, label]) => {
+    items.forEach((item) => {
+      const [href, label, submenu] = item;
       const li = document.createElement('li');
-      const a = document.createElement('a');
-      a.href = href;
-      a.textContent = label;
+      
+      if (submenu) {
+        // Menu con sotto-menu
+        li.className = 'has-submenu';
+        const a = document.createElement('a');
+        a.href = href;
+        a.textContent = label;
+        a.setAttribute('aria-haspopup', 'true');
+        a.setAttribute('aria-expanded', 'false');
+        
+        // Check se una delle pagine del sotto-menu è attiva
+        const isSubmenuActive = submenu.some(([subHref]) => {
+          const subPath = normalizePath(subHref);
+          return currentPath.endsWith(subPath);
+        });
+        
+        if (isSubmenuActive) {
+          a.setAttribute('aria-current', 'page');
+        }
+        
+        li.appendChild(a);
+        
+        // Crea il sotto-menu
+        const submenuUl = document.createElement('ul');
+        submenuUl.className = 'submenu';
+        submenuUl.setAttribute('role', 'menu');
+        
+        submenu.forEach(([subHref, subLabel]) => {
+          const subLi = document.createElement('li');
+          const subA = document.createElement('a');
+          subA.href = subHref;
+          subA.textContent = subLabel;
+          subA.setAttribute('role', 'menuitem');
+          
+          const subPath = normalizePath(subHref);
+          if (currentPath.endsWith(subPath)) {
+            subA.setAttribute('aria-current', 'page');
+          }
+          
+          subLi.appendChild(subA);
+          submenuUl.appendChild(subLi);
+        });
+        
+        li.appendChild(submenuUl);
+        
+        // Gestione click per aprire/chiudere sotto-menu
+        a.addEventListener('click', (e) => {
+          e.preventDefault();
+          const isExpanded = a.getAttribute('aria-expanded') === 'true';
+          a.setAttribute('aria-expanded', !isExpanded);
+          submenuUl.style.display = isExpanded ? 'none' : 'block';
+        });
+        
+      } else {
+        // Menu normale
+        const a = document.createElement('a');
+        a.href = href;
+        a.textContent = label;
 
-      // attivo robusto: gestisce sottocartelle e index.html
-      const itemPath = normalizePath(href);
-      if (currentPath.endsWith(itemPath)) {
-        a.setAttribute('aria-current', 'page');
+        // attivo robusto: gestisce sottocartelle e index.html
+        const itemPath = normalizePath(href);
+        if (currentPath.endsWith(itemPath)) {
+          a.setAttribute('aria-current', 'page');
+        }
+
+        li.appendChild(a);
       }
-
-      li.appendChild(a);
+      
       list.appendChild(li);
     });
 

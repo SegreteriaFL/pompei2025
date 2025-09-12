@@ -1,0 +1,21 @@
+# Cartelle di lavoro temporanee
+cose/
+
+# File di sistema
+.DS_Store
+Thumbs.db
+
+# File di backup
+*.bak
+*.tmp
+*~
+
+# Log files
+*.log
+
+# Node modules (se aggiunto in futuro)
+node_modules/
+
+# File di configurazione locale
+.env
+.env.local
