@@ -306,48 +306,84 @@ Info
 
 ## 📊 STATO TRADUZIONI (Aggiornato Dicembre 2024)
 
-### ✅ COMPLETATE (85% del progetto)
-**Inglese (en/)**:
-- `index.html` ✅
-- `intro.html` ✅
-- `partecipa.html` ✅
-- `album.html` ✅
-- `canti.html` ✅
-- `contatti.html` ✅
-- `frasi-pellegrinaggio.html` ✅
-- `hotel.html` ✅
-- `info-turistiche.html` ✅
-- `pellegrinaggi.html` ✅
-- `preghiera.html` ✅
-- `staff.html` ✅
-- `veglia.html` ✅
-- `programma.html` ✅ (COMPLETATO - tutto il contenuto tradotto)
-- `programma-sintetico.html` ✅ (COMPLETATO)
+### ❌ **PROBLEMI IDENTIFICATI - AUDIT COMPLETO**
 
-**Francese (fr/)**:
-- `index.html` ✅
-- `intro.html` ✅
-- `partecipa.html` ✅
-- `album.html` ✅
-- `canti.html` ✅
-- `contatti.html` ✅
-- `frasi-pellegrinaggio.html` ✅
-- `hotel.html` ✅
-- `info-turistiche.html` ✅
-- `pellegrinaggi.html` ✅
-- `preghiera.html` ✅
-- `staff.html` ✅
-- `veglia.html` ✅
-- `programma-sintetico.html` ✅ (COMPLETATO)
+#### **PAGINE MANCANTI**
+- ❌ `/en/index.html` - **MANCANTE COMPLETAMENTE**
+- ❌ `/fr/index.html` - **MANCANTE COMPLETAMENTE**
 
-### 🔄 IN CORSO
-- `fr/programma.html` (parzialmente tradotto - header e prime sezioni completate)
+#### **COMPONENTI NON TRADOTTI**
+- ❌ **Header francese**: Titolo "Fede e Luce" invece di "Foi et Lumière"
+- ❌ **Footer francese**: Contenuto completamente in italiano
+- ❌ **Social CTA**: Testo in italiano sia in inglese che francese
+- ❌ **Menu**: Non tradotto nelle versioni EN/FR
 
-### 📝 NOTE
-- **Metodica utilizzata**: All'85% di memoria, aggiornamento PROGRESS.md e apertura nuova chat per continuare
-- **Commit finale**: Previsto al completamento delle traduzioni francesi
-- **Stato attuale**: 85% completato, rimane solo il completamento di `fr/programma.html`
+#### **PAGINE CON TRADUZIONI INCOMPLETE**
+- ❌ **Canti.html**: Header e contenuto completamente in italiano (EN/FR)
+- ❌ **Programma.html francese**: Vangeli in italiano invece di versioni CEI francesi
+- ❌ **Programma.html francese**: Alcune sezioni ancora in italiano
+- ❌ **Info-turistiche.html**: Contenuto non tradotto (EN/FR)
+- ❌ **Hotel.html**: Contenuto non tradotto (EN/FR)
+- ❌ **Contatti.html**: Contenuto non tradotto (EN/FR)
+
+### ✅ **COSA È GIÀ TRADOTTO CORRETTAMENTE**
+- Tutte le pagine principali esistono in `/en/` e `/fr/` (tranne index.html)
+- La maggior parte del contenuto di `programma.html` inglese
+- I componenti di base sono presenti (ma non tradotti)
+
+### ✅ **PROGRESSI COMPLETATI**
+- ✅ **Header francese**: Tradotto titolo e aria-label
+- ✅ **Footer francese**: Tradotto completamente (logo, titolo, contatti, link legali)
+- ✅ **Social CTA**: Tradotto completamente in inglese e francese
+- ✅ **Canti.html**: Tradotti header e sezione di ricerca in inglese e francese
+- ✅ **Programma.html francese**: Tradotte sezioni "Il Vangelo mimato" e "I cinque misteri"
+- ✅ **Vangelo Luca 1,39-56**: Tradotto in francese con versione cattolica standard (Magnificat)
+- ✅ **Seconda lettura 1Cor 1,3-9**: Tradotta in francese
+- ✅ **Commenti principali**: Tradotti in francese
+- ✅ **Info-turistiche.html**: Tradotta COMPLETAMENTE in inglese e francese (TUTTO il contenuto)
+
+### 🎯 **PRIORITÀ RIMANENTI**
+1. ~~**Creare index.html** per inglese e francese~~ → **NOTA**: index.html è unico con tre pulsanti lingua
+2. ~~**Tradurre completamente** header, footer e social-cta~~ → ✅ **COMPLETATO**
+3. ~~**Completare traduzione francese** di programma.html con vangeli CEI~~ → ✅ **COMPLETATO**
+4. ~~**Tradurre contenuto completo** di info-turistiche.html~~ → ✅ **COMPLETATO**
+5. **Tradurre contenuto completo** di hotel.html, contatti.html
+6. **Tradurre altri commenti** in programma.html francese (se necessario)
 
 ---
+
+## 🎯 PROMPT SISTEMATICO PER TRADUZIONI COMPLETE
+
+### **PROMPT DEFINITIVO PER RISOLVERE TRADUZIONI INCOMPLETE**
+
+**Istruzione principale**: Devo tradurre **TUTTI** i contenuti di una pagina HTML mantenendo la struttura esatta, senza saltare nessuna parte.
+
+### **REGOLE FONDAMENTALI**:
+1. **Vangeli e testi biblici**: Usano versioni CEI corrispondenti (IT→IT, EN→EN, FR→FR)
+2. **"Fede e Luce"**: Non si traduce mai, rimane sempre in italiano
+3. **Nomi propri**: Rimangono invariati in tutte le lingue
+4. **Copertura completa**: Traduco TUTTE le sezioni, paragrafi, titoli, descrizioni, non solo i primi 2-3
+5. **Struttura HTML**: Mantengo esattamente la struttura HTML originale
+6. **Header completo**: Traduco meta tag, title, description
+7. **Verifica sistematica**: Controllo che ogni `<h1>`, `<h2>`, `<p>`, `<span>`, `<div>` con testo sia tradotto
+8. **Nessuna parte saltata**: Non salto nessuna parte del contenuto
+
+### **PROCESSO OPERATIVO**:
+1. **Prima**: Leggo tutto il file originale per capire la struttura completa
+2. **Poi**: Traduco sistematicamente sezione per sezione
+3. **Infine**: Verifico che ogni elemento di testo sia stato tradotto
+
+### **ESEMPI DI COSA NON FARE**:
+- ❌ Tradurre solo i primi 2-3 paragrafi
+- ❌ Saltare sezioni perché "sembrano simili"
+- ❌ Dire "ho tradotto tutto" dopo aver fatto solo una parte
+- ❌ Lasciare contenuti in italiano nelle versioni EN/FR
+
+### **ESEMPI DI COSA FARE**:
+- ✅ Leggere l'intero file prima di iniziare
+- ✅ Fare una lista di tutte le sezioni da tradurre
+- ✅ Tradurre ogni sezione completamente
+- ✅ Verificare che ogni elemento di testo sia tradotto
+- ✅ Mantenere la struttura HTML identica
 
 **Ultimo aggiornamento**: Dicembre 2024
