@@ -432,4 +432,28 @@ Info
 
 **Risultato**: La pagina programma.html inglese è ora completamente tradotta, utilizzando versioni bibliche inglesi standard (ESV) e traducendo tutti i testi liturgici e le spiegazioni.
 
+### ✅ Fix Bug Menu Mobile CSS (Completato)
+**Data**: Dicembre 2024
+**Problema**: Menu mobile non funzionava correttamente su dispositivi mobili
+
+**Soluzione implementata**:
+- ✅ **Modificato `main.css`** - Corretto bug menu mobile
+- ✅ **CSS sintatticamente valido** - 4 warning minori per regole vuote (non critici)
+- ✅ **Test completato** - Menu mobile ora funziona correttamente
+- ✅ **Codice ottimizzato** - 41 righe in meno (56 inserimenti, 97 cancellazioni)
+
+**Commit**: `9f1d840` - "fix: Fix mobile menu bug in main.css"
+
+### ✅ Traduzioni Complete EN/FR (Completato)
+**Data**: Dicembre 2024
+**Obiettivo**: Completare traduzioni per info-turistiche.html, staff.html, pellegrinaggi.html
+
+**Traduzioni completate**:
+- ✅ **info-turistiche.html EN/FR**: Completamente tradotte (95% EN, 94% FR riscritte)
+- ✅ **staff.html EN/FR**: Completamente tradotte (83% EN, 83% FR riscritte)
+- ✅ **pellegrinaggi.html EN/FR**: Completamente tradotte (72% EN, 72% FR riscritte)
+- ✅ **Footer correzione**: Nome associazione "Fede e Luce A.P.S." mantenuto non tradotto
+
+**Commit**: `2d773d5` - "feat: Complete translations for English and French versions"
+
 **Ultimo aggiornamento**: Dicembre 2024
