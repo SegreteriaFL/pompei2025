@@ -146,6 +146,31 @@
 - **Walls.io Social Wall** - Costi eccessivi
 - **Google Form + Apps Script** - Flusso troppo complicato per gestione file
 
+## 🌍 TRADUZIONI MULTILINGUA (IN CORSO)
+
+### ✅ Completate
+- **Selettore lingua** - Sistema di navigazione tra IT/EN/FR
+- **Commit selettore lingua** - Salvato lavoro su navigazione multilingua
+
+### ✅ Completate
+- **Traduzione inglese intro.html** - Pagina principale completamente tradotta
+  - ✅ Meta tag e header tradotti
+  - ✅ Tutte le 5 sezioni principali tradotte
+  - ✅ Navigazione e interfaccia tradotte
+  - ✅ Mantenuti testi sacri in italiano (es. citazioni bibliche)
+
+### 🔄 In Corso
+- **Traduzione inglese programma.html** - Header e prime sezioni tradotte
+  - ✅ Meta tag e header tradotti
+  - ✅ Prima giornata (giovedì 18) in corso
+  - 🔄 Resto del programma da completare
+
+### 📋 Da Fare
+- Completare traduzione inglese programma.html
+- Tradurre altre pagine principali (partecipa, pellegrinaggi, etc.)
+- Tradurre pagine secondarie (solo header, non contenuti sacri)
+- Implementare traduzione francese
+
 ## 📝 NOTE IMPORTANTI PER LO SVILUPPO
 
 ### 🎯 REGOLA KEEP IT SIMPLE
@@ -154,6 +179,12 @@
 - **EVITARE** over-engineering
 - **PREFERIRE** soluzioni native HTML/CSS/JS
 - **MANTENERE** codice leggibile e manutenibile
+
+### 🌍 REGOLE TRADUZIONI
+- **Header completo**: meta tag, titoli, navigazione, descrizioni
+- **Contenuto**: solo parti descrittive/introduttive
+- **Testi sacri/poetici**: rimangono in italiano (es. canti, preghiere)
+- **Nomi propri**: mantengono forma originale
 
 ### 🔄 PROCESSO DI VALUTAZIONE
 1. **È davvero necessario?** - Chiedersi se aggiunge valore reale
@@ -210,3 +241,113 @@ Info
 - **Desktop**: Comportamento normale (web)
 
 **Risultato**: Social CTA ora funzionano correttamente su tutti i dispositivi, aprendo automaticamente le app quando disponibili
+
+### ✅ Rimozione Ripetizioni Info Turistiche (Completato)
+**Data**: Dicembre 2024
+**Problema**: Nella sezione "Percorso Small" di `info-turistiche.html` c'era una duplicazione completa del contenuto storico di Pompei già presente nella sezione "Parco Archeologico"
+
+**Contenuto rimosso** (duplicato):
+- "Un parco archeologico unico al mondo"
+- "Pompei: città ricca e dedita ai commerci"
+- "Plinio il Giovane"
+- "La terribile eruzione"
+- "Le scoperte archeologiche"
+
+**Risultato**: La sezione "Percorso Small" ora contiene solo le informazioni specifiche del percorso (Anfiteatro, Palestra Grande, mostra "Essere donna nell'antica Pompei", Praedia di Giulia Felice), mentre le informazioni storiche rimangono disponibili nella sezione "Parco Archeologico"
+
+## 📱 LINK PER TEST MOBILE VIA WiFi
+
+**Server locale attivo**: `python3 -m http.server 8000`
+**IP locale**: `192.168.1.15`
+
+### 🔗 Link per test traduzioni su mobile:
+
+#### **ITALIANO (root)**
+- Homepage: `http://192.168.1.15:8000/`
+- Intro: `http://192.168.1.15:8000/intro.html`
+- Programma: `http://192.168.1.15:8000/programma.html`
+- Pellegrinaggi: `http://192.168.1.15:8000/pellegrinaggi.html`
+- Partecipa: `http://192.168.1.15:8000/partecipa.html`
+- Hotel: `http://192.168.1.15:8000/hotel.html`
+- Info Turistiche: `http://192.168.1.15:8000/info-turistiche.html`
+- Contatti: `http://192.168.1.15:8000/contatti.html`
+
+#### **INGLESE (en/)**
+- Homepage: `http://192.168.1.15:8000/en/`
+- Intro: `http://192.168.1.15:8000/en/intro.html`
+- Programma: `http://192.168.1.15:8000/en/programma.html`
+- Pellegrinaggi: `http://192.168.1.15:8000/en/pellegrinaggi.html`
+- Partecipa: `http://192.168.1.15:8000/en/partecipa.html`
+- Hotel: `http://192.168.1.15:8000/en/hotel.html`
+- Info Turistiche: `http://192.168.1.15:8000/en/info-turistiche.html`
+- Contatti: `http://192.168.1.15:8000/en/contatti.html`
+
+#### **FRANCESE (fr/)**
+- Homepage: `http://192.168.1.15:8000/fr/`
+- Intro: `http://192.168.1.15:8000/fr/intro.html`
+- Programma: `http://192.168.1.15:8000/fr/programma.html`
+- Pellegrinaggi: `http://192.168.1.15:8000/fr/pellegrinaggi.html`
+- Partecipa: `http://192.168.1.15:8000/fr/partecipa.html`
+- Hotel: `http://192.168.1.15:8000/fr/hotel.html`
+- Info Turistiche: `http://192.168.1.15:8000/fr/info-turistiche.html`
+- Contatti: `http://192.168.1.15:8000/fr/contatti.html`
+
+### 📝 Istruzioni per il test:
+1. **Assicurati che il dispositivo mobile sia sulla stessa rete WiFi** del computer
+2. **Apri uno dei link sopra** direttamente dal browser mobile
+3. **Testa la navigazione** tra le diverse pagine
+4. **Verifica la responsività** su diverse dimensioni di schermo
+5. **Controlla le traduzioni** confrontando le tre versioni linguistiche
+
+### ⚠️ Note importanti:
+- Il server locale deve rimanere attivo sul computer durante i test
+- Se l'IP cambia, riavvia il comando `python3 -m http.server 8000` e controlla il nuovo IP
+- Per fermare il server: `Ctrl+C` nel terminale
+
+## 📊 STATO TRADUZIONI (Aggiornato Dicembre 2024)
+
+### ✅ COMPLETATE (85% del progetto)
+**Inglese (en/)**:
+- `index.html` ✅
+- `intro.html` ✅
+- `partecipa.html` ✅
+- `album.html` ✅
+- `canti.html` ✅
+- `contatti.html` ✅
+- `frasi-pellegrinaggio.html` ✅
+- `hotel.html` ✅
+- `info-turistiche.html` ✅
+- `pellegrinaggi.html` ✅
+- `preghiera.html` ✅
+- `staff.html` ✅
+- `veglia.html` ✅
+- `programma.html` ✅ (COMPLETATO - tutto il contenuto tradotto)
+- `programma-sintetico.html` ✅ (COMPLETATO)
+
+**Francese (fr/)**:
+- `index.html` ✅
+- `intro.html` ✅
+- `partecipa.html` ✅
+- `album.html` ✅
+- `canti.html` ✅
+- `contatti.html` ✅
+- `frasi-pellegrinaggio.html` ✅
+- `hotel.html` ✅
+- `info-turistiche.html` ✅
+- `pellegrinaggi.html` ✅
+- `preghiera.html` ✅
+- `staff.html` ✅
+- `veglia.html` ✅
+- `programma-sintetico.html` ✅ (COMPLETATO)
+
+### 🔄 IN CORSO
+- `fr/programma.html` (parzialmente tradotto - header e prime sezioni completate)
+
+### 📝 NOTE
+- **Metodica utilizzata**: All'85% di memoria, aggiornamento PROGRESS.md e apertura nuova chat per continuare
+- **Commit finale**: Previsto al completamento delle traduzioni francesi
+- **Stato attuale**: 85% completato, rimane solo il completamento di `fr/programma.html`
+
+---
+
+**Ultimo aggiornamento**: Dicembre 2024

@@ -113,6 +113,20 @@
       box-shadow: 0 10px 28px rgba(0,0,0,.28), 0 1px 0 rgba(255,255,255,.18) inset;
       transition: transform .06s ease, box-shadow .2s ease;
     }
+
+    /* Language buttons */
+    .lang-buttons {
+      margin-top: clamp(.9rem, 3.8vw, 1.4rem);
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .lang-buttons .cta {
+      margin-top: 0;
+      min-width: 120px;
+    }
     .cta:focus-visible{
       outline: 3px solid #fff; outline-offset: 3px;
     }
@@ -140,8 +154,12 @@
       <p class="subtitle">Pellegrinaggio Fede e Luce</p>
       <p class="date"><time datetime="2025-09-18">18 - 21 SETTEMBRE 2025</time></p>
 
-      <!-- aggiorna l'href dove preferisci atterrare (es. programma.html) -->
-      <a class="cta" href="intro.html" aria-label="Entra nel sito del Pellegrinaggio">Parti </a>
+      <!-- Selettore lingua -->
+      <div class="lang-buttons">
+        <a class="cta" href="intro.html" aria-label="Entra nel sito del Pellegrinaggio">Inizia</a>
+        <a class="cta" href="en/intro.html" aria-label="Enter the Pilgrimage website">Start</a>
+        <a class="cta" href="fr/intro.html" aria-label="Entrez dans le site du Pèlerinage">Commencer</a>
+      </div>
     </div>
   </main>
 </body>
