@@ -1,18 +1,18 @@
 <!doctype html>
-<html lang="it">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Racconti di pellegrinaggi prima di noi</title>
-  <meta name="description" content="Esperienze, cammini e testimonianze dei pellegrinaggi nelle pagine di Ombre e Luci">
+  <title>Stories of Pilgrimages Before Us</title>
+  <meta name="description" content="Experiences, journeys, and testimonies of pilgrimages on the pages of Shadows and Lights">
   <link rel="canonical" href="https://www.fedeeluce.it/pompei2025/pellegrinaggi.html">
   
   <!-- Open Graph -->
-  <meta property="og:site_name" content="Fede e Luce – Pompei 2025">
-  <meta property="og:locale" content="it_IT">
+  <meta property="og:site_name" content="Faith and Light – Pompeii 2025">
+  <meta property="og:locale" content="en_US">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Racconti di pellegrinaggi prima di noi">
-  <meta property="og:description" content="Esperienze, cammini e testimonianze dei pellegrinaggi nelle pagine di Ombre e Luci">
+  <meta property="og:title" content="Stories of Pilgrimages Before Us">
+  <meta property="og:description" content="Experiences, journeys, and testimonies of pilgrimages on the pages of Shadows and Lights">
   <meta property="og:url" content="https://www.fedeeluce.it/pompei2025/pellegrinaggi.html">
   <meta property="og:image" content="https://www.fedeeluce.it/wp-content/uploads/2025/09/Cover-Pompei-Pellegrinaggio-2025.webp">
   <meta property="og:image:width" content="1200">
@@ -20,20 +20,20 @@
 
   <!-- Twitter / X -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Racconti di pellegrinaggi prima di noi">
-  <meta name="twitter:description" content="Esperienze, cammini e testimonianze dei pellegrinaggi nelle pagine di Ombre e Luci">
+  <meta name="twitter:title" content="Stories of Pilgrimages Before Us">
+  <meta name="twitter:description" content="Experiences, journeys, and testimonies of pilgrimages on the pages of Shadows and Lights">
   <meta name="twitter:image" content="https://www.fedeeluce.it/wp-content/uploads/2025/09/Cover-Pompei-Pellegrinaggio-2025.webp">
 
-  <!-- Tecnici -->
+  <!-- Technical -->
   <meta name="theme-color" content="#ffffff">
-  <link rel="preload" href="assets/css/main.css" as="style">
-  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="preload" href="../assets/css/main.css" as="style">
+  <link rel="stylesheet" href="../assets/css/main.css">
 
-  <!-- stile specifico di questa pagina -->
-  <link rel="preload" href="assets/css/pellegrinaggi.css" as="style">
-  <link rel="stylesheet" href="assets/css/pellegrinaggi.css">
+  <!-- Specific style for this page -->
+  <link rel="preload" href="../assets/css/pellegrinaggi.css" as="style">
+  <link rel="stylesheet" href="../assets/css/pellegrinaggi.css">
 
-  <!-- opzionale: marca il body ready appena possibile (favorisce [data-fade]) -->
+  <!-- Optional: mark the body ready as soon as possible (favors [data-fade]) -->
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       document.body.classList.add('is-ready');
@@ -42,75 +42,75 @@
 </head>
 <body>
   <div class="scroll-progress" aria-hidden="true"></div>
-  <a class="skip-link" href="#contenuto">salta al contenuto</a>
+  <a class="skip-link" href="#contenuto">skip to content</a>
 
-  <!-- header/logo/nav iniettati come nelle altre pagine -->
+  <!-- header/logo/nav injected as in other pages -->
   <div id="siteHeader"></div>
 
   <!-- MAIN -->
   <main id="articoli-pellegrinaggi" class="container page-wrapper">
-    <section class="hero" aria-label="pellegrinaggi" data-fade>
-      <h1>Racconti di pellegrinaggi... prima di noi</h1>
-      <p class="lead">Esperienze, cammini e testimonianze dalle pagine di <em>Ombre e Luci</em></p>
+    <section class="hero" aria-label="pilgrimages" data-fade>
+      <h1>Stories of Pilgrimages... Before Us</h1>
+      <p class="lead">Experiences, journeys, and testimonies from the pages of <em>Shadows and Lights</em></p>
     </section>
 
-    <section class="cerca-filtra" aria-label="filtra e cerca articoli" data-fade>
-      <form id="filtriPellegrinaggi" class="toolbar" role="search" aria-label="cerca e filtra">
-        <div class="field">
-          <label for="filter" class="sr-only">Filtra per pellegrinaggio</label>
-          <select id="filter" class="input input--select" aria-label="Filtra per pellegrinaggio">
-            <option value="tutti">Tutti i pellegrinaggi</option>
-          </select>
-        </div>
+<section class="cerca-filtra" aria-label="filter and search articles" data-fade>
+  <form id="filtriPellegrinaggi" class="toolbar" role="search" aria-label="search and filter">
+    <div class="field">
+      <label for="filter" class="sr-only">Filter by pilgrimage</label>
+      <select id="filter" class="input input--select" aria-label="Filter by pilgrimage">
+        <option value="tutti">All pilgrimages</option>
+      </select>
+    </div>
 
-        <div class="field field--grow">
-          <label for="q" class="sr-only">Cerca</label>
-          <input id="q" class="input input--search" type="search" placeholder="cerca per titolo o testo…" autocomplete="off" />
-        </div>
+    <div class="field field--grow">
+      <label for="q" class="sr-only">Search</label>
+      <input id="q" class="input input--search" type="search" placeholder="search by title or text…" autocomplete="off" />
+    </div>
 
-        <div class="field buttons">
-          <button class="btn" id="sort-new" type="button" aria-pressed="true">Dal più recente</button>
-          <button class="btn btn--ghost" id="sort-old" type="button" aria-pressed="false">Dal più antico</button>
-        </div>
+    <div class="field buttons">
+      <button class="btn" id="sort-new" type="button" aria-pressed="true">From the most recent</button>
+      <button class="btn btn--ghost" id="sort-old" type="button" aria-pressed="false">From the oldest</button>
+    </div>
 
-        <p class="count" id="count" aria-live="polite">—</p>
-      </form>
-    </section>
+    <p class="count" id="count" aria-live="polite">—</p>
+  </form>
+</section>
 
-    <section id="contenuto" class="risultati" aria-label="elenco articoli" data-fade>
-      <div id="list" class="grid" role="list"></div>
-    </section>
+<section id="contenuto" class="risultati" aria-label="list of articles" data-fade>
+  <div id="list" class="grid" role="list"></div>
+</section>
 
-    <section class="timeline-wrap" aria-label="timeline pellegrinaggi" data-fade>
-      <h2 class="section-title">Timeline pellegrinaggi</h2>
-      <div id="timeline" class="timeline" aria-label="Timeline dei pellegrinaggi"></div>
-    </section>
+<section class="timeline-wrap" aria-label="pilgrimages timeline" data-fade>
+  <h2 class="section-title">Pilgrimages Timeline</h2>
+  <div id="timeline" class="timeline" aria-label="Timeline of pilgrimages"></div>
+</section>
 
-    <p class="credits" data-fade><small>Fonte: <a href="https://www.ombreeluci.it">ombreeluci.it</a> · Raccolta tematica a cura di Fede e Luce – Pompei 2025</small></p>
-  </main>
+<p class="credits" data-fade><small>Source: <a href="https://www.ombreeluci.it">ombreeluci.it</a> · Thematic collection curated by Faith and Light – Pompeii 2025</small></p>  </main>
 
   <!-- footer -->
   <div id="footer-root"></div>
 
-  <!-- JS di sito (come le altre pagine) -->
-  <script src="assets/js/header.inc.js" defer></script>
-  <script src="assets/js/lang-selector.js" defer></script>
-  <script src="assets/js/includeFooter.js" defer></script>
-  <script src="assets/js/casefix.js" defer></script>
-  <script src="assets/js/main.js" defer></script>
+  <!-- Site JS (as in other pages) -->
+  <script src="../assets/js/header.inc.js" defer></script>
+  <script src="../assets/js/lang-selector.js" defer></script>
+  <script src="../assets/js/includeFooter.js" defer></script>
+  <script src="../assets/js/casefix.js" defer></script>
+  <script src="../assets/js/main.js" defer></script>
 
-  <!-- JS della pagina (già nel repo) -->
-  <script type="module" src="assets/js/renderPellegrinaggi.js"></script>
+  <!-- Page JS (already in the repo) -->
+  <script type="module" src="../assets/js/renderPellegrinaggi.js"></script>
 
-  <!-- Sblocca il body (pagina intera) per il fade globale -->
+  <!-- Unlock the body (full page) for the global fade -->
   <script>
-    // usa rAF per garantire un paint prima della transizione
+    // use rAF to ensure a paint before the transition
     requestAnimationFrame(() => document.documentElement.classList.add('is-loaded'));
   </script>
 
-  <!-- (Facoltativo ma consigliato) se renderPellegrinaggi.js popola #list in modo asincrono,
-       puoi forzare il fade sugli elementi inseriti chiamando, quando hai finito il render:
+  <!-- (Optional but recommended) if renderPellegrinaggi.js populates #list asynchronously,
+       you can force the fade on inserted elements by calling, when you finish rendering:
        window.fadeInChildren?.(document.getElementById('list'));
-       La utility è definita in main.js nella nostra codebase. -->
+       The utility is defined in main.js in our codebase. -->
 </body>
 </html>
+

@@ -222,7 +222,13 @@ function fixInitialHashOffset() {
         if (langSelector) {
           const langLi = document.createElement('li');
           langLi.className = 'lang-menu-item';
-          langLi.appendChild(langSelector.cloneNode(true));
+          const clonedSelector = langSelector.cloneNode(true);
+          // Remove the original ID to avoid conflicts and ensure uniqueness
+          const clonedTrigger = clonedSelector.querySelector('.lang-trigger');
+          if (clonedTrigger) {
+            clonedTrigger.removeAttribute('id');
+          }
+          langLi.appendChild(clonedSelector);
           list.appendChild(langLi);
         }
       }
@@ -239,7 +245,13 @@ function fixInitialHashOffset() {
       document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMenu(); });
       document.addEventListener('click', (e) => {
         if (!nav.classList.contains('open')) return;
-        if (!nav.contains(e.target) && e.target !== toggle) closeMenu();
+        if (!nav.contains(e.target) && e.target !== toggle) {
+          // Don't close menu if clicking on language selector elements
+          const isLangSelector = e.target.closest('.lang-selector') || e.target.closest('.lang-trigger') || e.target.closest('.lang-dropdown');
+          if (!isLangSelector) {
+            closeMenu();
+          }
+        }
       });
     }
   }

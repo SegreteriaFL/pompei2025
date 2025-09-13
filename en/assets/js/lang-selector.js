@@ -76,10 +76,13 @@
     }
     
     // Add click handler for dropdown
-    const trigger = document.getElementById('langTrigger');
-    const selector = document.querySelector('.lang-selector');
+    // Find all language selectors (including cloned ones in mobile menu)
+    const selectors = document.querySelectorAll('.lang-selector');
     
-    if (trigger && selector) {
+    selectors.forEach(selector => {
+      const trigger = selector.querySelector('.lang-trigger');
+      
+      if (trigger && selector) {
       // Check if we're on mobile
       const isMobile = window.innerWidth <= 768;
       
@@ -112,7 +115,8 @@
           selector.classList.remove('open');
         }
       });
-    }
+      }
+    });
   }
 
   // Run when DOM is ready

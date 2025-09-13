@@ -75,11 +75,15 @@
       oldSelector.outerHTML = createLangSelector();
     }
     
-    // Add click handler for dropdown
-    const trigger = document.getElementById('langTrigger');
-    const selector = document.querySelector('.lang-selector');
-    
-    if (trigger && selector) {
+    // Wait a bit for the DOM to update, then add click handler
+    setTimeout(() => {
+      // Find all language selectors (including cloned ones in mobile menu)
+      const selectors = document.querySelectorAll('.lang-selector');
+      
+      selectors.forEach(selector => {
+        const trigger = selector.querySelector('.lang-trigger');
+        
+        if (trigger && selector) {
       // Check if we're on mobile
       const isMobile = window.innerWidth <= 768;
       
@@ -97,22 +101,32 @@
           }
         });
       } else {
-        // Mobile: always open, no click handler needed
-        selector.classList.add('open');
+        // Mobile: toggle dropdown on click (same as desktop)
+        trigger.addEventListener('click', (e) => {
+          e.preventDefault();
+          selector.classList.toggle('open');
+        });
+        
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+          if (!selector.contains(e.target)) {
+            selector.classList.remove('open');
+          }
+        });
       }
       
       // Handle window resize
       window.addEventListener('resize', () => {
         const isMobileNow = window.innerWidth <= 768;
-        if (isMobileNow && !isMobile) {
-          // Switched to mobile: always open
-          selector.classList.add('open');
-        } else if (!isMobileNow && isMobile) {
+        if (!isMobileNow && isMobile) {
           // Switched to desktop: remove open class
           selector.classList.remove('open');
         }
+        // Note: No need to force open on mobile - let user control it
       });
-    }
+        }
+      });
+    }, 100); // Wait 100ms for DOM to update
   }
 
   // Run when DOM is ready

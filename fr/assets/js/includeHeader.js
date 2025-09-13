@@ -16,7 +16,7 @@ var FALLBACK = '<header class="site-header" role="banner">\
   <div class="container header-inner">\
     <div class="brand">\
       <a class="logo" href="index.html">\
-        <img src="assets/img/logo_pompei_2025.png" alt="" role="presentation" class="logo-img" />\
+        <img src="../../assets/img/logo_pompei_2025.png" alt="" role="presentation" class="logo-img" />\
         <span class="sr-only">Fede e Luce – Pellegrinaggio Pompei 2025</span>\
       </a>\
     </div>\

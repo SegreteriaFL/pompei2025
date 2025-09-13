@@ -124,22 +124,54 @@ function fixInitialHashOffset() {
     // 2) Costruzione menu (idempotente)
     while (list.firstChild) list.removeChild(list.firstChild);
 
-    const items = [
-      ['intro.html',        'Per iniziare'],
-      ['programma-sintetico.html',    'Programma'],
-      ['canti.html',        'Canti'],
-      ['#', 'Info', [
-        ['contatti.html', 'Contatti'],
-        ['hotel.html', 'Hotel'],
-        ['info-turistiche.html', 'Info turistiche']
-      ]],
-      ['staff.html',        'Staff'],
-      ['pellegrinaggi.html','Letture']
-    ];
+    // Rileva la lingua corrente dalla URL o dal path
+    const currentLang = window.location.pathname.includes('/en/') ? 'en' : 
+                       window.location.pathname.includes('/fr/') ? 'fr' : 'it';
+    
+    const items = {
+      it: [
+        ['intro.html',        'Per iniziare'],
+        ['programma-sintetico.html',    'Programma'],
+        ['canti.html',        'Canti'],
+        ['#', 'Info', [
+          ['contatti.html', 'Contatti'],
+          ['hotel.html', 'Hotel'],
+          ['info-turistiche.html', 'Info turistiche']
+        ]],
+        ['staff.html',        'Staff'],
+        ['pellegrinaggi.html','Letture']
+      ],
+      en: [
+        ['intro.html',        'Getting Started'],
+        ['programma-sintetico.html',    'Program'],
+        ['canti.html',        'Songs'],
+        ['#', 'Info', [
+          ['contatti.html', 'Contacts'],
+          ['hotel.html', 'Hotels'],
+          ['info-turistiche.html', 'Tourist Info']
+        ]],
+        ['staff.html',        'Staff'],
+        ['pellegrinaggi.html','Readings']
+      ],
+      fr: [
+        ['intro.html',        'Pour commencer'],
+        ['programma-sintetico.html',    'Programme'],
+        ['canti.html',        'Chants'],
+        ['#', 'Info', [
+          ['contatti.html', 'Contacts'],
+          ['hotel.html', 'Hôtels'],
+          ['info-turistiche.html', 'Infos touristiques']
+        ]],
+        ['staff.html',        'Équipe'],
+        ['pellegrinaggi.html','Lectures']
+      ]
+    };
+    
+    const currentItems = items[currentLang] || items.it;
 
     const currentPath = normalizePath(window.location.pathname);
 
-    items.forEach((item) => {
+    currentItems.forEach((item) => {
       const [href, label, submenu] = item;
       const li = document.createElement('li');
       
@@ -222,7 +254,13 @@ function fixInitialHashOffset() {
         if (langSelector) {
           const langLi = document.createElement('li');
           langLi.className = 'lang-menu-item';
-          langLi.appendChild(langSelector.cloneNode(true));
+          const clonedSelector = langSelector.cloneNode(true);
+          // Remove the original ID to avoid conflicts and ensure uniqueness
+          const clonedTrigger = clonedSelector.querySelector('.lang-trigger');
+          if (clonedTrigger) {
+            clonedTrigger.removeAttribute('id');
+          }
+          langLi.appendChild(clonedSelector);
           list.appendChild(langLi);
         }
       }
@@ -239,7 +277,13 @@ function fixInitialHashOffset() {
       document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMenu(); });
       document.addEventListener('click', (e) => {
         if (!nav.classList.contains('open')) return;
-        if (!nav.contains(e.target) && e.target !== toggle) closeMenu();
+        if (!nav.contains(e.target) && e.target !== toggle) {
+          // Don't close menu if clicking on language selector elements
+          const isLangSelector = e.target.closest('.lang-selector') || e.target.closest('.lang-trigger') || e.target.closest('.lang-dropdown');
+          if (!isLangSelector) {
+            closeMenu();
+          }
+        }
       });
     }
   }

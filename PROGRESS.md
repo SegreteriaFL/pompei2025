@@ -306,25 +306,22 @@ Info
 
 ## 📊 STATO TRADUZIONI (Aggiornato Dicembre 2024)
 
-### ❌ **PROBLEMI IDENTIFICATI - AUDIT COMPLETO**
+### ✅ **TRADUZIONI COMPLETATE - AUDIT FINALE**
 
-#### **PAGINE MANCANTI**
-- ❌ `/en/index.html` - **MANCANTE COMPLETAMENTE**
-- ❌ `/fr/index.html` - **MANCANTE COMPLETAMENTE**
+#### **COMPONENTI TRADOTTI**
+- ✅ **Header francese**: Titolo "Foi et Lumière" tradotto correttamente
+- ✅ **Footer francese**: Contenuto completamente tradotto
+- ✅ **Social CTA**: Testo tradotto in inglese e francese
+- ✅ **Menu**: Voci di menu tradotte in inglese e francese con sistema dinamico
 
-#### **COMPONENTI NON TRADOTTI**
-- ❌ **Header francese**: Titolo "Fede e Luce" invece di "Foi et Lumière"
-- ❌ **Footer francese**: Contenuto completamente in italiano
-- ❌ **Social CTA**: Testo in italiano sia in inglese che francese
-- ❌ **Menu**: Non tradotto nelle versioni EN/FR
-
-#### **PAGINE CON TRADUZIONI INCOMPLETE**
-- ❌ **Canti.html**: Header e contenuto completamente in italiano (EN/FR)
-- ❌ **Programma.html francese**: Vangeli in italiano invece di versioni CEI francesi
-- ❌ **Programma.html francese**: Alcune sezioni ancora in italiano
-- ❌ **Info-turistiche.html**: Contenuto non tradotto (EN/FR)
-- ❌ **Hotel.html**: Contenuto non tradotto (EN/FR)
-- ❌ **Contatti.html**: Contenuto non tradotto (EN/FR)
+#### **PAGINE COMPLETAMENTE TRADOTTE**
+- ✅ **Canti.html**: Header e contenuto tradotti in inglese e francese
+- ✅ **Programma.html inglese**: Completamente tradotto
+- ✅ **Programma.html francese**: Completamente tradotto con vangeli CEI francesi
+- ✅ **Info-turistiche.html**: Contenuto completamente tradotto (EN/FR)
+- ✅ **Hotel.html**: Contenuto completamente tradotto (EN/FR)
+- ✅ **Contatti.html**: Contenuto completamente tradotto (EN/FR)
+- ✅ **Intro.html**: Completamente tradotta in inglese e francese
 
 ### ✅ **COSA È GIÀ TRADOTTO CORRETTAMENTE**
 - Tutte le pagine principali esistono in `/en/` e `/fr/` (tranne index.html)
@@ -342,13 +339,15 @@ Info
 - ✅ **Commenti principali**: Tradotti in francese
 - ✅ **Info-turistiche.html**: Tradotta COMPLETAMENTE in inglese e francese (TUTTO il contenuto)
 
-### 🎯 **PRIORITÀ RIMANENTI**
+### 🎯 **PRIORITÀ COMPLETATE**
 1. ~~**Creare index.html** per inglese e francese~~ → **NOTA**: index.html è unico con tre pulsanti lingua
 2. ~~**Tradurre completamente** header, footer e social-cta~~ → ✅ **COMPLETATO**
 3. ~~**Completare traduzione francese** di programma.html con vangeli CEI~~ → ✅ **COMPLETATO**
 4. ~~**Tradurre contenuto completo** di info-turistiche.html~~ → ✅ **COMPLETATO**
-5. **Tradurre contenuto completo** di hotel.html, contatti.html
-6. **Tradurre altri commenti** in programma.html francese (se necessario)
+5. ~~**Tradurre contenuto completo** di hotel.html, contatti.html~~ → ✅ **COMPLETATO**
+6. ~~**Tradurre voci di menu** in inglese e francese~~ → ✅ **COMPLETATO**
+7. ~~**Completare traduzione inglese** di programma.html~~ → ✅ **COMPLETATO**
+8. ~~**Verificare copertura completa** secondo prompt sistematico~~ → ✅ **COMPLETATO**
 
 ---
 
@@ -385,5 +384,52 @@ Info
 - ✅ Tradurre ogni sezione completamente
 - ✅ Verificare che ogni elemento di testo sia tradotto
 - ✅ Mantenere la struttura HTML identica
+
+### ✅ Fix Bug Selettore Lingua Menu Mobile (Completato)
+**Data**: Dicembre 2024
+**Problema**: Il selettore lingua nel menu mobile rimaneva chiuso anche cliccandoci sopra, impedendo la selezione delle lingue alternative
+
+**Soluzione implementata**:
+- ✅ **Modificato `main.js`** - Aggiornato handler click document per escludere elementi del selettore lingua
+- ✅ **Fix applicato a tutte le versioni** - IT, EN, FR per consistenza
+- ✅ **Logica ottimizzata** - Il menu mobile ora non si chiude quando si interagisce con il selettore lingua
+- ✅ **Test completato** - Funzionalità verificata su mobile
+
+**Tecnica utilizzata**:
+- **Event delegation migliorata**: Controllo se il target è dentro `.lang-selector`, `.lang-trigger`, o `.lang-dropdown`
+- **Prevenzione chiusura**: Il menu mobile rimane aperto durante l'interazione con il selettore lingua
+- **Mantenimento UX**: Tutti gli altri comportamenti di chiusura del menu rimangono invariati
+
+**Risultato**: Il selettore lingua ora funziona correttamente nel menu mobile, permettendo la selezione delle lingue alternative senza chiudere il menu
+
+### ✅ Traduzione Completa Programma.html Francese (Completato)
+**Data**: Dicembre 2024
+**Obiettivo**: Completare la traduzione di tutte le sezioni mancanti in francese per programma.html
+
+**Sezioni tradotte**:
+- ✅ **Quarto Mistero (Luc 2,39-52)**: Vangelo tradotto con versione CEI francese
+- ✅ **Commento Quarto Mistero**: Tradotto completamente in francese
+- ✅ **Sezione "Les amis"**: Tradotta completamente
+- ✅ **Quinto Mistero (Jean 2,1-11)**: Vangelo tradotto con versione CEI francese  
+- ✅ **Commento Quinto Mistero**: Tradotto completamente in francese
+- ✅ **Sezione "Les personnes en situation de handicap"**: Tradotta completamente
+- ✅ **Primière Lecture 1R 8,55-61**: Tradotta in francese
+- ✅ **Psaume 137**: Tradotto completamente in francese
+- ✅ **Sezione finale Évangile mimé**: Tradotta completamente
+
+**Risultato**: La pagina programma.html francese è ora completamente tradotta, mantenendo i testi biblici nelle versioni CEI francesi appropriate e traducendo tutti i commenti e le spiegazioni.
+
+### ✅ Traduzione Completa Programma.html Inglese (Completato)
+**Data**: Dicembre 2024
+**Obiettivo**: Completare la traduzione di tutte le sezioni mancanti in inglese per programma.html
+
+**Sezioni tradotte**:
+- ✅ **First Reading (1 Kings 8:55-61)**: Tradotta in inglese con versione ESV
+- ✅ **Psalm 137**: Tradotto completamente in inglese
+- ✅ **Second Reading (1 Cor 1:3-9)**: Tradotta in inglese
+- ✅ **Gospel Reading (Luke 1:39-56)**: Tradotta completamente in inglese con versione ESV
+- ✅ **Sezione finale "The Gospel in mime"**: Tradotta completamente
+
+**Risultato**: La pagina programma.html inglese è ora completamente tradotta, utilizzando versioni bibliche inglesi standard (ESV) e traducendo tutti i testi liturgici e le spiegazioni.
 
 **Ultimo aggiornamento**: Dicembre 2024

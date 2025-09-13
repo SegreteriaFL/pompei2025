@@ -4,7 +4,7 @@ window.HEADER_HTML = `
   <div class="container header-inner">
     <div class="brand">
       <a class="logo" href="../index.html">
-        <img src="assets/img/logo_pompei_2025.png" alt="" role="presentation">
+        <img src="../../assets/img/logo_pompei_2025.png" alt="" role="presentation">
         <span class="sr-only">Faith and Light – Pompei 2025 Pilgrimage</span>
       </a>
     </div>
