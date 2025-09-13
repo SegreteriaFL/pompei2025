@@ -1,9 +1,9 @@
-// assets/js/renderPellegrinaggi.js
+// en/assets/js/renderPellegrinaggi.js
 (async function () {
   // PATH relativi alla pagina (come in intro.html)
-  const DATA_URL    = 'data/pellegrinaggi.json';
-  const OG_ENDPOINT = 'api/og-image.php?url=';
-  const PLACEHOLDER = 'assets/img/placeholder-og.svg'; // deve esistere
+  const DATA_URL    = '../data/pellegrinaggi.json';
+  const OG_ENDPOINT = '../api/og-image.php?url=';
+  const PLACEHOLDER = '../assets/img/placeholder-og.svg'; // deve esistere
 
   // Hook elementi pagina
   const $list     = document.getElementById('list');
@@ -15,7 +15,7 @@
   const $sortOld  = document.getElementById('sort-old');
 
   if (!$list) {
-    console.error('[pellegrinaggi] #list non trovato: verifica gli ID in pellegrinaggi.html');
+    console.error('[pellegrinaggi] #list not found: check IDs in pellegrinaggi.html');
     return;
   }
 
@@ -27,16 +27,16 @@
     const data = await res.json();
     items = Array.isArray(data.items) ? data.items : [];
   } catch (e) {
-    console.error('[pellegrinaggi] errore caricamento JSON:', e);
-    $list.innerHTML = `<p class="meta">Impossibile caricare <code>${DATA_URL}</code>.</p>`;
-    if ($count) $count.textContent = '0 articoli mostrati';
+    console.error('[pellegrinaggi] JSON loading error:', e);
+    $list.innerHTML = `<p class="meta">Unable to load <code>${DATA_URL}</code>.</p>`;
+    if ($count) $count.textContent = '0 articles shown';
     return;
   }
 
   // Popola filtro pellegrinaggio
   if ($filter) {
     const uniquePilgrims = [...new Set(items.map(i => i.pellegrinaggio).filter(Boolean))].sort();
-    $filter.innerHTML = `<option value="tutti">Tutti i pellegrinaggi</option>` +
+    $filter.innerHTML = `<option value="tutti">All pilgrimages</option>` +
       uniquePilgrims.map(p => `<option value="${p}">${p}</option>`).join('');
   }
 
@@ -61,7 +61,7 @@
   }
 
   function cardTemplate(item, imgUrl) {
-    const dateFmt = item.date ? new Date(item.date).toLocaleDateString('it-IT') : '';
+    const dateFmt = item.date ? new Date(item.date).toLocaleDateString('en-US') : '';
     const meta    = [item.author, dateFmt].filter(Boolean).join(' · ');
     const tag     = item.pellegrinaggio ? `<span class="tag">${item.pellegrinaggio}</span>` : '';
 
@@ -158,12 +158,12 @@
       return cardTemplate(i, img);
     }));
 
-    $list.innerHTML = htmlParts.join('') || `<p class="meta">Nessun articolo trovato.</p>`;
+    $list.innerHTML = htmlParts.join('') || `<p class="meta">No articles found.</p>`;
 
     if ($count) {
       const n = arr.length;
-      const nFmt = n.toLocaleString('it-IT');
-      const label = n === 1 ? 'articolo mostrato' : 'articoli mostrati';
+      const nFmt = n.toLocaleString('en-US');
+      const label = n === 1 ? 'article shown' : 'articles shown';
       $count.textContent = `${nFmt} ${label}`;
       $count.setAttribute('aria-live', 'polite');
     }

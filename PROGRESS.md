@@ -456,4 +456,24 @@ Info
 
 **Commit**: `2d773d5` - "feat: Complete translations for English and French versions"
 
+### ✅ Fix Caricamento JSON Pellegrinaggi EN/FR (Completato)
+**Data**: Dicembre 2024
+**Problema**: Nelle versioni inglese e francese di pellegrinaggi.html appariva "Impossibile caricare JSON"
+
+**Causa identificata**:
+- Il file `renderPellegrinaggi.js` aveva percorsi hardcoded per la root del sito
+- Nelle versioni EN/FR (cartelle `/en/` e `/fr/`) i percorsi erano sbagliati
+- `data/pellegrinaggi.json` non esisteva dalle sottocartelle
+
+**Soluzione implementata**:
+- ✅ **Creato `en/assets/js/renderPellegrinaggi.js`** - Versione inglese con percorsi corretti
+- ✅ **Creato `fr/assets/js/renderPellegrinaggi.js`** - Versione francese con percorsi corretti
+- ✅ **Percorsi corretti**: `../data/pellegrinaggi.json`, `../api/og-image.php`, `../assets/img/placeholder-og.svg`
+- ✅ **Messaggi di errore tradotti** in inglese e francese
+- ✅ **Formato date localizzato** (en-US, fr-FR)
+- ✅ **Testi interfaccia tradotti** ("All pilgrimages", "Tous les pèlerinages", etc.)
+- ✅ **File HTML aggiornati** per usare i percorsi corretti
+
+**Risultato**: Le versioni inglese e francese di pellegrinaggi.html ora caricano correttamente il JSON e mostrano i contenuti
+
 **Ultimo aggiornamento**: Dicembre 2024
