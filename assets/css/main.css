@@ -172,7 +172,7 @@ a{color:inherit}
 .nav-list .submenu li{margin:0}
 .nav-list .submenu a{
   display:block;
-  padding:.6rem 1rem;
+  padding:.1rem 1rem;
   border-radius:0;
   white-space:nowrap;
 }
@@ -329,9 +329,9 @@ h6{font-size: inherit; font-style: italic; margin:1rem 0 0;}
 @media (max-width: 860px){
   .menu-toggle{display:inline-block}
   .site-nav{display:none;position:absolute;top:64px;left:0;right:0;background:#fff;border-bottom:1px solid var(--line); font-size: 16px}
-  .site-nav.open{display:block}
+  .site-nav.open{display:block; background:var(--celeste)}
   .nav-list{flex-direction:column;padding:0.75rem}
-  .nav-list a{padding:.5rem 1rem; font-size: 1.3rem}
+  .nav-list a{padding:.2rem 1rem; font-size: 1.1rem}
 }
 
 
