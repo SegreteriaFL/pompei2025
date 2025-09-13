@@ -524,4 +524,26 @@ Info
 
 **Commit**: `328a2cc` - "fix: Correct language selector links from Italian root to EN/FR"
 
+### ✅ Traduzione Completa Intro.html Francese (Completato)
+**Data**: Dicembre 2024
+**Obiettivo**: Completare la traduzione francese di intro.html che era ancora in italiano
+
+**Traduzione completata**:
+- ✅ **Tutte le 5 sezioni principali** tradotte completamente in francese
+- ✅ **Meta tag e header** aggiornati in francese
+- ✅ **Navigazione e interfaccia** tradotte
+- ✅ **Struttura HTML** mantenuta identica
+- ✅ **Nomi propri e citazioni bibliche** mantenuti nella forma originale
+
+**Sezioni tradotte**:
+1. **Pèlerins depuis un demi-siècle** (Pellegrini da mezzo secolo)
+2. **Un voyage spirituel** (Un viaggio spirituale)
+3. **Dire merci ensemble** (Dire grazie insieme)
+4. **Un puzzle de souvenirs et de visages** (Un puzzle di ricordi e volti)
+5. **Restons ouverts au souffle de l'Esprit** (Restiamo aperti allo spirito)
+
+**Commit**: `299c4fe` - "feat: Complete French translation of intro.html"
+
+**Risultato**: La versione francese di intro.html è ora completamente tradotta e coerente con le altre versioni linguistiche
+
 **Ultimo aggiornamento**: Dicembre 2024
