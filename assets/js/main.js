@@ -130,7 +130,7 @@ function fixInitialHashOffset() {
     
     const items = {
       it: [
-        ['intro.html',        'Per iniziare'],
+        ['intro.html',        'Benvenuto'],
         ['programma-sintetico.html',    'Programma'],
         ['canti.html',        'Canti'],
         ['#', 'Info', [
@@ -142,7 +142,7 @@ function fixInitialHashOffset() {
         ['pellegrinaggi.html','Letture']
       ],
       en: [
-        ['intro.html',        'Getting Started'],
+        ['intro.html',        'Welcome'],
         ['programma-sintetico.html',    'Program'],
         ['canti.html',        'Songs'],
         ['#', 'Info', [
@@ -154,7 +154,7 @@ function fixInitialHashOffset() {
         ['pellegrinaggi.html','Readings']
       ],
       fr: [
-        ['intro.html',        'Pour commencer'],
+        ['intro.html',        'Bienvenue'],
         ['programma-sintetico.html',    'Programme'],
         ['canti.html',        'Chants'],
         ['#', 'Info', [

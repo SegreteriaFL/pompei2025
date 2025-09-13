@@ -125,7 +125,7 @@ function fixInitialHashOffset() {
     while (list.firstChild) list.removeChild(list.firstChild);
 
     const items = [
-      ['intro.html',        'Per iniziare'],
+      ['intro.html',        'Welcome'],
       ['programma-sintetico.html',    'Programma'],
       ['canti.html',        'Canti'],
       ['#', 'Info', [
