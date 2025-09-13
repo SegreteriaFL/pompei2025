@@ -476,4 +476,50 @@ Info
 
 **Risultato**: Le versioni inglese e francese di pellegrinaggi.html ora caricano correttamente il JSON e mostrano i contenuti
 
+### ✅ Fix Bug Selettore Lingua Dinamico (Completato)
+**Data**: Dicembre 2024
+**Problema**: Il selettore lingua dinamico in `lang-selector.js` generava link errati, causando navigazione sbagliata tra le lingue
+
+**Causa identificata**:
+- La logica per costruire i link nel selettore lingua dinamico era completamente sbagliata
+- I percorsi relativi non venivano calcolati correttamente per le diverse posizioni (root, /en/, /fr/)
+- Esempio: da `/en/intro.html` il link per l'italiano puntava a `../intro.html` invece che a `../intro.html`
+
+**Soluzione implementata**:
+- ✅ **Corretta logica di costruzione link** in `lang-selector.js` (tutte e 3 le versioni)
+- ✅ **Percorsi relativi corretti** per ogni combinazione di lingua e pagina
+- ✅ **Gestione speciale per index.html** - Link sempre alle rispettive homepage
+- ✅ **Commenti esplicativi** aggiunti per chiarezza del codice
+- ✅ **Test completato** - Selettore lingua ora funziona correttamente
+
+**Tecnica utilizzata**:
+- **Logica condizionale migliorata**: Controllo preciso della lingua corrente e della lingua di destinazione
+- **Percorsi relativi corretti**: Calcolo accurato dei `../` necessari per ogni combinazione
+- **Gestione index.html**: Link sempre alle homepage rispettive indipendentemente dalla pagina corrente
+
+**Risultato**: Il selettore lingua dinamico ora genera link corretti per tutte le combinazioni di lingua e pagina, risolvendo completamente il bug di navigazione
+
+### ✅ Fix Specifico Link Root Italiana (Completato)
+**Data**: Dicembre 2024
+**Problema**: Dalla versione italiana (root) i link verso inglese e francese continuavano a generare percorsi sbagliati
+
+**Causa identificata**:
+- La logica non distingueva correttamente quando si parte dalla root italiana
+- Da `/intro.html` (root) verso inglese generava `../en/intro.html` invece di `en/intro.html`
+- Manca il `../` quando si parte dalla root perché si è già al livello corretto
+
+**Soluzione implementata**:
+- ✅ **Logica specifica per root italiana** - Controllo `currentLang === 'it'` per percorsi senza `../`
+- ✅ **Link corretti da root**: `en/intro.html`, `fr/programma.html`, etc.
+- ✅ **Link corretti da sottocartelle**: `../en/intro.html`, `../fr/programma.html`, etc.
+- ✅ **Gestione index.html** - Anche per la homepage dalla root italiana
+
+**Esempi di link corretti ora**:
+- Da `/intro.html` (root IT) → Inglese: `en/intro.html` ✅
+- Da `/programma.html` (root IT) → Francese: `fr/programma.html` ✅
+- Da `/en/intro.html` → Francese: `../fr/intro.html` ✅
+- Da `/fr/programma.html` → Inglese: `../en/programma.html` ✅
+
+**Risultato**: Il selettore lingua ora funziona correttamente anche dalla root italiana, completando la risoluzione del bug
+
 **Ultimo aggiornamento**: Dicembre 2024

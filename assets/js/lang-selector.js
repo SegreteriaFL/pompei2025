@@ -46,14 +46,49 @@
             let href = '';
             
             if (currentPage === 'index.html') {
-              href = 'index.html';
-            } else {
+              // Per index.html, tutti i link vanno alla rispettiva homepage
               if (lang === 'it') {
+                href = currentLang === 'it' ? 'index.html' : '../index.html';
+              } else if (lang === 'en') {
+                if (currentLang === 'en') {
+                  href = 'index.html';
+                } else if (currentLang === 'it') {
+                  href = 'en/index.html';  // Dalla root italiana
+                } else {
+                  href = '../en/index.html';  // Dal francese
+                }
+              } else if (lang === 'fr') {
+                if (currentLang === 'fr') {
+                  href = 'index.html';
+                } else if (currentLang === 'it') {
+                  href = 'fr/index.html';  // Dalla root italiana
+                } else {
+                  href = '../fr/index.html';  // Dall'inglese
+                }
+              }
+            } else {
+              // Per le altre pagine, costruire il path corretto
+              if (lang === 'it') {
+                // Verso italiano: se siamo già in /it, rimaniamo qui, altrimenti andiamo alla root
                 href = currentLang === 'it' ? currentPage : `../${currentPage}`;
               } else if (lang === 'en') {
-                href = currentLang === 'en' ? currentPage : `../en/${currentPage}`;
+                // Verso inglese: se siamo già in /en, rimaniamo qui, altrimenti andiamo in /en
+                if (currentLang === 'en') {
+                  href = currentPage;
+                } else if (currentLang === 'it') {
+                  href = `en/${currentPage}`;  // Dalla root italiana
+                } else {
+                  href = `../en/${currentPage}`;  // Dal francese
+                }
               } else if (lang === 'fr') {
-                href = currentLang === 'fr' ? currentPage : `../fr/${currentPage}`;
+                // Verso francese: se siamo già in /fr, rimaniamo qui, altrimenti andiamo in /fr
+                if (currentLang === 'fr') {
+                  href = currentPage;
+                } else if (currentLang === 'it') {
+                  href = `fr/${currentPage}`;  // Dalla root italiana
+                } else {
+                  href = `../fr/${currentPage}`;  // Dall'inglese
+                }
               }
             }
             
