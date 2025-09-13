@@ -522,4 +522,6 @@ Info
 
 **Risultato**: Il selettore lingua ora funziona correttamente anche dalla root italiana, completando la risoluzione del bug
 
+**Commit**: `328a2cc` - "fix: Correct language selector links from Italian root to EN/FR"
+
 **Ultimo aggiornamento**: Dicembre 2024
